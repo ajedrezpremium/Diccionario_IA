@@ -1,0 +1,31 @@
+---
+interface Props {
+  items: Array<{ name: string; path: string }>;
+}
+const { items } = Astro.props;
+---
+
+<nav aria-label="Migas de pan" class="text-sm text-muted">
+  <ol class="flex flex-wrap items-center gap-1.5">
+    {
+      items.map((item, i) => (
+        <li class="flex items-center gap-1.5">
+          {i > 0 && (
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          )}
+          {i === items.length - 1 ? (
+            <span aria-current="page" class="font-medium text-ink">
+              {item.name}
+            </span>
+          ) : (
+            <a href={item.path} class="hover:text-brand hover:underline">
+              {item.name}
+            </a>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

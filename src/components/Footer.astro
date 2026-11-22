@@ -1,0 +1,61 @@
+---
+import { SITE } from '../lib/site';
+import { TOTAL_TERMINOS } from '../lib/terminos';
+
+const anio = new Date().getFullYear();
+---
+
+<footer class="mt-20 border-t border-line bg-bg-alt/60">
+  <div class="contenedor grid gap-10 py-14 md:grid-cols-4">
+    <div class="md:col-span-2">
+      <a href="/" class="flex items-center gap-2.5">
+        <span
+          class="grid h-9 w-9 place-items-center rounded-xl bg-brand font-display text-lg font-bold text-brand-ink"
+          aria-hidden="true">IA</span
+        >
+        <span class="font-display text-lg font-semibold">{SITE.name}</span>
+      </a>
+      <p class="mt-4 max-w-md text-sm leading-relaxed text-muted">
+        {TOTAL_TERMINOS} términos de inteligencia artificial explicados en español, con ejemplos
+        reales de negocio. Sin jerga innecesaria y sin promesas vacías. Un proyecto de
+        <a href={SITE.agencyUrl} class="enlace" rel="noopener">Chess AI Agency</a>.
+      </p>
+      <p class="mt-4 text-xs text-muted">
+        Edición {SITE.version} · Actualizado en {SITE.year} · Contenido revisado por Roberto Páramos.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-xs font-bold uppercase tracking-[0.12em] text-muted">Glosario</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a href="/terminos" class="text-ink hover:text-brand">Todos los términos</a></li>
+        <li><a href="/categorias" class="text-ink hover:text-brand">Categorías</a></li>
+        <li><a href="/indice" class="text-ink hover:text-brand">Índice A-Z</a></li>
+        <li><a href="/buscar" class="text-ink hover:text-brand">Buscar</a></li>
+        <li><a href="/libro" class="text-ink hover:text-brand">Libro en PDF</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-xs font-bold uppercase tracking-[0.12em] text-muted">Proyecto</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a href="/sobre" class="text-ink hover:text-brand">Sobre el proyecto</a></li>
+        <li><a href="/privacidad" class="text-ink hover:text-brand">Privacidad</a></li>
+        <li><a href="/aviso-legal" class="text-ink hover:text-brand">Aviso legal</a></li>
+        <li><a href={SITE.agencyUrl} class="text-ink hover:text-brand" rel="noopener">Chess AI Agency</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-line">
+    <div
+      class="contenedor flex flex-col gap-2 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {anio} {SITE.agency}. Todos los derechos reservados.</p>
+      <p>
+        Hecho con Astro, Supabase y Vercel · Sin cookies de seguimiento ·
+        <a href="/privacidad" class="underline decoration-dotted underline-offset-2">Más información</a>
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,216 @@
+---
+import Base from '../layouts/Base.astro';
+import Buscador from '../components/Buscador.astro';
+import TarjetaTermino from '../components/TarjetaTermino.astro';
+import LeadMagnet from '../components/LeadMagnet.astro';
+import CtaAgencia from '../components/CtaAgencia.astro';
+import { SITE } from '../lib/site';
+import { CATEGORIAS, ORDEN_CATEGORIAS } from '../lib/categorias';
+import {
+  DESTACADOS,
+  LETRAS,
+  TERMINOS,
+  TOTAL_TERMINOS,
+  contarPorCategoria,
+} from '../lib/terminos';
+import { definedTermSetJsonLd, organizationJsonLd, websiteJsonLd, jsonLd } from '../lib/seo';
+
+const conteos = contarPorCategoria();
+const destacados = DESTACADOS.slice(0, 9);
+const populares = DESTACADOS.slice(0, 6);
+const bloques = [
+  jsonLd(websiteJsonLd()),
+  jsonLd(organizationJsonLd()),
+  jsonLd(definedTermSetJsonLd(TERMINOS)),
+];
+const titulo = `${SITE.name} — 100 términos de IA en español`;
+const descripcion = `Glosario de inteligencia artificial en español: ${TOTAL_TERMINOS} términos explicados con ejemplos reales de negocio, sin jerga y con un agente que responde tus dudas.`;
+---
+
+<Base title={titulo} description={descripcion} jsonLd={bloques}>
+  <section class="relative overflow-hidden border-b border-line">
+    <div class="fondo-cuadricula pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
+    <div class="contenedor relative py-16 sm:py-24">
+      <div class="max-w-3xl">
+        <p class="chip">
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-ok"></span>
+          Edición {SITE.version} · {TOTAL_TERMINOS} términos · Español
+        </p>
+        <h1
+          class="mt-5 font-display text-[2.6rem] leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
+        >
+          La IA, explicada<br />
+          <span class="texto-degradado">sin humo</span> y en español.
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
+          El glosario que faltaba: {TOTAL_TERMINOS} términos de inteligencia artificial contados
+          para dueños de pymes, autónomos y profesionales que no programan. Con ejemplos reales,
+          no definiciones de manual.
+        </p>
+
+        <div class="mt-8 max-w-2xl">
+          <Buscador grande />
+        </div>
+
+        <div class="mt-4 flex flex-wrap items-center gap-2 text-sm">
+          <span class="text-muted">Empieza por:</span>
+          {
+            populares.map((t) => (
+              <a
+                href={`/que-es/${t.slug}`}
+                class="rounded-full border border-line bg-surface px-3 py-1 text-xs font-semibold transition-colors hover:border-brand hover:text-brand"
+              >
+                {t.termino}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <dl class="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {
+          [
+            [String(TOTAL_TERMINOS), 'términos explicados'],
+            [String(ORDEN_CATEGORIAS.length), 'categorías'],
+            ['0', 'cookies de seguimiento'],
+            ['1', 'libro en PDF gratis'],
+          ].map(([valor, etiqueta]) => (
+            <div class="rounded-xl border border-line bg-surface/80 p-4 backdrop-blur">
+              <dt class="text-xs font-semibold uppercase tracking-wider text-muted">{etiqueta}</dt>
+              <dd class="mt-1 font-display text-2xl font-semibold">{valor}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <section class="contenedor py-16" aria-labelledby="titulo-destacados">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.14em] text-brand">Los más consultados</p>
+        <h2 id="titulo-destacados" class="mt-2 font-display text-3xl font-semibold tracking-tight">
+          Empieza por lo que todo el mundo pregunta
+        </h2>
+      </div>
+      <a href="/terminos" class="text-sm font-semibold text-brand hover:underline">
+        Ver los {TOTAL_TERMINOS} términos →
+      </a>
+    </div>
+    <div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {destacados.map((t) => <TarjetaTermino termino={t} />)}
+    </div>
+  </section>
+
+  <section class="border-y border-line bg-bg-alt/60 py-16" aria-labelledby="titulo-categorias">
+    <div class="contenedor">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.14em] text-brand">Mapa del glosario</p>
+          <h2 id="titulo-categorias" class="mt-2 font-display text-3xl font-semibold tracking-tight">
+            Ocho categorías, una ruta clara
+          </h2>
+        </div>
+        <a href="/categorias" class="text-sm font-semibold text-brand hover:underline">
+          Explorar categorías →
+        </a>
+      </div>
+      <div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          ORDEN_CATEGORIAS.map((slug) => {
+            const cat = CATEGORIAS[slug];
+            return (
+              <a
+                href={`/categorias/${slug}`}
+                class="tarjeta group flex flex-col p-5 transition-all hover:-translate-y-0.5 hover:border-brand/50"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-xs text-muted">{cat.numero}</span>
+                  <span class="chip">{conteos[slug]}</span>
+                </div>
+                <h3 class="mt-3 font-display text-xl font-semibold leading-tight group-hover:text-brand">
+                  {cat.nombre}
+                </h3>
+                <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">
+                  {cat.descripcion}
+                </p>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="contenedor py-16" aria-labelledby="titulo-az">
+    <div class="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-center">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.14em] text-brand">Índice alfabético</p>
+        <h2 id="titulo-az" class="mt-2 font-display text-3xl font-semibold tracking-tight">
+          Busca por letra, como en un diccionario de toda la vida
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-muted">
+          {TOTAL_TERMINOS} fichas ordenadas de la A a la Z. Cada una con definición en una frase,
+          explicación sencilla, ejemplo de negocio y preguntas frecuentes.
+        </p>
+        <a href="/indice" class="boton boton-secundario mt-5">Ver el índice completo</a>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {
+          LETRAS.map((letra) => (
+            <a
+              href={`/a-z/${letra.toLowerCase()}`}
+              class="grid h-11 w-11 place-items-center rounded-xl border border-line bg-surface font-display text-lg font-semibold transition-colors hover:border-brand hover:bg-brand-soft hover:text-brand"
+            >
+              {letra}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="contenedor pb-16">
+    <LeadMagnet origen="home" />
+  </section>
+
+  <section class="contenedor pb-16" aria-labelledby="titulo-metodo">
+    <div class="rounded-2xl border border-line bg-bg-alt/50 p-6 sm:p-10">
+      <p class="text-xs font-bold uppercase tracking-[0.14em] text-brand">Cómo está escrito</p>
+      <h2 id="titulo-metodo" class="mt-2 font-display text-3xl font-semibold tracking-tight">
+        Menos jerga, más decisiones
+      </h2>
+      <div class="mt-7 grid gap-6 md:grid-cols-3">
+        {
+          [
+            [
+              '01',
+              'Definición en una frase',
+              'Si no puedes explicarlo en una frase, no lo has entendido. Cada ficha empieza por ahí.',
+            ],
+            [
+              '02',
+              'Un ejemplo real',
+              'Ferretería, clínica, club, tienda online o despacho. Sin casos de laboratorio.',
+            ],
+            [
+              '03',
+              'Qué haces con esto',
+              'La parte práctica: dónde te ahorra tiempo, dinero o errores, y dónde no merece la pena.',
+            ],
+          ].map(([num, titulo, texto]) => (
+            <div>
+              <span class="font-mono text-xs text-muted">{num}</span>
+              <h3 class="mt-2 font-semibold">{titulo}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-muted">{texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="contenedor pb-20">
+    <CtaAgencia />
+  </section>
+</Base>

@@ -1,0 +1,166 @@
+---
+import { SITE } from '../lib/site';
+
+interface Props {
+  origen?: string;
+  compacto?: boolean;
+  titulo?: string;
+  texto?: string;
+}
+
+const {
+  origen = 'general',
+  compacto = false,
+  titulo = 'El Diccionario de IA para tu negocio, en PDF',
+  texto = 'Los 100 términos, ordenados por categoría y con ejemplos reales. Te lo enviamos gratis y sin spam.',
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    'tarjeta relative overflow-hidden p-6 sm:p-8',
+    compacto && 'sm:p-6',
+  ]}
+  aria-labelledby={`titulo-libro-${origen}`}
+>
+  <div class="pointer-events-none absolute -bottom-20 -right-16 h-56 w-56 rounded-full bg-accent/10 blur-3xl" aria-hidden="true"></div>
+  <div class="relative grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-center">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.12em] text-accent">Libro digital · {SITE.version}</p>
+      <h2
+        id={`titulo-libro-${origen}`}
+        class="mt-2 font-display text-2xl font-semibold leading-tight tracking-tight"
+      >
+        {titulo}
+      </h2>
+      <p class="mt-2 text-sm leading-relaxed text-muted">{texto}</p>
+      <ul class="mt-4 space-y-1.5 text-sm text-muted">
+        <li class="flex items-start gap-2">
+          <span class="mt-1 text-ok" aria-hidden="true">✓</span> 100 fichas claras, sin jerga innecesaria
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="mt-1 text-ok" aria-hidden="true">✓</span> Ejemplos por sector y checklist de automatización
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="mt-1 text-ok" aria-hidden="true">✓</span> Actualizado en {SITE.year}, en español
+        </li>
+      </ul>
+    </div>
+
+    <form data-lead-form data-origen={origen} class="space-y-3" novalidate>
+      <div>
+        <label for={`email-${origen}`} class="mb-1 block text-xs font-semibold text-muted">
+          Tu email
+        </label>
+        <input
+          id={`email-${origen}`}
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          inputmode="email"
+          placeholder="tu@empresa.com"
+          class="campo"
+        />
+      </div>
+
+      <div class="absolute -left-[9999px]" aria-hidden="true">
+        <label for={`empresa-${origen}`}>No rellenar</label>
+        <input id={`empresa-${origen}`} name="empresa" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <label class="flex items-start gap-2 text-xs leading-relaxed text-muted">
+        <input
+          type="checkbox"
+          name="consent"
+          required
+          class="mt-0.5 h-4 w-4 shrink-0 rounded border-line accent-[var(--brand)]"
+        />
+        <span>
+          Acepto recibir el libro y comunicaciones puntuales sobre IA.
+          <a href="/privacidad" class="enlace">Política de privacidad</a>. Puedo darme de baja
+          cuando quiera.
+        </span>
+      </label>
+
+      <button type="submit" class="boton boton-primario w-full">
+        Enviarme el PDF gratis
+      </button>
+      <p data-mensaje class="min-h-5 text-xs" role="status" aria-live="polite"></p>
+    </form>
+
+    <div data-lead-exito hidden class="space-y-3">
+      <p class="text-sm font-semibold text-ok">¡Listo! El libro ya está de camino.</p>
+      <p class="text-sm text-muted">
+        Puedes descargarlo ahora mismo. También te hemos enviado el enlace por email.
+      </p>
+      <a href={SITE.pdf} class="boton boton-primario w-full" download>
+        Descargar el PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    document.querySelectorAll('[data-lead-form]').forEach((form) => {
+      const mensaje = form.querySelector('[data-mensaje]');
+      const exito = form.parentElement?.querySelector('[data-lead-exito]');
+      const boton = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!mensaje || !boton) return;
+        mensaje.textContent = '';
+        mensaje.className = 'min-h-5 text-xs text-muted';
+
+        const datos = new FormData(form);
+        const email = String(datos.get('email') || '').trim();
+        const consent = datos.get('consent') === 'on';
+        const empresa = String(datos.get('empresa') || '');
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+          mensaje.textContent = 'Escribe un email válido.';
+          mensaje.className = 'min-h-5 text-xs text-danger';
+          return;
+        }
+        if (!consent) {
+          mensaje.textContent = 'Necesitamos tu consentimiento para enviarte el libro.';
+          mensaje.className = 'min-h-5 text-xs text-danger';
+          return;
+        }
+
+        boton.disabled = true;
+        boton.textContent = 'Enviando…';
+
+        try {
+          const res = await fetch('/api/lead', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              email,
+              consent,
+              empresa,
+              origen: form.dataset.origen || 'general',
+            }),
+          });
+          const data = await res.json().catch(() => ({}));
+
+          if (!res.ok) {
+            throw new Error(data.mensaje || 'No se pudo completar el envío.');
+          }
+
+          form.hidden = true;
+          if (exito) exito.hidden = false;
+          window.plausible?.('Lead libro', { props: { origen: form.dataset.origen || 'general' } });
+        } catch (error) {
+          mensaje.textContent =
+            error instanceof Error ? error.message : 'Algo falló. Inténtalo de nuevo.';
+          mensaje.className = 'min-h-5 text-xs text-danger';
+          boton.disabled = false;
+          boton.textContent = 'Enviarme el PDF gratis';
+        }
+      });
+    });
+  })();
+</script>

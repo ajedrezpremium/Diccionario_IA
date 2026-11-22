@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+import LeadMagnet from '../components/LeadMagnet.astro';
+import CtaAgencia from '../components/CtaAgencia.astro';
+import FAQ from '../components/FAQ.astro';
+import TarjetaTermino from '../components/TarjetaTermino.astro';
+import { CATEGORIAS, ORDEN_CATEGORIAS } from '../lib/categorias';
+import { DESTACADOS, TOTAL_TERMINOS, contarPorCategoria } from '../lib/terminos';
+import { SITE, urlAbsoluta } from '../lib/site';
+import { jsonLd } from '../lib/seo';
+
+const conteos = contarPorCategoria();
+const muestra = DESTACADOS.slice(0, 6);
+const faq = [
+  {
+    p: '¿El libro es realmente gratis?',
+    r: 'Sí. Solo pedimos tu email para enviártelo y avisarte cuando haya una edición nueva. No hay coste ni suscripción obligatoria.',
+  },
+  {
+    p: '¿En qué formato está?',
+    r: 'En PDF, pensado para leer en móvil, tablet u ordenador. Puedes imprimirlo si lo prefieres.',
+  },
+  {
+    p: '¿Puedo compartirlo con mi equipo?',
+    r: 'Puedes compartir el enlace de descarga con tu equipo. No lo revendas ni lo publiques como si fuera tuyo.',
+  },
+  {
+    p: '¿Con qué frecuencia se actualiza?',
+    r: `Esta es la edición ${SITE.version}, con ${TOTAL_TERMINOS} términos. La revisamos cuando cambia el sector o añadimos fichas nuevas.`,
+  },
+];
+
+const bloques = [
+  jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Book',
+    name: 'Diccionario de IA para tu negocio',
+    description: `Edición ${SITE.version} con ${TOTAL_TERMINOS} términos de inteligencia artificial explicados en español y aplicados a pymes.`,
+    inLanguage: 'es',
+    bookFormat: 'https://schema.org/EBook',
+    author: { '@type': 'Person', name: SITE.author },
+    publisher: { '@type': 'Organization', name: SITE.agency },
+    url: urlAbsoluta('/libro'),
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', availability: 'https://schema.org/InStock' },
+  }),
+];
+---
+
+<Base
+  title={`Libro de IA en PDF gratis (${TOTAL_TERMINOS} términos) | ${SITE.name}`}
+  description={`Descarga gratis el Diccionario de IA para tu negocio: ${TOTAL_TERMINOS} términos en español, ejemplos reales y checklist de automatización. Edición ${SITE.version}.`}
+  canonical="/libro"
+  image="/og/portada.png"
+  jsonLd={bloques}
+>
+  <section class="relative overflow-hidden border-b border-line">
+    <div class="fondo-cuadricula pointer-events-none absolute inset-0 opacity-50" aria-hidden="true"></div>
+    <div class="contenedor relative grid gap-12 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
+      <div>
+        <p class="chip">Lead magnet · Edición {SITE.version}</p>
+        <h1 class="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
+          El diccionario completo,<br />
+          <span class="texto-degradado">en tu bandeja de entrada</span>
+        </h1>
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+          {TOTAL_TERMINOS} términos de IA explicados en español, ordenados por categoría, con
+          ejemplos de negocio y una checklist para decidir qué automatizar primero. Gratis y sin
+          spam.
+        </p>
+        <ul class="mt-6 space-y-2 text-sm">
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Lectura ágil: definición, ejemplo y aplicación práctica</li>
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Índice alfabético y por categorías</li>
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Actualizado en {SITE.year}, en español de España</li>
+        </ul>
+      </div>
+
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative w-56 rotate-2 transition-transform hover:rotate-0 sm:w-64">
+          <div class="absolute inset-0 translate-x-3 translate-y-3 rounded-r-lg rounded-l-sm bg-accent/30" aria-hidden="true"></div>
+          <div class="relative aspect-[3/4] overflow-hidden rounded-r-xl rounded-l-sm border border-brand/30 bg-gradient-to-br from-[#2c2878] via-[#3f3aa8] to-[#6d4bb5] p-6 text-white shadow-2xl">
+            <div class="absolute inset-y-0 left-0 w-2 bg-black/20" aria-hidden="true"></div>
+            <p class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-white/70">Edición {SITE.version}</p>
+            <p class="mt-8 font-display text-3xl font-semibold leading-none">Diccionario<br />de IA</p>
+            <p class="mt-3 text-xs text-white/80">para tu negocio</p>
+            <div class="mt-8 h-px w-10 bg-white/40"></div>
+            <p class="mt-4 text-[0.65rem] leading-relaxed text-white/80">
+              {TOTAL_TERMINOS} términos<br />Explicados sin jerga<br />Ejemplos reales
+            </p>
+            <p class="absolute bottom-5 left-6 right-6 text-[0.6rem] uppercase tracking-[0.16em] text-white/60">
+              Chess AI Agency
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contenedor py-12">
+    <LeadMagnet
+      origen="libro"
+      titulo="Pide tu ejemplar gratis"
+      texto="Déjanos tu email y te enviamos el PDF al instante. También puedes descargarlo directamente al terminar."
+    />
+  </section>
+
+  <section class="contenedor pb-16" aria-labelledby="contenido-libro">
+    <div class="rounded-2xl border border-line bg-surface p-6 sm:p-10">
+      <p class="text-xs font-bold uppercase tracking-[0.14em] text-brand">Dentro del libro</p>
+      <h2 id="contenido-libro" class="mt-2 font-display text-3xl font-semibold tracking-tight">
+        Un recorrido de lo básico a lo aplicado
+      </h2>
+      <div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          ORDEN_CATEGORIAS.map((slug) => (
+            <a
+              href={`/categorias/${slug}`}
+              class="rounded-xl border border-line p-4 transition-colors hover:border-brand/50"
+            >
+              <span class="font-mono text-xs text-muted">{CATEGORIAS[slug].numero}</span>
+              <span class="mt-1 block font-semibold">{CATEGORIAS[slug].nombre}</span>
+              <span class="mt-1 block text-xs text-muted">{conteos[slug]} términos</span>
+            </a>
+          ))
+        }
+      </div>
+      <p class="mt-6 text-sm text-muted">
+        Además: introducción, cómo leer una ficha, glosario alfabético y una página final con la
+        checklist de automatización.
+      </p>
+    </div>
+  </section>
+
+  <section class="contenedor pb-16" aria-labelledby="muestra-libro">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.14em] text-brand">Muestra</p>
+        <h2 id="muestra-libro" class="mt-2 font-display text-3xl font-semibold tracking-tight">
+          Algunos de los términos que encontrarás
+        </h2>
+      </div>
+      <a href="/terminos" class="text-sm font-semibold text-brand hover:underline">Ver todos →</a>
+    </div>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {muestra.map((t) => <TarjetaTermino termino={t} compacta />)}
+    </div>
+  </section>
+
+  <div class="contenedor pb-16">
+    <FAQ faq={faq} titulo="Preguntas sobre el libro" />
+  </div>
+
+  <div class="contenedor pb-20">
+    <CtaAgencia
+      titulo="¿Prefieres que lo apliquemos juntos?"
+      texto="El libro te da el mapa. Si quieres convertir ese mapa en un agente que atienda, cualifique o ahorre tiempo en tu negocio, lo vemos en una llamada."
+    />
+  </div>
+</Base>

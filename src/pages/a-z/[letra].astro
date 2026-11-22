@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TarjetaTermino from '../../components/TarjetaTermino.astro';
+import CtaAgencia from '../../components/CtaAgencia.astro';
+import { LETRAS, terminosPorLetra } from '../../lib/terminos';
+import { SITE } from '../../lib/site';
+import { breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return LETRAS.map((letra) => ({
+    params: { letra: letra.toLowerCase() },
+    props: { letra },
+  }));
+}
+
+const { letra } = Astro.props as { letra: string };
+const terminos = terminosPorLetra(letra);
+const i = LETRAS.indexOf(letra);
+const anterior = LETRAS[i - 1];
+const siguiente = LETRAS[i + 1];
+const migas = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Índice A-Z', path: '/indice' },
+  { name: letra, path: `/a-z/${letra.toLowerCase()}` },
+];
+---
+
+<Base
+  title={`Términos de IA con la letra ${letra} | ${SITE.name}`}
+  description={`Todos los términos de inteligencia artificial que empiezan por ${letra}: ${terminos
+    .slice(0, 6)
+    .map((t) => t.termino)
+    .join(', ')}.`}
+  canonical={`/a-z/${letra.toLowerCase()}`}
+  jsonLd={[jsonLd(breadcrumbJsonLd(migas))]}
+>
+  <div class="contenedor py-6">
+    <Breadcrumbs items={migas} />
+  </div>
+
+  <header class="contenedor border-b border-line pb-8">
+    <div class="flex items-end gap-5">
+      <span class="font-display text-7xl font-semibold leading-none text-brand">{letra}</span>
+      <div>
+        <h1 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+          Términos de IA con «{letra}»
+        </h1>
+        <p class="mt-2 text-sm text-muted">{terminos.length} fichas en esta letra.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="contenedor flex flex-wrap gap-1.5 py-6" aria-label="Letras">
+    {
+      LETRAS.map((l) => (
+        <a
+          href={`/a-z/${l.toLowerCase()}`}
+          class:list={[
+            'grid h-9 w-9 place-items-center rounded-lg border text-sm font-semibold transition-colors',
+            l === letra
+              ? 'border-brand bg-brand text-brand-ink'
+              : 'border-line bg-surface text-muted hover:border-brand hover:text-brand',
+          ]}
+          aria-current={l === letra ? 'page' : undefined}
+        >
+          {l}
+        </a>
+      ))
+    }
+  </nav>
+
+  <div class="contenedor grid gap-4 pb-10 sm:grid-cols-2 lg:grid-cols-3">
+    {terminos.map((t) => <TarjetaTermino termino={t} />)}
+  </div>
+
+  <div class="contenedor pb-10">
+    <CtaAgencia />
+  </div>
+
+  <nav class="contenedor flex items-center justify-between border-t border-line py-8 text-sm">
+    {
+      anterior ? (
+        <a href={`/a-z/${anterior.toLowerCase()}`} class="font-semibold text-brand hover:underline">
+          ← Letra {anterior}
+        </a>
+      ) : (
+        <a href="/indice" class="font-semibold text-brand hover:underline">← Índice completo</a>
+      )
+    }
+    {
+      siguiente ? (
+        <a href={`/a-z/${siguiente.toLowerCase()}`} class="font-semibold text-brand hover:underline">
+          Letra {siguiente} →
+        </a>
+      ) : (
+        <a href="/indice" class="font-semibold text-brand hover:underline">Índice completo →</a>
+      )
+    }
+  </nav>
+</Base>

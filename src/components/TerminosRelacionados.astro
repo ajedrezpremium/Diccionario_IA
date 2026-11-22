@@ -1,0 +1,29 @@
+---
+import { POR_SLUG } from '../lib/terminos';
+import TarjetaTermino from './TarjetaTermino.astro';
+
+interface Props {
+  slugs: string[];
+}
+
+const { slugs } = Astro.props;
+const terminos = slugs.map((slug) => POR_SLUG.get(slug)).filter((t) => Boolean(t));
+---
+
+{
+  terminos.length > 0 && (
+    <section aria-labelledby="titulo-relacionados" class="mt-14">
+      <div class="flex items-end justify-between gap-4">
+        <h2 id="titulo-relacionados" class="font-display text-2xl font-semibold tracking-tight">
+          Términos relacionados
+        </h2>
+        <a href="/terminos" class="text-sm font-semibold text-brand hover:underline">
+          Ver todos →
+        </a>
+      </div>
+      <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {terminos.map((t) => t && <TarjetaTermino termino={t} compacta />)}
+      </div>
+    </section>
+  )
+}

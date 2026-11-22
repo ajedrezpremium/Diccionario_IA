@@ -1,0 +1,57 @@
+---
+import { SITE } from '../lib/site';
+import { CATEGORIAS, type CategoriaSlug } from '../lib/categorias';
+
+interface Props {
+  categoria?: CategoriaSlug;
+  titulo?: string;
+  texto?: string;
+  compacto?: boolean;
+}
+
+const { categoria, titulo, texto, compacto = false } = Astro.props;
+const cat = categoria ? CATEGORIAS[categoria] : null;
+const url = `${SITE.agencyUrl}/?utm_source=diccionario-ia&utm_medium=cta&utm_campaign=${categoria ?? 'general'}`;
+---
+
+<aside
+  class:list={[
+    'relative overflow-hidden rounded-2xl border border-brand/25 bg-brand-soft p-6 sm:p-8',
+    compacto && 'sm:p-6',
+  ]}
+>
+  <div class="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand/10 blur-2xl" aria-hidden="true"></div>
+  <div class="relative">
+    <p class="text-xs font-bold uppercase tracking-[0.12em] text-brand">Chess AI Agency</p>
+    <h2 class="mt-2 font-display text-2xl font-semibold leading-tight tracking-tight">
+      {titulo ?? '¿Quieres aplicar esto en tu negocio?'}
+    </h2>
+    <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted">
+      {texto ?? cat?.cta ?? 'Diseñamos e integramos agentes de IA permanentes para pymes: atención, cualificación de leads y tareas internas. Sin humo y sin proyectos eternos.'}
+    </p>
+    <div class="mt-5 flex flex-wrap items-center gap-3">
+      <a
+        href={url}
+        class="boton boton-primario"
+        rel="noopener"
+        data-evento="cta-agencia"
+        data-origen={categoria ?? 'general'}
+      >
+        Hablar con la agencia
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
+      <a href="/libro" class="boton boton-secundario">Ver el libro gratis</a>
+    </div>
+    <p class="mt-3 text-xs text-muted">Sin compromiso. Respondemos en menos de 24 h laborables.</p>
+  </div>
+</aside>
+
+<script is:inline>
+  document.querySelectorAll('[data-evento="cta-agencia"]').forEach((el) => {
+    el.addEventListener('click', () => {
+      window.plausible?.('CTA agencia', { props: { origen: el.dataset.origen || 'general' } });
+    });
+  });
+</script>

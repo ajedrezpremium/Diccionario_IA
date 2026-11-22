@@ -1,0 +1,394 @@
+---
+import { SITE } from '../lib/site';
+---
+
+<div data-agente class="fixed bottom-5 right-4 z-50 sm:bottom-6 sm:right-6">
+  <section
+    id="panel-agente"
+    class="fixed inset-x-3 bottom-24 top-20 hidden flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl sm:inset-auto sm:right-6 sm:bottom-24 sm:h-[min(72vh,620px)] sm:w-[400px]"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="titulo-agente"
+  >
+    <header class="flex items-center justify-between gap-3 border-b border-line bg-brand-soft px-4 py-3">
+      <div class="flex items-center gap-3">
+        <span
+          class="grid h-9 w-9 place-items-center rounded-full bg-brand font-display text-sm font-bold text-brand-ink"
+          aria-hidden="true">IA</span
+        >
+        <div>
+          <h2 id="titulo-agente" class="text-sm font-bold leading-tight">Asistente del diccionario</h2>
+          <p class="flex items-center gap-1.5 text-[0.7rem] text-muted">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-ok"></span>
+            Explica IA según tu negocio
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-1">
+        <button
+          type="button"
+          data-reiniciar
+          class="boton boton-fantasma !px-2 !py-1.5 text-xs"
+          title="Nueva conversación"
+          aria-label="Nueva conversación"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"></path>
+          </svg>
+        </button>
+        <button
+          type="button"
+          data-cerrar
+          class="boton boton-fantasma !px-2 !py-1.5"
+          aria-label="Cerrar el asistente"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div
+      data-mensajes
+      class="flex-1 space-y-4 overflow-y-auto p-4"
+      role="log"
+      aria-live="polite"
+      aria-relevant="additions text"
+    ></div>
+
+    <div data-sugerencias class="flex flex-wrap gap-1.5 border-t border-line px-3 py-2">
+      <button type="button" data-sugerencia class="chip !normal-case !tracking-normal hover:border-brand hover:text-brand">
+        RAG como si fuera ferretero
+      </button>
+      <button type="button" data-sugerencia class="chip !normal-case !tracking-normal hover:border-brand hover:text-brand">
+        ¿Agente o workflow?
+      </button>
+      <button type="button" data-sugerencia class="chip !normal-case !tracking-normal hover:border-brand hover:text-brand">
+        ¿Por dónde empiezo en mi pyme?
+      </button>
+    </div>
+
+    <form data-form class="border-t border-line p-3">
+      <div class="flex items-end gap-2">
+        <label for="agente-input" class="sr-only">Escribe tu pregunta</label>
+        <textarea
+          id="agente-input"
+          data-input
+          rows="1"
+          maxlength="1200"
+          placeholder="Pregunta lo que quieras sobre IA…"
+          class="campo max-h-28 min-h-[44px] resize-none !py-2.5 text-sm"
+        ></textarea>
+        <button
+          type="submit"
+          data-enviar
+          class="boton boton-primario !h-11 !w-11 shrink-0 !p-0"
+          aria-label="Enviar mensaje"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="m22 2-7 20-4-9-9-4Z"></path>
+            <path d="M22 2 11 13"></path>
+          </svg>
+        </button>
+      </div>
+      <p class="mt-1.5 text-[0.65rem] leading-relaxed text-muted">
+        Asistente de IA. Puede equivocarse. No compartas datos personales.
+        <a href="/privacidad" class="underline decoration-dotted underline-offset-2">Privacidad</a>.
+      </p>
+    </form>
+  </section>
+
+  <button
+    type="button"
+    data-abrir
+    class="flex items-center gap-2 rounded-full bg-brand px-4 py-3 font-semibold text-brand-ink shadow-lg transition-transform hover:-translate-y-0.5 sm:px-5"
+    aria-expanded="false"
+    aria-controls="panel-agente"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path>
+      <path d="M8 9h8M8 13h5"></path>
+    </svg>
+    <span class="hidden text-sm sm:inline">Preguntar a la IA</span>
+    <span class="text-sm sm:hidden">IA</span>
+  </button>
+</div>
+
+<style>
+  .burbuja-ia :global(p) {
+    margin: 0 0 0.55rem;
+  }
+  .burbuja-ia :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .burbuja-ia :global(a) {
+    color: var(--brand);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 600;
+  }
+  .burbuja-ia :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--bg-alt);
+    padding: 0.05rem 0.3rem;
+    border-radius: 0.3rem;
+  }
+  .puntos::after {
+    content: '';
+    display: inline-block;
+    width: 1.2em;
+    text-align: left;
+    animation: puntos 1.2s steps(4, end) infinite;
+  }
+  @keyframes puntos {
+    0% { content: ''; }
+    25% { content: '.'; }
+    50% { content: '..'; }
+    75% { content: '...'; }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const raiz = document.querySelector('[data-agente]');
+    if (!raiz) return;
+
+    const panel = raiz.querySelector('#panel-agente');
+    const abrir = raiz.querySelector('[data-abrir]');
+    const cerrar = raiz.querySelector('[data-cerrar]');
+    const reiniciar = raiz.querySelector('[data-reiniciar]');
+    const zonaMensajes = raiz.querySelector('[data-mensajes]');
+    const form = raiz.querySelector('[data-form]');
+    const input = raiz.querySelector('[data-input]');
+    const botonEnviar = raiz.querySelector('[data-enviar]');
+    const sugerencias = raiz.querySelector('[data-sugerencias]');
+
+    if (!panel || !abrir || !zonaMensajes || !form || !input) return;
+
+    let historial = [];
+    let cargando = false;
+    let bienvenidaMostrada = false;
+    const sugerenciasEnviadas = new Set();
+
+    const escapar = (texto) =>
+      texto.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+
+    const formatear = (texto) => {
+      const html = escapar(texto)
+        .replace(/\[([^\]]+)\]\((\/que-es\/[a-z0-9-]+)\)/g, '<a href="$2">$1</a>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\n{2,}/g, '</p><p>')
+        .replace(/\n/g, '<br>');
+      return '<p>' + html + '</p>';
+    };
+
+    const alFinal = () => {
+      zonaMensajes.scrollTop = zonaMensajes.scrollHeight;
+    };
+
+    const burbuja = (rol) => {
+      const envoltorio = document.createElement('div');
+      envoltorio.className =
+        rol === 'user' ? 'flex justify-end' : 'flex items-start gap-2';
+
+      if (rol === 'assistant') {
+        const avatar = document.createElement('span');
+        avatar.className =
+          'mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-soft text-[0.6rem] font-bold text-brand';
+        avatar.textContent = 'IA';
+        envoltorio.appendChild(avatar);
+      }
+
+      const cuerpo = document.createElement('div');
+      cuerpo.className =
+        rol === 'user'
+          ? 'max-w-[85%] rounded-2xl rounded-br-sm bg-brand px-3.5 py-2.5 text-sm text-brand-ink'
+          : 'burbuja-ia max-w-[88%] rounded-2xl rounded-bl-sm bg-bg-alt px-3.5 py-2.5 text-sm leading-relaxed';
+
+      envoltorio.appendChild(cuerpo);
+      zonaMensajes.appendChild(envoltorio);
+      alFinal();
+      return cuerpo;
+    };
+
+    const mostrarError = (texto) => {
+      const cuerpo = burbuja('assistant');
+      cuerpo.className =
+        'max-w-[88%] rounded-2xl rounded-bl-sm border border-danger/30 bg-danger/5 px-3.5 py-2.5 text-sm text-danger';
+      cuerpo.textContent = texto;
+      alFinal();
+    };
+
+    const enviarSugerencia = async (termino) => {
+      if (!termino || sugerenciasEnviadas.has(termino.toLowerCase())) return;
+      sugerenciasEnviadas.add(termino.toLowerCase());
+      try {
+        await fetch('/api/sugerencias', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ termino, origen: 'agente' }),
+        });
+      } catch {
+        /* silencioso: no debe romper el chat */
+      }
+    };
+
+    const procesar = async (texto) => {
+      if (cargando) return;
+      const limpio = texto.trim().slice(0, 1200);
+      if (!limpio) return;
+
+      cargando = true;
+      botonEnviar.disabled = true;
+      if (sugerencias) sugerencias.hidden = true;
+
+      const cuerpoUsuario = burbuja('user');
+      cuerpoUsuario.textContent = limpio;
+      historial.push({ role: 'user', content: limpio });
+      input.value = '';
+      input.style.height = 'auto';
+
+      const cuerpoIA = burbuja('assistant');
+      cuerpoIA.innerHTML = '<span class="puntos text-muted"></span>';
+
+      let acumulado = '';
+
+      try {
+        const res = await fetch('/api/agente', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ messages: historial.slice(-8) }),
+        });
+
+        const tipo = res.headers.get('content-type') || '';
+        if (!res.ok || tipo.includes('application/json')) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.mensaje || 'El asistente no está disponible ahora mismo.');
+        }
+        if (!res.body) throw new Error('El navegador no permite leer la respuesta.');
+
+        const lector = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+
+        while (true) {
+          const { done, value } = await lector.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const lineas = buffer.split('\n');
+          buffer = lineas.pop() || '';
+
+          for (const linea of lineas) {
+            const limpia = linea.trim();
+            if (!limpia.startsWith('data:')) continue;
+            const dato = limpia.slice(5).trim();
+            if (!dato || dato === '[DONE]') continue;
+            try {
+              const json = JSON.parse(dato);
+              const delta = json.choices?.[0]?.delta?.content || '';
+              if (delta) {
+                acumulado += delta;
+                cuerpoIA.innerHTML = formatear(acumulado);
+                alFinal();
+              }
+            } catch {
+              /* fragmento incompleto */
+            }
+          }
+        }
+
+        if (!acumulado.trim()) {
+          cuerpoIA.textContent = 'No he recibido respuesta. Prueba a reformular la pregunta.';
+        } else {
+          const marcador = acumulado.match(/\[\[SUGERENCIA:\s*([^\]]{2,80})\]\]/i);
+          if (marcador) {
+            const visible = acumulado.replace(marcador[0], '').trim();
+            cuerpoIA.innerHTML = formatear(visible);
+            historial.push({ role: 'assistant', content: visible });
+            enviarSugerencia(marcador[1].trim());
+          } else {
+            historial.push({ role: 'assistant', content: acumulado.trim() });
+          }
+          window.plausible?.('Agente mensaje');
+        }
+      } catch (error) {
+        cuerpoIA.remove();
+        mostrarError(
+          error instanceof Error
+            ? error.message
+            : 'Algo ha fallado. Prueba de nuevo en unos segundos.',
+        );
+      } finally {
+        cargando = false;
+        botonEnviar.disabled = false;
+        input.focus();
+      }
+    };
+
+    const abrirPanel = () => {
+      panel.classList.remove('hidden');
+      panel.classList.add('flex');
+      abrir.setAttribute('aria-expanded', 'true');
+      input.focus();
+      alFinal();
+      window.plausible?.('Agente abierto');
+
+      if (!bienvenidaMostrada) {
+        bienvenidaMostrada = true;
+        const cuerpo = burbuja('assistant');
+        cuerpo.innerHTML = formatear(
+          'Hola. Soy el asistente del **Diccionario IA**. Puedo explicarte cualquier término con un ejemplo aplicado a tu negocio.\n\n¿Qué te interesa: agentes, RAG, automatizar atención al cliente o empezar por lo básico?',
+        );
+      }
+    };
+
+    const cerrarPanel = () => {
+      panel.classList.add('hidden');
+      panel.classList.remove('flex');
+      abrir.setAttribute('aria-expanded', 'false');
+      abrir.focus();
+    };
+
+    abrir.addEventListener('click', () => {
+      if (panel.classList.contains('hidden')) abrirPanel();
+      else cerrarPanel();
+    });
+    cerrar?.addEventListener('click', cerrarPanel);
+
+    reiniciar?.addEventListener('click', () => {
+      historial = [];
+      zonaMensajes.innerHTML = '';
+      if (sugerencias) sugerencias.hidden = false;
+      bienvenidaMostrada = false;
+      abrirPanel();
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      procesar(input.value);
+    });
+
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        procesar(input.value);
+      }
+    });
+
+    input.addEventListener('input', () => {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 112) + 'px';
+    });
+
+    sugerencias?.querySelectorAll('[data-sugerencia]').forEach((boton) => {
+      boton.addEventListener('click', () => procesar(boton.textContent || ''));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !panel.classList.contains('hidden')) cerrarPanel();
+    });
+  })();
+</script>

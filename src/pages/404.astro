@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Buscador from '../components/Buscador.astro';
+import { DESTACADOS } from '../lib/terminos';
+import { SITE } from '../lib/site';
+---
+
+<Base
+  title={`Página no encontrada | ${SITE.name}`}
+  description="La página que buscas no existe. Prueba con el buscador del glosario."
+  canonical="/404"
+  noindex
+>
+  <div class="contenedor flex flex-col items-center py-20 text-center">
+    <p class="font-display text-8xl font-semibold text-brand">404</p>
+    <h1 class="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+      Esta página no está en el diccionario
+    </h1>
+    <p class="mt-3 max-w-xl text-muted">
+      Puede que el enlace esté mal escrito o que hayamos movido una ficha. Busca el término o vuelve
+      al inicio.
+    </p>
+    <div class="mt-8 w-full max-w-xl text-left">
+      <Buscador grande />
+    </div>
+    <div class="mt-6 flex flex-wrap justify-center gap-2">
+      {
+        DESTACADOS.slice(0, 5).map((t) => (
+          <a href={`/que-es/${t.slug}`} class="chip !normal-case hover:border-brand hover:text-brand">
+            {t.termino}
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="/" class="boton boton-primario">Volver al inicio</a>
+      <a href="/terminos" class="boton boton-secundario">Ver los 100 términos</a>
+    </div>
+  </div>
+</Base>

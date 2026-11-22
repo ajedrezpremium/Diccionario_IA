@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Buscador from '../components/Buscador.astro';
+import { agruparPorLetra, TOTAL_TERMINOS } from '../lib/terminos';
+import { SITE } from '../lib/site';
+import { breadcrumbJsonLd, jsonLd } from '../lib/seo';
+
+const grupos = agruparPorLetra();
+const migas = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Índice A-Z', path: '/indice' },
+];
+---
+
+<Base
+  title={`Índice A-Z de términos de IA | ${SITE.name}`}
+  description={`Índice alfabético completo con los ${TOTAL_TERMINOS} términos de inteligencia artificial del diccionario. Encuentra cualquier concepto en segundos.`}
+  canonical="/indice"
+  jsonLd={[jsonLd(breadcrumbJsonLd(migas))]}
+>
+  <div class="contenedor py-6">
+    <Breadcrumbs items={migas} />
+  </div>
+
+  <header class="contenedor border-b border-line pb-8">
+    <p class="chip">Índice completo</p>
+    <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+      De la A a la Z
+    </h1>
+    <p class="mt-3 max-w-2xl text-lg text-muted">
+      Los {TOTAL_TERMINOS} términos del glosario, ordenados alfabéticamente. Sin categorías, sin
+      rodeos.
+    </p>
+    <div class="mt-6 max-w-xl">
+      <Buscador limite={10} />
+    </div>
+  </header>
+
+  <nav class="contenedor flex flex-wrap gap-1.5 py-6" aria-label="Letras">
+    {
+      grupos.map(([letra, lista]) => (
+        <a
+          href={`#letra-${letra}`}
+          class="grid h-9 min-w-9 place-items-center rounded-lg border border-line bg-surface px-2 text-sm font-semibold text-muted transition-colors hover:border-brand hover:text-brand"
+        >
+          {letra}
+          <span class="sr-only">({lista.length} términos)</span>
+        </a>
+      ))
+    }
+  </nav>
+
+  <div class="contenedor grid gap-10 pb-20 md:grid-cols-2 lg:grid-cols-3">
+    {
+      grupos.map(([letra, lista]) => (
+        <section id={`letra-${letra}`} class="scroll-mt-24">
+          <h2 class="border-b border-line pb-2 font-display text-3xl font-semibold text-brand">
+            {letra}
+          </h2>
+          <ul class="mt-3 space-y-2">
+            {lista.map((t) => (
+              <li>
+                <a
+                  href={`/que-es/${t.slug}`}
+                  class="flex items-baseline justify-between gap-3 text-sm text-ink transition-colors hover:text-brand"
+                >
+                  <span>{t.termino}</span>
+                  <span class="text-xs text-muted">{t.categoria.replace(/-/g, ' ')}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</Base>

@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaAgencia from '../components/CtaAgencia.astro';
+import { SITE } from '../lib/site';
+import { TOTAL_TERMINOS } from '../lib/terminos';
+import { breadcrumbJsonLd, jsonLd } from '../lib/seo';
+
+const migas = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Sobre el proyecto', path: '/sobre' },
+];
+---
+
+<Base
+  title={`Sobre el proyecto | ${SITE.name}`}
+  description={`Quién está detrás del ${SITE.name}, cómo se escribe cada ficha y por qué existe un glosario de IA en español para pymes.`}
+  canonical="/sobre"
+  jsonLd={[jsonLd(breadcrumbJsonLd(migas))]}
+>
+  <div class="contenedor py-12 sm:py-16">
+    <div class="max-w-3xl">
+      <p class="chip">Sobre el proyecto</p>
+      <h1 class="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+        Un diccionario para decidir, no para presumir de jerga
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-muted">
+        La mayoría de los glosarios de IA están en inglés y parecen escritos para ingenieros. Este
+        está pensado para la persona que tiene que decidir si contrata, automatiza o pasa de largo.
+      </p>
+    </div>
+  </div>
+
+  <div class="contenedor grid gap-12 pb-16 lg:grid-cols-[minmax(0,1fr)_300px]">
+    <div class="prosa max-w-none">
+      <h2>Por qué existe</h2>
+      <p>
+        En {SITE.year} seguimos viendo la misma escena: un dueño de pyme recibe una propuesta de
+        «IA» con veinte siglas, no sabe qué está comprando y acaba pagando por una demo que nadie
+        usa. El problema no es la tecnología. Es la falta de vocabulario común.
+      </p>
+      <p>
+        Este glosario nació para cerrar esa brecha: {TOTAL_TERMINOS} términos explicados en
+        español, con un ejemplo real y una respuesta honesta a «¿esto me sirve o no?». Sin promesas
+        de multiplicar tus ventas por diez. Sin humo.
+      </p>
+
+      <h2>Quién lo escribe</h2>
+      <p>
+        El proyecto lo impulsa <strong>{SITE.author}</strong>, fundador de{' '}
+        <a href={SITE.agencyUrl} rel="noopener">{SITE.agency}</a>, una agencia que diseña e integra
+        agentes de IA permanentes en webs y procesos de pymes. La experiencia viene de proyectos
+        reales: atención al cliente, cualificación de leads, documentación interna y tareas
+        repetitivas que alguien hacía a mano.
+      </p>
+      <p>
+        No escribimos desde la barrera. Cada término se contrasta con lo que vemos en clientes:
+        qué funciona, qué se rompe y qué sale caro.
+      </p>
+
+      <h2>Cómo se escribe cada ficha</h2>
+      <ul>
+        <li><strong>Definición en una frase.</strong> Si no se entiende en una frase, la reescribimos.</li>
+        <li><strong>Analogía cotidiana.</strong> Una por ficha, solo si aclara algo.</li>
+        <li><strong>Ejemplo de negocio.</strong> Ferretería, clínica, club, tienda online, despacho…</li>
+        <li><strong>Aplicación práctica.</strong> Qué harías el lunes con esto y qué no merece la pena.</li>
+        <li><strong>Errores frecuentes.</strong> Para que no te vendan la moto.</li>
+        <li><strong>Preguntas frecuentes.</strong> Las dudas que llegan de verdad.</li>
+      </ul>
+      <p>
+        Usamos herramientas de IA como apoyo de documentación, pero cada ficha se revisa y se
+        edita a mano. No publicamos texto generado sin criterio. Cuando un dato no está claro, se
+        deja fuera antes que inventarlo.
+      </p>
+
+      <h2>Transparencia técnica</h2>
+      <p>
+        La web es estática y rápida: Astro para el contenido, Tailwind para los estilos, Pagefind
+        para la búsqueda y Supabase para los formularios. El asistente conversacional funciona con
+        un proveedor de modelos externo; las claves viven en el servidor y nunca en tu navegador.
+      </p>
+      <p>
+        No usamos cookies de seguimiento. Si activamos analítica, será sin cookies y agregada. Puedes
+        leer los detalles en la <a href="/privacidad">política de privacidad</a>.
+      </p>
+
+      <h2>Contacto</h2>
+      <p>
+        ¿Un término mal explicado, una sugerencia o una colaboración? Escribe a{' '}
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Si lo que quieres es aplicar IA en tu
+        negocio, el botón de abajo es el camino corto.
+      </p>
+    </div>
+
+    <aside class="space-y-5">
+      <div class="tarjeta p-6">
+        <div class="flex items-center gap-3">
+          <span class="grid h-12 w-12 place-items-center rounded-full bg-brand font-display text-lg font-bold text-brand-ink">RP</span>
+          <div>
+            <p class="font-semibold">{SITE.author}</p>
+            <p class="text-xs text-muted">Founder & CEO · {SITE.agency}</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-muted">
+          Diseña agentes de IA para pymes y escribe sobre lo que aprende integrándolos.
+        </p>
+        <a href={SITE.agencyUrl} class="boton boton-secundario mt-4 w-full" rel="noopener">
+          Ver la agencia
+        </a>
+      </div>
+
+      <div class="tarjeta p-6">
+        <p class="text-xs font-bold uppercase tracking-[0.12em] text-muted">En números</p>
+        <dl class="mt-4 space-y-3 text-sm">
+          <div class="flex items-center justify-between gap-4">
+            <dt class="text-muted">Términos publicados</dt>
+            <dd class="font-semibold">{TOTAL_TERMINOS}</dd>
+          </div>
+          <div class="flex items-center justify-between gap-4">
+            <dt class="text-muted">Categorías</dt>
+            <dd class="font-semibold">8</dd>
+          </div>
+          <div class="flex items-center justify-between gap-4">
+            <dt class="text-muted">Edición</dt>
+            <dd class="font-semibold">{SITE.version}</dd>
+          </div>
+          <div class="flex items-center justify-between gap-4">
+            <dt class="text-muted">Cookies de seguimiento</dt>
+            <dd class="font-semibold">0</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="rounded-2xl border border-line bg-bg-alt p-6">
+        <p class="font-display text-lg font-semibold">¿Falta un término?</p>
+        <p class="mt-2 text-sm text-muted">
+          Pregúntale al asistente. Si no está en el glosario, lo registramos como sugerencia para
+          la próxima edición.
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="contenedor pb-20">
+    <CtaAgencia />
+  </div>
+</Base>

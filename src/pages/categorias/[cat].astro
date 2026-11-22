@@ -1,0 +1,77 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TarjetaTermino from '../../components/TarjetaTermino.astro';
+import CtaAgencia from '../../components/CtaAgencia.astro';
+import { CATEGORIAS, ORDEN_CATEGORIAS, type CategoriaSlug } from '../../lib/categorias';
+import { terminosDeCategoria } from '../../lib/terminos';
+import { SITE } from '../../lib/site';
+import { breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return ORDEN_CATEGORIAS.map((cat) => ({
+    params: { cat },
+    props: { cat },
+  }));
+}
+
+const { cat } = Astro.props as { cat: CategoriaSlug };
+const categoria = CATEGORIAS[cat];
+const terminos = terminosDeCategoria(cat);
+const indiceCat = ORDEN_CATEGORIAS.indexOf(cat);
+const anterior = ORDEN_CATEGORIAS[indiceCat - 1];
+const siguiente = ORDEN_CATEGORIAS[indiceCat + 1];
+const migas = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Categorías', path: '/categorias' },
+  { name: categoria.nombre, path: `/categorias/${cat}` },
+];
+---
+
+<Base
+  title={`${categoria.nombre}: términos de IA | ${SITE.name}`}
+  description={`${categoria.descripcion} ${terminos.length} términos explicados en español con ejemplos de negocio.`}
+  canonical={`/categorias/${cat}`}
+  jsonLd={[jsonLd(breadcrumbJsonLd(migas))]}
+>
+  <div class="contenedor py-6">
+    <Breadcrumbs items={migas} />
+  </div>
+
+  <header class="contenedor border-b border-line pb-8">
+    <p class="font-mono text-xs text-muted">Categoría {categoria.numero} · {terminos.length} términos</p>
+    <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+      {categoria.nombre}
+    </h1>
+    <p class="mt-4 max-w-3xl text-lg leading-relaxed text-muted">{categoria.descripcion}</p>
+  </header>
+
+  <div class="contenedor grid gap-4 py-10 sm:grid-cols-2 lg:grid-cols-3">
+    {terminos.map((t) => <TarjetaTermino termino={t} />)}
+  </div>
+
+  <div class="contenedor pb-10">
+    <CtaAgencia categoria={cat} />
+  </div>
+
+  <nav class="contenedor flex flex-wrap items-center justify-between gap-3 border-t border-line py-8 text-sm">
+    {
+      anterior ? (
+        <a href={`/categorias/${anterior}`} class="font-semibold text-brand hover:underline">
+          ← {CATEGORIAS[anterior].nombre}
+        </a>
+      ) : (
+        <a href="/categorias" class="font-semibold text-brand hover:underline">← Todas las categorías</a>
+      )
+    }
+    {
+      siguiente ? (
+        <a href={`/categorias/${siguiente}`} class="font-semibold text-brand hover:underline">
+          {CATEGORIAS[siguiente].nombre} →
+        </a>
+      ) : (
+        <a href="/terminos" class="font-semibold text-brand hover:underline">Ver todos los términos →</a>
+      )
+    }
+  </nav>
+</Base>

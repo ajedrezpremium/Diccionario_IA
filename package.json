@@ -1,0 +1,35 @@
+{
+  "name": "diccionario-ia",
+  "version": "10.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Diccionario de IA en español: 100 términos explicados para pymes, con agente IA, buscador y libro digital.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "node scripts/validar-contenido.mjs && node scripts/generar-og.mjs && node scripts/generar-libro.mjs && astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "validar": "node scripts/validar-contenido.mjs",
+    "claves": "node --env-file=.env scripts/comprobar-claves.mjs",
+    "contenido": "node scripts/generar-contenido.mjs",
+    "libro": "node scripts/generar-libro.mjs",
+    "og": "node scripts/generar-og.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/vercel": "^10.0.8",
+    "astro": "^6.4.8",
+    "nodemailer": "^10.6.1",
+    "pdfkit": "^0.21.0",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "gray-matter": "^4.0.3",
+    "pagefind": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

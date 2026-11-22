@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { EMPRESA, AVISO_DATOS } from '../data/empresa';
+import { SITE } from '../lib/site';
+
+const migas = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Aviso legal', path: '/aviso-legal' },
+];
+---
+
+<Base
+  title={`Aviso legal | ${SITE.name}`}
+  description="Titularidad, condiciones de uso, propiedad intelectual y responsabilidad del Diccionario IA."
+  canonical="/aviso-legal"
+  noindex
+>
+  <div class="contenedor py-6">
+    <Breadcrumbs items={migas} />
+  </div>
+
+  <div class="contenedor-angosto pb-20">
+    {
+      AVISO_DATOS && (
+        <p class="mb-6 rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm">
+          <strong>Nota de desarrollo:</strong> completa la razón social, el NIF y el domicilio en
+          <code>src/data/empresa.ts</code> antes de publicar.
+        </p>
+      )
+    }
+
+    <h1 class="font-display text-4xl font-semibold tracking-tight">Aviso legal</h1>
+    <p class="mt-3 text-sm text-muted">Última actualización: 22 de noviembre de 2026</p>
+
+    <div class="prosa mt-8">
+      <h2>1. Titular del sitio</h2>
+      <ul>
+        <li><strong>Denominación:</strong> {EMPRESA.razonSocial}</li>
+        <li><strong>NIF:</strong> {EMPRESA.nif}</li>
+        <li><strong>Domicilio:</strong> {EMPRESA.domicilio}</li>
+        <li><strong>Email:</strong> <a href={`mailto:${EMPRESA.email}`}>{EMPRESA.email}</a></li>
+        <li><strong>Actividad:</strong> desarrollo e integración de agentes de inteligencia artificial</li>
+      </ul>
+
+      <h2>2. Objeto</h2>
+      <p>
+        {SITE.name} es un glosario divulgativo de términos de inteligencia artificial. El acceso es
+        gratuito y no requiere registro. El contenido tiene finalidad informativa y educativa; no
+        constituye asesoramiento técnico, legal, financiero ni médico personalizado.
+      </p>
+
+      <h2>3. Propiedad intelectual</h2>
+      <p>
+        Los textos, la estructura, el diseño y el libro digital son propiedad de {EMPRESA.razonSocial}
+        o se usan con autorización. Puedes citar fragmentos indicando la fuente y enlazando a la
+        ficha original. No está permitida la reproducción íntegra, la venta ni la redistribución
+        masiva sin permiso escrito.
+      </p>
+      <p>
+        Las marcas y nombres de terceros (Groq, OpenRouter, Supabase, Vercel, Google, etc.)
+        pertenecen a sus titulares. Su mención no implica patrocinio.
+      </p>
+
+      <h2>4. Uso del sitio</h2>
+      <p>
+        Te comprometes a usar el sitio de forma lícita y a no intentar interrumpirlo, extraer su
+        contenido de forma masiva ni eludir los límites del asistente. Podemos bloquear el acceso
+        ante un uso abusivo.
+      </p>
+
+      <h2>5. Contenido y responsabilidad</h2>
+      <p>
+        Revisamos el contenido, pero la inteligencia artificial cambia rápido y pueden existir
+        errores o desactualizaciones. No garantizamos que la información esté siempre completa ni
+        que se aplique sin más a tu caso. Antes de tomar una decisión relevante, contrasta con un
+        profesional.
+      </p>
+      <p>
+        El asistente conversacional puede generar respuestas incorrectas. No nos hacemos
+        responsables de decisiones tomadas únicamente a partir de sus respuestas.
+      </p>
+
+      <h2>6. Enlaces externos</h2>
+      <p>
+        Enlazamos a webs de terceros (la agencia, proveedores, fuentes). No controlamos su
+        contenido ni sus políticas. El acceso a esos sitios es responsabilidad de quien lo realiza.
+      </p>
+
+      <h2>7. Legislación aplicable</h2>
+      <p>
+        Este aviso se rige por la legislación española. Para cualquier controversia, las partes se
+        someterán a los juzgados y tribunales que correspondan conforme a la normativa de consumo
+        aplicable.
+      </p>
+
+      <h2>8. Contacto</h2>
+      <p>
+        Para cualquier duda sobre este aviso, escribe a{' '}
+        <a href={`mailto:${EMPRESA.email}`}>{EMPRESA.email}</a>.
+      </p>
+    </div>
+  </div>
+</Base>

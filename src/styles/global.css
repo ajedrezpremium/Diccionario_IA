@@ -1,0 +1,370 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
+  --color-ok: var(--ok);
+  --color-danger: var(--danger);
+}
+
+:root {
+  color-scheme: light;
+  --bg: #faf8f4;
+  --bg-alt: #f1eee7;
+  --surface: #ffffff;
+  --ink: #17181d;
+  --muted: #5d616b;
+  --line: #e2ddd2;
+  --brand: #3f3aa8;
+  --brand-ink: #ffffff;
+  --brand-soft: #ece9ff;
+  --accent: #a34d06;
+  --ok: #0f766e;
+  --danger: #b42318;
+  --sombra: 0 1px 2px rgb(23 24 29 / 0.04), 0 12px 32px -18px rgb(23 24 29 / 0.25);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0f1013;
+  --bg-alt: #16181d;
+  --surface: #191b21;
+  --ink: #f2f0ea;
+  --muted: #a9aeb9;
+  --line: #2a2d35;
+  --brand: #b0abff;
+  --brand-ink: #14151a;
+  --brand-soft: #23223a;
+  --accent: #f0b35a;
+  --ok: #5eead4;
+  --danger: #fda29b;
+  --sombra: 0 1px 2px rgb(0 0 0 / 0.4), 0 18px 40px -22px rgb(0 0 0 / 0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--brand-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .contenedor {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .contenedor-angosto {
+    width: 100%;
+    max-width: 48rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    padding: 0.7rem 1.1rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .boton:hover {
+    transform: translateY(-1px);
+  }
+  .boton-primario {
+    background: var(--brand);
+    color: var(--brand-ink);
+  }
+  .boton-primario:hover {
+    filter: brightness(1.08);
+  }
+  .boton-secundario {
+    background: var(--surface);
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  .boton-secundario:hover {
+    border-color: var(--brand);
+  }
+  .boton-fantasma {
+    background: transparent;
+    color: var(--ink);
+    border-color: transparent;
+  }
+  .boton-fantasma:hover {
+    background: var(--bg-alt);
+  }
+
+  .tarjeta {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    box-shadow: var(--sombra);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--bg-alt);
+    color: var(--muted);
+    padding: 0.2rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .etiqueta-nivel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 999px;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .nivel-basico {
+    background: color-mix(in srgb, var(--ok) 14%, transparent);
+    color: var(--ok);
+  }
+  .nivel-intermedio {
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    color: var(--accent);
+  }
+  .nivel-avanzado {
+    background: color-mix(in srgb, var(--brand) 16%, transparent);
+    color: var(--brand);
+  }
+
+  .campo {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    padding: 0.7rem 0.9rem;
+    font-size: 0.95rem;
+  }
+  .campo::placeholder {
+    color: var(--muted);
+  }
+  .campo:focus {
+    border-color: var(--brand);
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent);
+  }
+
+  .enlace {
+    color: var(--brand);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  .enlace:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* ---------- Prosa de las fichas ---------- */
+.prosa {
+  color: var(--ink);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.prosa > * + * {
+  margin-top: 1.15em;
+}
+.prosa h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.25;
+  font-weight: 600;
+  margin-top: 2.4rem;
+  margin-bottom: 0.9rem;
+  letter-spacing: -0.01em;
+  scroll-margin-top: 6rem;
+}
+.prosa h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+.prosa p {
+  color: var(--ink);
+}
+.prosa strong {
+  font-weight: 700;
+}
+.prosa em {
+  font-style: italic;
+}
+.prosa ul,
+.prosa ol {
+  padding-left: 1.35rem;
+}
+.prosa ul {
+  list-style: disc;
+}
+.prosa ol {
+  list-style: decimal;
+}
+.prosa li + li {
+  margin-top: 0.35rem;
+}
+.prosa blockquote {
+  border-left: 3px solid var(--brand);
+  background: var(--brand-soft);
+  border-radius: 0 0.6rem 0.6rem 0;
+  padding: 0.9rem 1.1rem;
+  color: var(--ink);
+  font-size: 1rem;
+}
+.prosa code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  padding: 0.1rem 0.35rem;
+}
+.prosa pre {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.prosa pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.prosa a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.prosa a:hover {
+  text-decoration-thickness: 2px;
+}
+.prosa hr {
+  border-color: var(--line);
+  margin-block: 2rem;
+}
+.prosa table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.prosa th,
+.prosa td {
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+}
+.prosa th {
+  background: var(--bg-alt);
+}
+
+/* Enlaces automáticos del glosario */
+.prosa a.enlace-glosario {
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  font-weight: 500;
+}
+
+/* ---------- Utilidades ---------- */
+.texto-degradado {
+  background: linear-gradient(100deg, var(--brand) 10%, var(--accent) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.fondo-cuadricula {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+
+.animar-entrada {
+  animation: entrada 0.5s ease both;
+}
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar discreta */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}

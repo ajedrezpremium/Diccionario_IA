@@ -1,0 +1,1278 @@
+[
+  {
+    "termino": "Inteligencia artificial",
+    "slug": "inteligencia-artificial",
+    "categoria": "fundamentos",
+    "nivel": "basico",
+    "definicionCorta": "Disciplina que diseña sistemas capaces de realizar tareas asociadas a la inteligencia humana, como entender texto, reconocer imágenes o decidir.",
+    "alias": [
+      "Inteligencia artificial",
+      "IA",
+      "Artificial intelligence"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Machine learning",
+    "slug": "machine-learning",
+    "categoria": "fundamentos",
+    "nivel": "basico",
+    "definicionCorta": "Rama de la IA en la que un sistema aprende patrones a partir de ejemplos y datos, en lugar de seguir reglas programadas una por una.",
+    "alias": [
+      "Machine learning (aprendizaje automático)",
+      "Aprendizaje automático",
+      "ML"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Deep learning",
+    "slug": "deep-learning",
+    "categoria": "fundamentos",
+    "nivel": "intermedio",
+    "definicionCorta": "Técnica de machine learning basada en redes neuronales con muchas capas que aprende representaciones cada vez más complejas de los datos.",
+    "alias": [
+      "Deep learning (aprendizaje profundo)",
+      "Aprendizaje profundo"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Red neuronal",
+    "slug": "red-neuronal",
+    "categoria": "fundamentos",
+    "nivel": "intermedio",
+    "definicionCorta": "Modelo computacional formado por unidades conectadas en capas que transforman datos y ajustan sus conexiones para aprender patrones.",
+    "alias": [
+      "Red neuronal artificial",
+      "Neural network"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Token",
+    "slug": "token",
+    "categoria": "fundamentos",
+    "nivel": "basico",
+    "definicionCorta": "Unidad mínima de texto que procesa un modelo: puede ser una palabra completa, un trozo de palabra o un signo de puntuación.",
+    "alias": [
+      "Token",
+      "Tokens"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Ventana de contexto",
+    "slug": "ventana-de-contexto",
+    "categoria": "fundamentos",
+    "nivel": "basico",
+    "definicionCorta": "Cantidad máxima de tokens que un modelo puede tener en cuenta a la vez, incluyendo instrucciones, conversación y documentos adjuntos.",
+    "alias": [
+      "Ventana de contexto",
+      "Context window"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Parámetros",
+    "slug": "parametros",
+    "categoria": "fundamentos",
+    "nivel": "intermedio",
+    "definicionCorta": "Valores internos que un modelo ajusta durante el entrenamiento y que determinan cómo transforma la información que recibe.",
+    "alias": [
+      "Parámetros de un modelo",
+      "Pesos",
+      "Weights"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Inferencia",
+    "slug": "inferencia",
+    "categoria": "fundamentos",
+    "nivel": "intermedio",
+    "definicionCorta": "Proceso de usar un modelo ya entrenado para generar una respuesta o una predicción a partir de una entrada nueva.",
+    "alias": [
+      "Inferencia",
+      "Inference"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Entrenamiento",
+    "slug": "entrenamiento",
+    "categoria": "fundamentos",
+    "nivel": "intermedio",
+    "definicionCorta": "Fase en la que un modelo aprende patrones ajustando sus parámetros con grandes cantidades de datos y ejemplos.",
+    "alias": [
+      "Entrenamiento de un modelo",
+      "Training"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "GPU",
+    "slug": "gpu",
+    "categoria": "fundamentos",
+    "nivel": "basico",
+    "definicionCorta": "Procesador especializado en ejecutar muchas operaciones en paralelo, clave para entrenar y ejecutar modelos de IA con rapidez.",
+    "alias": [
+      "Unidad de procesamiento gráfico",
+      "Tarjeta gráfica"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Ley de escalado",
+    "slug": "ley-de-escalado",
+    "categoria": "fundamentos",
+    "nivel": "avanzado",
+    "definicionCorta": "Observación de que, hasta cierto punto, aumentar el tamaño del modelo, los datos y el cómputo mejora su rendimiento de forma predecible.",
+    "alias": [
+      "Ley de escalado",
+      "Scaling law",
+      "Leyes de escala"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "IA generativa",
+    "slug": "ia-generativa",
+    "categoria": "fundamentos",
+    "nivel": "basico",
+    "definicionCorta": "Rama de la IA que crea contenido nuevo —texto, imágenes, audio o código— a partir de patrones aprendidos de datos existentes.",
+    "alias": [
+      "Inteligencia artificial generativa",
+      "Generative AI",
+      "GenAI"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "AGI",
+    "slug": "agi",
+    "categoria": "fundamentos",
+    "nivel": "intermedio",
+    "definicionCorta": "Hipotética inteligencia artificial general: un sistema capaz de realizar cualquier tarea intelectual humana con flexibilidad similar a la nuestra.",
+    "alias": [
+      "Inteligencia artificial general",
+      "Artificial General Intelligence"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Modelo fundacional",
+    "slug": "modelo-fundacional",
+    "categoria": "fundamentos",
+    "nivel": "intermedio",
+    "definicionCorta": "Modelo grande entrenado con datos muy diversos que sirve de base para muchas tareas y se adapta con instrucciones o ajustes.",
+    "alias": [
+      "Modelo fundacional",
+      "Foundation model",
+      "Modelo base"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Datos sintéticos",
+    "slug": "datos-sinteticos",
+    "categoria": "fundamentos",
+    "nivel": "avanzado",
+    "definicionCorta": "Datos generados artificialmente que imitan las características de datos reales y se usan para entrenar, probar o completar modelos.",
+    "alias": [
+      "Datos sintéticos",
+      "Synthetic data"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "LLM",
+    "slug": "llm",
+    "categoria": "modelos",
+    "nivel": "basico",
+    "definicionCorta": "Modelo de lenguaje de gran tamaño entrenado para predecir la siguiente pieza de texto y, con ello, comprender y generar lenguaje natural.",
+    "alias": [
+      "Large Language Model (modelo grande de lenguaje)",
+      "Modelo grande de lenguaje",
+      "Modelo de lenguaje"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Modelo multimodal",
+    "slug": "modelo-multimodal",
+    "categoria": "modelos",
+    "nivel": "intermedio",
+    "definicionCorta": "Modelo capaz de procesar y relacionar varios tipos de contenido a la vez, como texto, imágenes, audio o vídeo.",
+    "alias": [
+      "Modelo multimodal",
+      "Multimodal model",
+      "IA multimodal"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Embedding",
+    "slug": "embedding",
+    "categoria": "modelos",
+    "nivel": "intermedio",
+    "definicionCorta": "Representación numérica de un texto, imagen o audio que captura su significado y permite comparar similitud entre elementos.",
+    "alias": [
+      "Embedding (representación vectorial)",
+      "Vector embedding",
+      "Representación vectorial"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Fine-tuning",
+    "slug": "fine-tuning",
+    "categoria": "modelos",
+    "nivel": "avanzado",
+    "definicionCorta": "Ajuste adicional de un modelo ya entrenado con ejemplos específicos para que se comporte mejor en una tarea o estilo concreto.",
+    "alias": [
+      "Fine-tuning (ajuste fino)",
+      "Ajuste fino",
+      "Ajuste de modelo"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Temperatura",
+    "slug": "temperatura",
+    "categoria": "modelos",
+    "nivel": "basico",
+    "definicionCorta": "Parámetro que controla cuánta aleatoriedad introduce el modelo al elegir la siguiente pieza de texto.",
+    "alias": [
+      "Temperatura",
+      "Temperature"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Alucinación",
+    "slug": "alucinacion",
+    "categoria": "modelos",
+    "nivel": "basico",
+    "definicionCorta": "Respuesta plausible pero incorrecta que genera un modelo cuando completa información que no tiene o malinterpreta el contexto.",
+    "alias": [
+      "Alucinación",
+      "Hallucination",
+      "Invención"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Prompt",
+    "slug": "prompt",
+    "categoria": "modelos",
+    "nivel": "basico",
+    "definicionCorta": "Instrucción o conjunto de instrucciones que se envía a un modelo para obtener una respuesta o realizar una tarea.",
+    "alias": [
+      "Prompt (instrucción)",
+      "Instrucción",
+      "Indicación"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "System prompt",
+    "slug": "system-prompt",
+    "categoria": "modelos",
+    "nivel": "intermedio",
+    "definicionCorta": "Instrucción base que define el rol, las reglas y los límites de un modelo antes de que el usuario escriba nada.",
+    "alias": [
+      "System prompt (instrucción de sistema)",
+      "Instrucción de sistema",
+      "Prompt de sistema"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Few-shot",
+    "slug": "few-shot",
+    "categoria": "modelos",
+    "nivel": "intermedio",
+    "definicionCorta": "Técnica de prompting que incluye unos pocos ejemplos de entrada y salida para que el modelo imite el patrón deseado.",
+    "alias": [
+      "Few-shot (aprendizaje con pocos ejemplos)",
+      "Aprendizaje con pocos ejemplos",
+      "Pocos ejemplos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Modelo abierto",
+    "slug": "modelo-abierto",
+    "categoria": "modelos",
+    "nivel": "intermedio",
+    "definicionCorta": "Modelo cuyos pesos están disponibles para descargar, ejecutar y, según la licencia, modificar y redistribuir.",
+    "alias": [
+      "Modelo abierto (open weights)",
+      "Open weights",
+      "Modelo de pesos abiertos",
+      "Open source"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Destilación",
+    "slug": "destilacion",
+    "categoria": "modelos",
+    "nivel": "avanzado",
+    "definicionCorta": "Técnica para entrenar un modelo pequeño imitando las respuestas de uno grande, con el objetivo de reducir coste y latencia.",
+    "alias": [
+      "Destilación de modelos",
+      "Knowledge distillation",
+      "Destilación de conocimiento"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Cuantización",
+    "slug": "cuantizacion",
+    "categoria": "modelos",
+    "nivel": "avanzado",
+    "definicionCorta": "Técnica que reduce la precisión numérica de los parámetros de un modelo para que ocupe menos memoria y se ejecute más rápido.",
+    "alias": [
+      "Cuantización",
+      "Quantization"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Mezcla de expertos",
+    "slug": "mezcla-de-expertos",
+    "categoria": "modelos",
+    "nivel": "avanzado",
+    "definicionCorta": "Arquitectura que reparte el trabajo entre varias subredes especializadas y activa solo las más adecuadas para cada entrada.",
+    "alias": [
+      "Mezcla de expertos (MoE)",
+      "MoE",
+      "Mixture of Experts"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Visión artificial",
+    "slug": "vision-artificial",
+    "categoria": "modelos",
+    "nivel": "intermedio",
+    "definicionCorta": "Campo de la IA que permite a un sistema interpretar imágenes y vídeo: detectar objetos, clasificar escenas o leer texto.",
+    "alias": [
+      "Visión artificial",
+      "Computer vision",
+      "Visión por computadora"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Texto a imagen",
+    "slug": "texto-a-imagen",
+    "categoria": "modelos",
+    "nivel": "basico",
+    "definicionCorta": "Tecnología de IA generativa que crea imágenes nuevas a partir de una descripción escrita y, opcionalmente, una referencia visual.",
+    "alias": [
+      "Texto a imagen",
+      "Text to image",
+      "Generación de imágenes"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Agente de IA",
+    "slug": "agente-de-ia",
+    "categoria": "agentes",
+    "nivel": "basico",
+    "definicionCorta": "Sistema que usa un modelo de IA para decidir pasos, usar herramientas y ejecutar una tarea con cierto grado de autonomía.",
+    "alias": [
+      "Agente de inteligencia artificial",
+      "Agente IA",
+      "Agente inteligente"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Tool use",
+    "slug": "tool-use",
+    "categoria": "agentes",
+    "nivel": "intermedio",
+    "definicionCorta": "Capacidad de un modelo para invocar funciones o servicios externos y usar el resultado para completar una tarea.",
+    "alias": [
+      "Tool use (uso de herramientas)",
+      "Uso de herramientas",
+      "Herramientas del agente"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "MCP",
+    "slug": "mcp",
+    "categoria": "agentes",
+    "nivel": "intermedio",
+    "definicionCorta": "Estándar abierto que define cómo conectar modelos y agentes con herramientas, datos y servicios de forma uniforme.",
+    "alias": [
+      "Model Context Protocol",
+      "Protocolo de contexto de modelo"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Skill",
+    "slug": "skill",
+    "categoria": "agentes",
+    "nivel": "intermedio",
+    "definicionCorta": "Paquete de instrucciones, ejemplos y recursos que enseña a un agente a realizar una tarea concreta de forma repetible.",
+    "alias": [
+      "Skill (habilidad de un agente)",
+      "Habilidad",
+      "Habilidad del agente"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Harness",
+    "slug": "harness",
+    "categoria": "agentes",
+    "nivel": "avanzado",
+    "definicionCorta": "Capa que envuelve a un modelo y gestiona el bucle del agente: instrucciones, herramientas, memoria, permisos y validación.",
+    "alias": [
+      "Harness (arnés del agente)",
+      "Arnés del agente",
+      "Agent harness"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "CLI",
+    "slug": "cli",
+    "categoria": "agentes",
+    "nivel": "basico",
+    "definicionCorta": "Interfaz de línea de comandos: forma de interactuar con un programa escribiendo órdenes de texto en una terminal.",
+    "alias": [
+      "Command Line Interface (interfaz de línea de comandos)",
+      "Interfaz de línea de comandos",
+      "Terminal"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Workflow",
+    "slug": "workflow",
+    "categoria": "agentes",
+    "nivel": "basico",
+    "definicionCorta": "Secuencia definida de pasos, reglas y decisiones que se ejecuta para completar un proceso de negocio.",
+    "alias": [
+      "Workflow (flujo de trabajo)",
+      "Flujo de trabajo",
+      "Automatización de procesos"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Orquestación",
+    "slug": "orquestacion",
+    "categoria": "agentes",
+    "nivel": "avanzado",
+    "definicionCorta": "Coordinación de varios modelos, agentes o herramientas para que trabajen juntos en un objetivo común.",
+    "alias": [
+      "Orquestación de agentes",
+      "Agent orchestration",
+      "Coordinación de agentes"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Memoria del agente",
+    "slug": "memoria-del-agente",
+    "categoria": "agentes",
+    "nivel": "intermedio",
+    "definicionCorta": "Mecanismo que permite a un agente recordar información entre turnos o sesiones para personalizar y continuar tareas.",
+    "alias": [
+      "Memoria del agente",
+      "Agent memory",
+      "Memoria persistente"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Agente autónomo",
+    "slug": "agente-autonomo",
+    "categoria": "agentes",
+    "nivel": "avanzado",
+    "definicionCorta": "Agente que planifica y ejecuta varios pasos sin intervención humana continua, dentro de límites y objetivos definidos.",
+    "alias": [
+      "Agente autónomo",
+      "Autonomous agent"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Human in the loop",
+    "slug": "human-in-the-loop",
+    "categoria": "agentes",
+    "nivel": "intermedio",
+    "definicionCorta": "Diseño en el que una persona revisa, aprueba o corrige las decisiones de un sistema de IA en puntos clave.",
+    "alias": [
+      "Human in the loop",
+      "Humano en el bucle",
+      "Supervisión humana"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Sistema multiagente",
+    "slug": "multiagente",
+    "categoria": "agentes",
+    "nivel": "avanzado",
+    "definicionCorta": "Conjunto de agentes especializados que colaboran, se reparten tareas o se revisan entre sí para resolver un problema.",
+    "alias": [
+      "Sistema multiagente",
+      "Multi-agent system",
+      "Sistema de agentes"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Function calling",
+    "slug": "function-calling",
+    "categoria": "agentes",
+    "nivel": "intermedio",
+    "definicionCorta": "Mecanismo por el que un modelo devuelve una llamada a función estructurada en lugar de texto libre, para que el sistema la ejecute.",
+    "alias": [
+      "Function calling",
+      "Llamada a funciones"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Razonamiento",
+    "slug": "razonamiento",
+    "categoria": "agentes",
+    "nivel": "intermedio",
+    "definicionCorta": "Capacidad de un modelo para descomponer un problema en pasos y llegar a una conclusión, a veces mostrando el proceso.",
+    "alias": [
+      "Razonamiento del modelo",
+      "Reasoning",
+      "Razonamiento automático"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Computer use",
+    "slug": "computer-use",
+    "categoria": "agentes",
+    "nivel": "avanzado",
+    "definicionCorta": "Capacidad de un agente para operar una interfaz gráfica —navegador, escritorio o aplicación— como lo haría una persona.",
+    "alias": [
+      "Computer use (uso del ordenador)",
+      "Uso del ordenador",
+      "Control de interfaz"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Bucle agéntico",
+    "slug": "bucle-agentico",
+    "categoria": "agentes",
+    "nivel": "avanzado",
+    "definicionCorta": "Ciclo en el que un agente observa el estado, decide una acción, la ejecuta y comprueba el resultado hasta terminar.",
+    "alias": [
+      "Bucle agéntico",
+      "Agent loop",
+      "Bucle del agente"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "API",
+    "slug": "api",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "basico",
+    "definicionCorta": "Interfaz que permite que dos programas se comuniquen: un sistema pide datos o acciones a otro siguiendo unas reglas acordadas.",
+    "alias": [
+      "Interfaz de programación de aplicaciones"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Endpoint",
+    "slug": "endpoint",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "basico",
+    "definicionCorta": "Dirección concreta de una API que representa un recurso o una acción, como consultar un cliente o crear un pedido.",
+    "alias": [
+      "Endpoint (punto de acceso)",
+      "Punto de acceso",
+      "Ruta de API"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "SDK",
+    "slug": "sdk",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "intermedio",
+    "definicionCorta": "Conjunto de librerías y utilidades que facilita usar un servicio desde código, evitando escribir las llamadas a mano.",
+    "alias": [
+      "Software Development Kit (kit de desarrollo)",
+      "Kit de desarrollo de software"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "JSON",
+    "slug": "json",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "basico",
+    "definicionCorta": "Formato de texto ligero para estructurar datos en pares de clave y valor, muy usado para intercambiar información entre sistemas.",
+    "alias": [
+      "JavaScript Object Notation"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Rate limit",
+    "slug": "rate-limit",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "intermedio",
+    "definicionCorta": "Restricción del número de peticiones que un usuario o aplicación puede hacer a un servicio en un periodo de tiempo.",
+    "alias": [
+      "Rate limit (límite de peticiones)",
+      "Límite de peticiones",
+      "Límite de velocidad"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Latencia",
+    "slug": "latencia",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "basico",
+    "definicionCorta": "Tiempo que transcurre desde que se hace una petición hasta que llega la primera respuesta o la respuesta completa.",
+    "alias": [
+      "Latencia",
+      "Tiempo de respuesta",
+      "Delay"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Streaming",
+    "slug": "streaming",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "intermedio",
+    "definicionCorta": "Técnica que envía la respuesta del modelo por fragmentos según se genera, en lugar de esperar a tenerla completa.",
+    "alias": [
+      "Streaming de respuestas",
+      "Respuesta en streaming",
+      "Transmisión"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Despliegue",
+    "slug": "despliegue",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "basico",
+    "definicionCorta": "Proceso de publicar una aplicación o un cambio en un servidor para que los usuarios puedan usarlo. Explicado en lenguaje claro para pymes.",
+    "alias": [
+      "Despliegue (deploy)",
+      "Deploy",
+      "Publicación"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Observabilidad",
+    "slug": "observabilidad",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "avanzado",
+    "definicionCorta": "Capacidad de entender qué ocurre dentro de un sistema a partir de registros, métricas y trazas de sus peticiones.",
+    "alias": [
+      "Observabilidad",
+      "Observability",
+      "Monitorización"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Repositorio",
+    "slug": "repositorio",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "basico",
+    "definicionCorta": "Espacio donde se guarda y versiona el código de un proyecto, con el historial de cambios y la colaboración del equipo.",
+    "alias": [
+      "Repositorio de código",
+      "Repo",
+      "Repositorio Git"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Sandbox",
+    "slug": "sandbox",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "intermedio",
+    "definicionCorta": "Entorno de pruebas aislado donde se ejecutan cambios, agentes o código sin afectar a los sistemas reales.",
+    "alias": [
+      "Sandbox (entorno aislado)",
+      "Entorno de pruebas",
+      "Entorno aislado",
+      "Caja de arena"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Webhook",
+    "slug": "webhook",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "intermedio",
+    "definicionCorta": "Mecanismo por el que un sistema avisa automáticamente a otro cuando ocurre un evento, enviando datos a una dirección configurada.",
+    "alias": [
+      "Webhook",
+      "Notificación web",
+      "Callback HTTP"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "RAG",
+    "slug": "rag",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "intermedio",
+    "definicionCorta": "Técnica que combina un buscador con un modelo de lenguaje: recupera fragmentos relevantes de tus documentos y los usa para responder.",
+    "alias": [
+      "Retrieval-Augmented Generation (generación aumentada por recuperación)",
+      "Retrieval-Augmented Generation",
+      "Generación aumentada por recuperación"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Base de datos vectorial",
+    "slug": "base-de-datos-vectorial",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Sistema que almacena vectores —representaciones numéricas de contenido— y permite buscar los más parecidos a una consulta.",
+    "alias": [
+      "Base de datos vectorial",
+      "Vector database",
+      "Almacén vectorial"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Chunking",
+    "slug": "chunking",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "intermedio",
+    "definicionCorta": "Proceso de dividir documentos largos en fragmentos manejables que se indexan y se recuperan por separado.",
+    "alias": [
+      "Chunking (fragmentación)",
+      "Fragmentación",
+      "Troceado de documentos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Búsqueda semántica",
+    "slug": "busqueda-semantica",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "intermedio",
+    "definicionCorta": "Búsqueda que encuentra resultados por significado y no solo por coincidencia de palabras, usando representaciones vectoriales.",
+    "alias": [
+      "Búsqueda semántica",
+      "Semantic search"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Base de datos relacional",
+    "slug": "base-de-datos-relacional",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "basico",
+    "definicionCorta": "Base de datos que organiza la información en tablas con filas y columnas, relacionadas entre sí mediante claves.",
+    "alias": [
+      "Base de datos relacional",
+      "SQL",
+      "Base de datos SQL"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "ETL",
+    "slug": "etl",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Proceso de extraer datos de varias fuentes, limpiarlos y transformarlos, y cargarlos en un destino para su análisis.",
+    "alias": [
+      "Extract, Transform, Load (extraer, transformar, cargar)",
+      "Extract, Transform, Load",
+      "Extraer, transformar, cargar"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Data warehouse",
+    "slug": "data-warehouse",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Repositorio central que integra datos de varias fuentes, ya limpios y organizados, para analizarlos y tomar decisiones.",
+    "alias": [
+      "Data warehouse (almacén de datos)",
+      "Almacén de datos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Calidad de datos",
+    "slug": "calidad-de-datos",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "basico",
+    "definicionCorta": "Grado en que los datos son correctos, completos, consistentes y actualizados para el uso que se les quiere dar.",
+    "alias": [
+      "Calidad de datos",
+      "Data quality"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Curación de datos",
+    "slug": "curacion-de-datos",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Trabajo de seleccionar, limpiar, etiquetar y organizar datos para que sean útiles en el entrenamiento o la recuperación.",
+    "alias": [
+      "Curación de datos",
+      "Data curation"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Etiquetado de datos",
+    "slug": "etiquetado-de-datos",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "intermedio",
+    "definicionCorta": "Proceso de asignar categorías o respuestas correctas a ejemplos para que un modelo pueda aprender de ellos.",
+    "alias": [
+      "Etiquetado de datos",
+      "Data labeling",
+      "Anotación de datos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Sesgo",
+    "slug": "sesgo",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "intermedio",
+    "definicionCorta": "Tendencia sistemática de un modelo a producir resultados injustos o inexactos por los datos, el diseño o el contexto de uso.",
+    "alias": [
+      "Sesgo algorítmico",
+      "Bias"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Conocimiento tácito",
+    "slug": "conocimiento-tacito",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Conocimiento práctico que una persona posee pero no ha documentado, y que resulta difícil de transmitir o automatizar.",
+    "alias": [
+      "Conocimiento tácito",
+      "Tacit knowledge"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Prompt engineering",
+    "slug": "prompt-engineering",
+    "categoria": "prompting",
+    "nivel": "intermedio",
+    "definicionCorta": "Disciplina de diseñar, probar y mejorar las instrucciones que se dan a un modelo para obtener resultados útiles y consistentes.",
+    "alias": [
+      "Prompt engineering (ingeniería de instrucciones)",
+      "Ingeniería de prompts",
+      "Diseño de prompts"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Zero-shot",
+    "slug": "zero-shot",
+    "categoria": "prompting",
+    "nivel": "basico",
+    "definicionCorta": "Forma de pedir una tarea a un modelo sin darle ejemplos previos, confiando en su capacidad general para interpretarla.",
+    "alias": [
+      "Zero-shot (sin ejemplos)",
+      "Sin ejemplos",
+      "Cero ejemplos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Cadena de pensamiento",
+    "slug": "cadena-de-pensamiento",
+    "categoria": "prompting",
+    "nivel": "avanzado",
+    "definicionCorta": "Técnica que pide al modelo razonar paso a paso antes de dar una respuesta final, mejorando tareas de lógica o cálculo.",
+    "alias": [
+      "Chain of thought (cadena de pensamiento)",
+      "Chain of thought",
+      "CoT",
+      "Razonamiento paso a paso"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Role prompting",
+    "slug": "role-prompting",
+    "categoria": "prompting",
+    "nivel": "basico",
+    "definicionCorta": "Técnica que asigna al modelo un papel concreto —profesor, revisor, comercial— para orientar tono, criterio y vocabulario.",
+    "alias": [
+      "Role prompting (asignación de rol)",
+      "Asignación de rol",
+      "Prompt de rol"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Salida estructurada",
+    "slug": "salida-estructurada",
+    "categoria": "prompting",
+    "nivel": "intermedio",
+    "definicionCorta": "Respuesta del modelo en un formato definido, como JSON o tabla, para que un sistema pueda procesarla sin ambigüedad.",
+    "alias": [
+      "Salida estructurada",
+      "Structured output",
+      "Respuesta estructurada"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Contexto",
+    "slug": "contexto",
+    "categoria": "prompting",
+    "nivel": "basico",
+    "definicionCorta": "Información que se entrega al modelo junto a la instrucción para que interprete correctamente la tarea y el público.",
+    "alias": [
+      "Contexto en un prompt",
+      "Contexto de la tarea"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Plantilla de prompt",
+    "slug": "plantilla-de-prompt",
+    "categoria": "prompting",
+    "nivel": "intermedio",
+    "definicionCorta": "Estructura reutilizable con campos fijos y variables que permite aplicar el mismo criterio a muchas tareas similares.",
+    "alias": [
+      "Plantilla de prompt",
+      "Prompt template",
+      "Plantilla de instrucciones"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Evaluación de prompts",
+    "slug": "evaluacion-de-prompts",
+    "categoria": "prompting",
+    "nivel": "avanzado",
+    "definicionCorta": "Proceso de medir la calidad de las respuestas de un prompt con casos de prueba y criterios definidos, en lugar de opinar.",
+    "alias": [
+      "Evaluación de prompts",
+      "Prompt evaluation",
+      "Evaluación de instrucciones"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Iteración de prompts",
+    "slug": "iteracion-de-prompts",
+    "categoria": "prompting",
+    "nivel": "intermedio",
+    "definicionCorta": "Práctica de ajustar un prompt en ciclos cortos, cambiando una variable cada vez y midiendo el efecto en los resultados.",
+    "alias": [
+      "Iteración de prompts",
+      "Refinamiento de prompts",
+      "Iteración de instrucciones"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Delimitadores",
+    "slug": "delimitadores",
+    "categoria": "prompting",
+    "nivel": "intermedio",
+    "definicionCorta": "Marcas que separan instrucciones, datos y ejemplos dentro de un prompt para que el modelo distinga qué es qué.",
+    "alias": [
+      "Delimitadores en prompts",
+      "Separadores",
+      "Etiquetas de prompt"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Prompt injection",
+    "slug": "prompt-injection",
+    "categoria": "seguridad-y-etica",
+    "nivel": "avanzado",
+    "definicionCorta": "Ataque en el que un texto malicioso introduce instrucciones ocultas para que un modelo ignore las reglas y ejecute otra acción.",
+    "alias": [
+      "Prompt injection (inyección de instrucciones)",
+      "Inyección de prompts",
+      "Inyección de instrucciones"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Privacidad",
+    "slug": "privacidad",
+    "categoria": "seguridad-y-etica",
+    "nivel": "basico",
+    "definicionCorta": "Protección de la información personal y confidencial que se comparte con sistemas de IA, desde la recogida hasta el borrado.",
+    "alias": [
+      "Privacidad en IA",
+      "Privacidad de datos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "RGPD",
+    "slug": "rgpd",
+    "categoria": "seguridad-y-etica",
+    "nivel": "basico",
+    "definicionCorta": "Normativa europea que regula el tratamiento de datos personales y obliga a informar, minimizar, proteger y permitir derechos.",
+    "alias": [
+      "Reglamento General de Protección de Datos",
+      "GDPR"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "AI Act",
+    "slug": "ia-act",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Normativa europea que clasifica los sistemas de IA por riesgo y establece obligaciones de transparencia, evaluación y supervisión.",
+    "alias": [
+      "Reglamento Europeo de Inteligencia Artificial",
+      "Reglamento de IA",
+      "Ley de IA europea",
+      "AI Act"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Transparencia algorítmica",
+    "slug": "transparencia-algoritmica",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Principio de explicar de forma comprensible qué hace un sistema de IA, con qué datos y con qué límites.",
+    "alias": [
+      "Transparencia algorítmica",
+      "Transparencia de algoritmos",
+      "Explicabilidad"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Derechos de autor",
+    "slug": "copyright-ia",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Conjunto de normas que determina quién puede usar, reproducir o explotar obras y contenido generado con ayuda de IA.",
+    "alias": [
+      "Derechos de autor e IA",
+      "Copyright e IA",
+      "Propiedad intelectual"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Deepfake",
+    "slug": "deepfake",
+    "categoria": "seguridad-y-etica",
+    "nivel": "basico",
+    "definicionCorta": "Contenido audiovisual manipulado con IA que suplanta la imagen o la voz de una persona de forma realista.",
+    "alias": [
+      "Deepfake",
+      "Vídeo manipulado",
+      "Ultrafalso"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Red teaming",
+    "slug": "red-teaming",
+    "categoria": "seguridad-y-etica",
+    "nivel": "avanzado",
+    "definicionCorta": "Práctica de atacar un sistema de IA de forma controlada para descubrir fallos, sesgos o vulnerabilidades antes de que lo haga alguien real.",
+    "alias": [
+      "Red teaming",
+      "Equipo rojo",
+      "Pruebas adversariales"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Anonimización",
+    "slug": "anonimizacion",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Proceso de eliminar o transformar datos personales para que no sea posible identificar a una persona, ni siquiera combinando información.",
+    "alias": [
+      "Anonimización",
+      "Anonymization",
+      "Datos anónimos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Seguridad de agentes",
+    "slug": "seguridad-de-agentes",
+    "categoria": "seguridad-y-etica",
+    "nivel": "avanzado",
+    "definicionCorta": "Conjunto de controles que limitan qué puede hacer un agente, a qué datos accede y qué acciones requieren aprobación humana.",
+    "alias": [
+      "Seguridad de agentes de IA",
+      "Agent security",
+      "Seguridad de agentes autónomos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Automatización con IA",
+    "slug": "automatizacion-con-ia",
+    "categoria": "negocio",
+    "nivel": "basico",
+    "definicionCorta": "Uso de IA para ejecutar tareas repetitivas o interpretativas dentro de un proceso, reduciendo trabajo manual y errores.",
+    "alias": [
+      "Automatización con inteligencia artificial",
+      "Automatización inteligente",
+      "Hiperautomatización"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "ROI de la IA",
+    "slug": "roi-de-ia",
+    "categoria": "negocio",
+    "nivel": "intermedio",
+    "definicionCorta": "Relación entre el beneficio obtenido con un proyecto de IA y su coste total, incluyendo implantación, uso y mantenimiento.",
+    "alias": [
+      "Retorno de la inversión en IA",
+      "Retorno de la inversión",
+      "ROI"
+    ],
+    "destacado": true
+  },
+  {
+    "termino": "Caso de uso",
+    "slug": "caso-de-uso",
+    "categoria": "negocio",
+    "nivel": "basico",
+    "definicionCorta": "Situación concreta de negocio en la que se aplica IA, con un problema definido, unos usuarios y un resultado esperado.",
+    "alias": [
+      "Caso de uso de IA",
+      "Use case",
+      "Aplicación de IA"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Prueba de concepto",
+    "slug": "prueba-de-concepto",
+    "categoria": "negocio",
+    "nivel": "intermedio",
+    "definicionCorta": "Proyecto pequeño y acotado que comprueba si una solución de IA puede funcionar en un caso real antes de invertir a gran escala.",
+    "alias": [
+      "Prueba de concepto (PoC)",
+      "PoC",
+      "Proof of concept"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Coste por token",
+    "slug": "coste-por-token",
+    "categoria": "negocio",
+    "nivel": "intermedio",
+    "definicionCorta": "Precio que cobra un proveedor por procesar tokens de entrada y de salida, base para calcular el coste de un asistente.",
+    "alias": [
+      "Coste por token",
+      "Precio por token",
+      "Coste de inferencia"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Copiloto",
+    "slug": "copiloto",
+    "categoria": "negocio",
+    "nivel": "basico",
+    "definicionCorta": "Asistente de IA que trabaja junto a una persona, propone borradores y acelera tareas, pero mantiene la decisión final en el humano.",
+    "alias": [
+      "Copiloto de IA",
+      "Copilot",
+      "Asistente de trabajo"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Agente de atención al cliente",
+    "slug": "agente-atencion-cliente",
+    "categoria": "negocio",
+    "nivel": "intermedio",
+    "definicionCorta": "Asistente que responde consultas de clientes, consulta sistemas y deriva a una persona cuando el caso lo requiere.",
+    "alias": [
+      "Agente de IA para atención al cliente",
+      "Chatbot de atención",
+      "Agente de soporte"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Cualificación de leads",
+    "slug": "cualificacion-de-leads",
+    "categoria": "negocio",
+    "nivel": "intermedio",
+    "definicionCorta": "Proceso de evaluar y priorizar contactos comerciales según su encaje, interés y capacidad de compra, a menudo con ayuda de IA.",
+    "alias": [
+      "Cualificación de leads con IA",
+      "Lead scoring",
+      "Puntuación de leads"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Soberanía del dato",
+    "slug": "soberania-del-dato",
+    "categoria": "negocio",
+    "nivel": "avanzado",
+    "definicionCorta": "Control sobre dónde se almacenan, quién accede y bajo qué legislación se tratan los datos de una organización.",
+    "alias": [
+      "Soberanía del dato",
+      "Data sovereignty",
+      "Soberanía de datos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Vendor lock-in",
+    "slug": "vendor-lock-in",
+    "categoria": "negocio",
+    "nivel": "avanzado",
+    "definicionCorta": "Situación en la que cambiar de proveedor de tecnología resulta caro o difícil por formatos, integraciones o contratos propietarios.",
+    "alias": [
+      "Vendor lock-in (dependencia de proveedor)",
+      "Dependencia de proveedor",
+      "Lock-in"
+    ],
+    "destacado": false
+  }
+]

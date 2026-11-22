@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import Buscador from '../components/Buscador.astro';
+import { SITE } from '../lib/site';
+
+const prod = import.meta.env.PROD;
+---
+
+<Base
+  title={`Buscar en el diccionario | ${SITE.name}`}
+  description="Busca cualquier término de inteligencia artificial en el glosario: definiciones, ejemplos y aplicaciones para tu negocio."
+  canonical="/buscar"
+  noindex
+>
+  <header class="border-b border-line bg-bg-alt/40">
+    <div class="contenedor py-12 sm:py-16">
+      <p class="chip">Buscador</p>
+      <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+        ¿Qué término buscas?
+      </h1>
+      <p class="mt-3 max-w-2xl text-lg text-muted">
+        Búsqueda instantánea por nombre y definición, tolerante a tildes. Si no encuentras algo,
+        pregúntale al asistente de la esquina.
+      </p>
+    </div>
+  </header>
+
+  <div class="contenedor py-10">
+    <div id="pagefind-ui" class="min-h-24"></div>
+    <div id="busqueda-local" class="hidden">
+      <Buscador grande limite={12} />
+    </div>
+    <p id="aviso-buscador" class="mt-6 text-xs text-muted"></p>
+  </div>
+
+  <div class="contenedor pb-20">
+    <div class="rounded-2xl border border-line bg-surface p-6 sm:p-8">
+      <h2 class="font-display text-2xl font-semibold">Atajos útiles</h2>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <a href="/terminos" class="boton boton-secundario">Los 100 términos</a>
+        <a href="/indice" class="boton boton-secundario">Índice A-Z</a>
+        <a href="/categorias" class="boton boton-secundario">Categorías</a>
+        <a href="/libro" class="boton boton-primario">Libro gratis en PDF</a>
+      </div>
+    </div>
+  </div>
+
+  {prod && <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />}
+  {prod && <script is:inline src="/pagefind/pagefind-ui.js"></script>}
+
+  <script is:inline>
+    (() => {
+      const contenedor = document.getElementById('pagefind-ui');
+      const local = document.getElementById('busqueda-local');
+      const aviso = document.getElementById('aviso-buscador');
+      const q = new URLSearchParams(window.location.search).get('q') || '';
+
+      if (typeof window.PagefindUI === 'undefined') {
+        if (contenedor) contenedor.hidden = true;
+        if (local) local.classList.remove('hidden');
+        if (aviso) aviso.textContent = 'Buscador local activo. En producción se añade búsqueda de texto completo con Pagefind.';
+        return;
+      }
+
+      const ui = new window.PagefindUI({
+        element: '#pagefind-ui',
+        showSubResults: true,
+        showImages: false,
+        resetStyles: false,
+        translations: {
+          placeholder: 'Busca: agente, RAG, token…',
+          zero_results: 'No hay resultados para [SEARCH_TERM]',
+          many_results: '[COUNT] resultados para [SEARCH_TERM]',
+          one_result: '1 resultado para [SEARCH_TERM]',
+          searching: 'Buscando…',
+        },
+      });
+
+      if (q) ui.triggerSearch(q);
+      if (aviso) aviso.textContent = 'Búsqueda de texto completo con Pagefind. Sin cookies.';
+    })();
+  </script>
+
+  <style is:global>
+    #pagefind-ui {
+      --pagefind-ui-primary: var(--brand);
+      --pagefind-ui-text: var(--ink);
+      --pagefind-ui-background: var(--surface);
+      --pagefind-ui-border: var(--line);
+      --pagefind-ui-tag: var(--brand-soft);
+      --pagefind-ui-border-width: 1px;
+      --pagefind-ui-border-radius: 12px;
+      --pagefind-ui-font: var(--font-sans);
+    }
+    #pagefind-ui .pagefind-ui__search-input {
+      font-size: 1.05rem;
+      padding: 0.9rem 1rem;
+    }
+    #pagefind-ui .pagefind-ui__result {
+      border-top: 1px solid var(--line);
+      padding: 1.25rem 0;
+    }
+    #pagefind-ui .pagefind-ui__result-title a {
+      color: var(--brand);
+    }
+    #pagefind-ui .pagefind-ui__result-excerpt {
+      color: var(--muted);
+    }
+  </style>
+</Base>

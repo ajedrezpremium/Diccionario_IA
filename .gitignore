@@ -1,0 +1,24 @@
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Build
+dist/
+.vercel/
+.netlify/
+.astro/
+
+# Entorno (NUNCA subir claves)
+.env
+.env.local
+.env.*.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# Generados en build (se regeneran solos)
+public/libro/*.pdf
+public/og/*.png
