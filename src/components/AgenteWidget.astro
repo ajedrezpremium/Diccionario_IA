@@ -377,7 +377,7 @@ import { SITE } from '../lib/site';
     const leerTexto = (texto) => {
       if (!soportaTTS) return;
       window.speechSynthesis.cancel();
-      const limpio = texto.replace(/\[\[SUGERENCIA:[^\]]*\]\]/g, '').replace(/\\[([^\\]]+)\\]\\([^)]+\\)/g, '$1').replace(/[*`]/g, '');
+      const limpio = texto.replace(/\[\[SUGERENCIA:[^\]]*\]\]/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*`]/g, '');
       const u = new SpeechSynthesisUtterance(limpio);
       const voz = obtenerVoz();
       if (voz) u.voice = voz;
