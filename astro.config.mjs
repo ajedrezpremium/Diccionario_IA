@@ -1,12 +1,21 @@
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
-import { loadEnv } from 'vite';
+import { readFileSync } from 'node:fs';
 import rehypeEnlazarTerminos from './src/lib/rehype-enlazar.mjs';
 
-const env = loadEnv(process.env.NODE_ENV ?? 'production', process.cwd(), '');
+function leerEnv(clave) {
+  try {
+    const texto = readFileSync('.env', 'utf8');
+    const m = texto.match(new RegExp(`^${clave}=\"?(.*?)\"?$`, 'm'));
+    return m ? m[1].trim() : '';
+  } catch {
+    return '';
+  }
+}
+
 const site =
   process.env.PUBLIC_SITE_URL ||
-  env.PUBLIC_SITE_URL ||
+  leerEnv('PUBLIC_SITE_URL') ||
   'https://diccionario-ia.vercel.app';
 
 export default defineConfig({
