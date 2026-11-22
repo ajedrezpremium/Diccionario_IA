@@ -27,6 +27,40 @@ import { SITE } from '../lib/site';
       <div class="flex items-center gap-1">
         <button
           type="button"
+          data-grande
+          class="boton boton-fantasma !px-2 !py-1.5 text-xs"
+          title="Ampliar o reducir el panel"
+          aria-label="Ampliar o reducir el panel"
+          aria-pressed="false"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
+          </svg>
+        </button>
+        <button
+          type="button"
+          data-voz
+          class="boton boton-fantasma !px-2 !py-1.5 text-xs"
+          title="Cambiar voz (masculina/femenina)"
+          aria-label="Cambiar voz"
+        >
+          <span data-voz-etiqueta class="font-mono text-[0.65rem] font-bold">♀</span>
+        </button>
+        <button
+          type="button"
+          data-tts
+          class="boton boton-fantasma !px-2 !py-1.5 text-xs"
+          title="Leer respuestas en voz alta"
+          aria-label="Leer respuestas en voz alta"
+          aria-pressed="false"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M11 5 6 9H2v6h4l5 4V5Z"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+        <button
+          type="button"
           data-reiniciar
           class="boton boton-fantasma !px-2 !py-1.5 text-xs"
           title="Nueva conversación"
@@ -80,6 +114,18 @@ import { SITE } from '../lib/site';
           placeholder="Pregunta lo que quieras sobre IA…"
           class="campo max-h-28 min-h-[44px] resize-none !py-2.5 text-sm"
         ></textarea>
+        <button
+          type="button"
+          data-mic
+          class="boton boton-secundario !h-11 !w-11 shrink-0 !p-0"
+          aria-label="Dictar por voz"
+          title="Dictar por voz"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="9" y="2" width="6" height="12" rx="3"></rect>
+            <path d="M5 10a7 7 0 0 0 14 0M12 19v3"></path>
+          </svg>
+        </button>
         <button
           type="submit"
           data-enviar
@@ -135,6 +181,47 @@ import { SITE } from '../lib/site';
     padding: 0.05rem 0.3rem;
     border-radius: 0.3rem;
   }
+  #panel-agente.agente-grande {
+    width: min(92vw, 760px);
+    height: min(88vh, 780px);
+    top: 6vh;
+  }
+  .agente-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.6rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .agente-acciones button {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .agente-acciones button:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+  .agente-acciones button.activo {
+    background: var(--brand-soft);
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+  .mic-grabando {
+    background: var(--danger) !important;
+    color: #fff !important;
+    animation: pulso-mic 1s ease-in-out infinite;
+  }
+  @keyframes pulso-mic {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
   .puntos::after {
     content: '';
     display: inline-block;
@@ -171,6 +258,46 @@ import { SITE } from '../lib/site';
     let cargando = false;
     let bienvenidaMostrada = false;
     const sugerenciasEnviadas = new Set();
+
+    let grande = localStorage.getItem('agente-grande') === '1';
+    let vozGenero = localStorage.getItem('agente-voz') || 'femenina';
+    let ttsActivo = localStorage.getItem('agente-tts') === '1';
+    let grabando = false;
+    let reconocimiento = null;
+
+    const soportaTTS = 'speechSynthesis' in window;
+    const SoporteSTT = 'SpeechRecognition' in window || 'webkitSpeechRecognition' in window;
+
+    const aplicarGrande = () => {
+      panel.classList.toggle('agente-grande', grande);
+      const btn = raiz.querySelector('[data-grande]');
+      if (btn) btn.setAttribute('aria-pressed', String(grande));
+    };
+    aplicarGrande();
+
+    const actualizarEtiquetaVoz = () => {
+      const etiqueta = raiz.querySelector('[data-voz-etiqueta]');
+      if (etiqueta) etiqueta.textContent = vozGenero === 'masculina' ? '♂' : '♀';
+      const btn = raiz.querySelector('[data-voz]');
+      if (btn) btn.title = `Voz ${vozGenero}`;
+    };
+    actualizarEtiquetaVoz();
+
+    const actualizarTTS = () => {
+      const btn = raiz.querySelector('[data-tts]');
+      if (btn) btn.setAttribute('aria-pressed', String(ttsActivo));
+      btn?.classList.toggle('activo', ttsActivo);
+    };
+    actualizarTTS();
+
+    // Ocultar botones no soportados
+    if (!soportaTTS) {
+      raiz.querySelector('[data-tts]')?.setAttribute('hidden', '');
+      raiz.querySelector('[data-voz]')?.setAttribute('hidden', '');
+    }
+    if (!SoporteSTT) {
+      raiz.querySelector('[data-mic]')?.setAttribute('hidden', '');
+    }
 
     const escapar = (texto) =>
       texto.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -234,6 +361,117 @@ import { SITE } from '../lib/site';
       } catch {
         /* silencioso: no debe romper el chat */
       }
+    };
+
+    const obtenerVoz = () => {
+      if (!soportaTTS) return null;
+      const voces = window.speechSynthesis.getVoices();
+      const es = voces.filter((v) => (v.lang || '').toLowerCase().startsWith('es'));
+      if (es.length === 0) return voces[0] || null;
+      const pista = vozGenero === 'masculina'
+        ? /(male|hombre|pablo|diego|jorge|carlos|david|google.*español.*male)/i
+        : /(female|mujer|lucia|lucía|elena|maria|maría|paulina|google.*español.*female)/i;
+      return es.find((v) => pista.test(v.name)) || es[0];
+    };
+
+    const leerTexto = (texto) => {
+      if (!soportaTTS) return;
+      window.speechSynthesis.cancel();
+      const limpio = texto.replace(/\[\[SUGERENCIA:[^\]]*\]\]/g, '').replace(/\\[([^\\]]+)\\]\\([^)]+\\)/g, '$1').replace(/[*`]/g, '');
+      const u = new SpeechSynthesisUtterance(limpio);
+      const voz = obtenerVoz();
+      if (voz) u.voice = voz;
+      u.lang = 'es-ES';
+      u.rate = 1.02;
+      u.pitch = vozGenero === 'masculina' ? 0.95 : 1.05;
+      window.speechSynthesis.speak(u);
+    };
+
+    const copiarTexto = async (texto) => {
+      try {
+        await navigator.clipboard.writeText(texto);
+        return true;
+      } catch {
+        return false;
+      }
+    };
+
+    const urlCompartir = (red, texto) => {
+      const t = encodeURIComponent(texto.slice(0, 280));
+      const u = encodeURIComponent(location.href);
+      if (red === 'whatsapp') return `https://wa.me/?text=${t}%20${u}`;
+      if (red === 'x') return `https://twitter.com/intent/tweet?text=${t}&url=${u}`;
+      if (red === 'linkedin') return `https://www.linkedin.com/sharing/share-offsite/?url=${u}`;
+      if (red === 'telegram') return `https://t.me/share/url?url=${u}&text=${t}`;
+      return '';
+    };
+
+    const descargarTexto = (texto) => {
+      const blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'conversacion-diccionario-ia.txt';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    };
+
+    const añadirAcciones = (contenedor, texto) => {
+      const acciones = document.createElement('div');
+      acciones.className = 'agente-acciones';
+
+      const btnCopiar = document.createElement('button');
+      btnCopiar.type = 'button';
+      btnCopiar.textContent = 'Copiar';
+      btnCopiar.addEventListener('click', async () => {
+        const ok = await copiarTexto(texto);
+        btnCopiar.textContent = ok ? 'Copiado ✓' : 'Error';
+        setTimeout(() => (btnCopiar.textContent = 'Copiar'), 1400);
+      });
+
+      const btnLeer = document.createElement('button');
+      btnLeer.type = 'button';
+      btnLeer.textContent = 'Leer';
+      btnLeer.addEventListener('click', () => leerTexto(texto));
+
+      const btnWA = document.createElement('button');
+      btnWA.type = 'button';
+      btnWA.textContent = 'WhatsApp';
+      btnWA.addEventListener('click', () => window.open(urlCompartir('whatsapp', texto), '_blank', 'noopener'));
+
+      const btnX = document.createElement('button');
+      btnX.type = 'button';
+      btnX.textContent = 'X';
+      btnX.addEventListener('click', () => window.open(urlCompartir('x', texto), '_blank', 'noopener'));
+
+      const btnTG = document.createElement('button');
+      btnTG.type = 'button';
+      btnTG.textContent = 'Telegram';
+      btnTG.addEventListener('click', () => window.open(urlCompartir('telegram', texto), '_blank', 'noopener'));
+
+      const btnDL = document.createElement('button');
+      btnDL.type = 'button';
+      btnDL.textContent = 'Descargar';
+      btnDL.addEventListener('click', () => descargarTexto(texto));
+
+      const btnCompartir = document.createElement('button');
+      btnCompartir.type = 'button';
+      btnCompartir.textContent = 'Compartir';
+      btnCompartir.addEventListener('click', async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: 'Diccionario IA', text: texto.slice(0, 500), url: location.href });
+          } catch {
+            /* cancelado */
+          }
+        } else {
+          const ok = await copiarTexto(texto);
+          btnCompartir.textContent = ok ? 'Copiado ✓' : 'Copiar';
+          setTimeout(() => (btnCompartir.textContent = 'Compartir'), 1400);
+        }
+      });
+
+      [btnCopiar, btnLeer, btnWA, btnX, btnTG, btnCompartir, btnDL].forEach((b) => acciones.appendChild(b));
+      contenedor.appendChild(acciones);
     };
 
     const procesar = async (texto) => {
@@ -304,14 +542,15 @@ import { SITE } from '../lib/site';
           cuerpoIA.textContent = 'No he recibido respuesta. Prueba a reformular la pregunta.';
         } else {
           const marcador = acumulado.match(/\[\[SUGERENCIA:\s*([^\]]{2,80})\]\]/i);
+          let visible = acumulado.trim();
           if (marcador) {
-            const visible = acumulado.replace(marcador[0], '').trim();
-            cuerpoIA.innerHTML = formatear(visible);
-            historial.push({ role: 'assistant', content: visible });
+            visible = acumulado.replace(marcador[0], '').trim();
             enviarSugerencia(marcador[1].trim());
-          } else {
-            historial.push({ role: 'assistant', content: acumulado.trim() });
           }
+          cuerpoIA.innerHTML = formatear(visible);
+          historial.push({ role: 'assistant', content: visible });
+          añadirAcciones(cuerpoIA, visible);
+          if (ttsActivo) leerTexto(visible);
           window.plausible?.('Agente mensaje');
         }
       } catch (error) {
@@ -386,6 +625,73 @@ import { SITE } from '../lib/site';
     sugerencias?.querySelectorAll('[data-sugerencia]').forEach((boton) => {
       boton.addEventListener('click', () => procesar(boton.textContent || ''));
     });
+
+    raiz.querySelector('[data-grande]')?.addEventListener('click', () => {
+      grande = !grande;
+      localStorage.setItem('agente-grande', grande ? '1' : '0');
+      aplicarGrande();
+    });
+
+    raiz.querySelector('[data-voz]')?.addEventListener('click', () => {
+      vozGenero = vozGenero === 'masculina' ? 'femenina' : 'masculina';
+      localStorage.setItem('agente-voz', vozGenero);
+      actualizarEtiquetaVoz();
+      if (soportaTTS) window.speechSynthesis.cancel();
+    });
+
+    raiz.querySelector('[data-tts]')?.addEventListener('click', () => {
+      ttsActivo = !ttsActivo;
+      localStorage.setItem('agente-tts', ttsActivo ? '1' : '0');
+      actualizarTTS();
+      if (!ttsActivo && soportaTTS) window.speechSynthesis.cancel();
+    });
+
+    const micBtn = raiz.querySelector('[data-mic]');
+    if (micBtn && SoporteSTT) {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      micBtn.addEventListener('click', () => {
+        if (grabando) {
+          reconocimiento?.stop();
+          return;
+        }
+        reconocimiento = new SR();
+        reconocimiento.lang = 'es-ES';
+        reconocimiento.interimResults = true;
+        reconocimiento.continuous = false;
+        grabando = true;
+        micBtn.classList.add('mic-grabando');
+        input.placeholder = 'Escuchando…';
+        reconocimiento.onresult = (e) => {
+          let texto = '';
+          for (let i = e.resultIndex; i < e.results.length; i++) texto += e.results[i][0].transcript;
+          input.value = texto;
+          input.style.height = 'auto';
+          input.style.height = Math.min(input.scrollHeight, 112) + 'px';
+        };
+        reconocimiento.onend = () => {
+          grabando = false;
+          micBtn.classList.remove('mic-grabando');
+          input.placeholder = 'Pregunta lo que quieras sobre IA…';
+          reconocimiento = null;
+        };
+        reconocimiento.onerror = () => {
+          grabando = false;
+          micBtn.classList.remove('mic-grabando');
+          input.placeholder = 'Pregunta lo que quieras sobre IA…';
+        };
+        try {
+          reconocimiento.start();
+        } catch {
+          grabando = false;
+          micBtn.classList.remove('mic-grabando');
+          input.placeholder = 'Pregunta lo que quieras sobre IA…';
+        }
+      });
+    }
+
+    if (soportaTTS) {
+      window.speechSynthesis.onvoiceschanged = () => obtenerVoz();
+    }
 
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && !panel.classList.contains('hidden')) cerrarPanel();
