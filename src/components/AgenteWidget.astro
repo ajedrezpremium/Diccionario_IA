@@ -260,7 +260,7 @@ import { SITE } from '../lib/site';
         const res = await fetch('/api/agente', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ messages: historial.slice(-8) }),
+          body: JSON.stringify({ messages: historial.slice(-8), contexto: `${document.title || ''} | ${location.pathname}` }),
         });
 
         const tipo = res.headers.get('content-type') || '';

@@ -22,3 +22,6 @@ npm-debug.log*
 # Generados en build (se regeneran solos)
 public/libro/*.pdf
 public/og/*.png
+
+.vercel
+.env*

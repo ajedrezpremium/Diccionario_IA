@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { llamarModelo, sanearMensajes, configAgente } from '../../lib/server/agente';
+import { llamarModelo, sanearMensajes, sanearContexto, configAgente } from '../../lib/server/agente';
 import { hashIp, limitarPeticiones } from '../../lib/server/rate-limit';
 
 export const prerender = false;
@@ -71,6 +71,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   const mensajes = sanearMensajes((cuerpo as { messages?: unknown })?.messages);
+  const contexto = sanearContexto((cuerpo as { contexto?: unknown })?.contexto);
   if (mensajes.length === 0 || mensajes[mensajes.length - 1].role !== 'user') {
     return json(
       { error: 'mensaje_invalido', mensaje: 'Escribe una pregunta para poder responder.' },
@@ -90,5 +91,5 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     );
   }
 
-  return llamarModelo(mensajes);
+  return llamarModelo(mensajes, contexto);
 };
