@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
 import { readFileSync } from 'node:fs';
 import rehypeEnlazarTerminos from './src/lib/rehype-enlazar.mjs';
+import { execSync } from 'node:child_process';
 
 function leerEnv(clave) {
   try {
@@ -28,6 +29,16 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [rehypeEnlazarTerminos],
   },
+  integrations: [
+    {
+      name: 'pagefind',
+      hooks: {
+        'astro:build:done': () => {
+          execSync(`npx pagefind --site "${process.cwd()}/dist"`, { stdio: 'inherit' });
+        },
+      },
+    },
+  ],
   build: {
     format: 'directory',
   },
