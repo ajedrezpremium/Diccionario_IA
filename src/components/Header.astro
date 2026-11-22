@@ -69,15 +69,14 @@ const activo = (href: string) => ruta === href || ruta.startsWith(href + '/');
       </button>
 
       <a
-        href={SITE.agencyUrl}
-        rel="noopener"
-        target="_blank"
+        href="/diagnostico"
         class="boton boton-fantasma hidden !px-2.5 sm:inline-flex"
-        aria-label="Chess AI Agency, la agencia detrás del diccionario"
-        title="Chess AI Agency"
+        aria-label="Solicitar diagnóstico gratuito de IA para tu pyme"
+        title="Diagnóstico gratuito"
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M7 17 17 7M9 7h8v8"></path>
+          <path d="M9 11l3 3L22 4"></path>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
         </svg>
       </a>
 
@@ -113,6 +112,12 @@ const activo = (href: string) => ruta === href || ruta.startsWith(href + '/');
           </a>
         ))
       }
+      <a
+        href="/diagnostico"
+        class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand hover:bg-brand-soft"
+      >
+        Diagnóstico gratuito
+      </a>
       <a
         href={SITE.agencyUrl}
         rel="noopener"

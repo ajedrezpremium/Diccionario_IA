@@ -71,3 +71,52 @@ export async function avisarNuevoLead(email: string, origen: string): Promise<vo
     console.error('[mailer] no se pudo avisar del lead', error);
   }
 }
+
+export async function avisarNuevoDiagnostico(datos: Record<string, string>): Promise<void> {
+  const usuario = process.env.GMAIL_USER || '';
+  const password = process.env.GMAIL_APP_PASSWORD || process.env.GMAIL_API_KEY || '';
+  const destino = process.env.LEADS_NOTIFY_EMAIL || usuario;
+  if (!usuario || !password || !destino) return;
+
+  const filas = [
+    ['Nombre', datos.nombre],
+    ['Email', datos.email],
+    ['Empresa', datos.empresa],
+    ['Teléfono', datos.telefono || '—'],
+    ['Equipo', datos.empleados || '—'],
+    ['1. Tarea que roba tiempo', datos.p1],
+    ['2. Horas/euros que cuesta', datos.p2 || '—'],
+    ['3. Dónde están los datos', datos.p3 || '—'],
+    ['4. Quién revisará al agente', datos.p4 || '—'],
+    ['5. Disposición a invertir', datos.p5 || '—'],
+  ];
+
+  const texto = filas.map(([k, v]) => `${k}: ${v}`).join('\\n');
+
+  try {
+    const nodemailer = (await import('nodemailer')).default;
+    const transporte = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: { user: usuario, pass: password },
+    });
+
+    await transporte.sendMail({
+      from: `"${SITE.name}" <${usuario}>`,
+      to: destino,
+      subject: `Nuevo diagnóstico solicitado: ${datos.empresa} (${datos.nombre})`,
+      text: `Nuevo diagnóstico solicitado desde el diccionario.\\n\\n${texto}\\n\\nFecha: ${new Date().toISOString()}`,
+      html: `<div style="font-family:Segoe UI,Arial,sans-serif;max-width:560px;margin:0 auto;color:#17181d;line-height:1.6">
+        <p style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#5d6170;margin:0 0 8px">Diccionario IA · Diagnóstico</p>
+        <h1 style="font-family:Georgia,serif;font-size:22px;line-height:1.25;margin:0 0 16px">Nueva solicitud de diagnóstico</h1>
+        <table style="width:100%;border-collapse:collapse;font-size:14px">
+          ${filas.map(([k, v]) => `<tr><td style="padding:6px 0;font-weight:600;vertical-align:top;width:40%">${k}</td><td style="padding:6px 0">${String(v).replace(/</g, '&lt;')}</td></tr>`).join('')}
+        </table>
+        <p style="font-size:12px;color:#8a8f99;margin-top:16px">Fecha: ${new Date().toISOString()}</p>
+      </div>`,
+    });
+  } catch (error) {
+    console.error('[mailer] no se pudo avisar del diagnóstico', error);
+  }
+}

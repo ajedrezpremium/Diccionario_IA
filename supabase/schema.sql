@@ -91,8 +91,34 @@ alter table public.sugerencias enable row level security;
 alter table public.rate_limits enable row level security;
 
 -- ---------- Comprobación ----------
+-- ---------- Diagnósticos (solicitudes de contacto) ----------
+create table if not exists public.diagnosticos (
+  id            bigint generated always as identity primary key,
+  nombre        text        not null,
+  email         text        not null,
+  empresa       text        not null,
+  telefono      text,
+  empleados     text,
+  p1            text        not null,
+  p2            text,
+  p3            text,
+  p4            text,
+  p5            text,
+  consentimiento boolean    not null default true,
+  ip_hash       text,
+  user_agent    text,
+  creado_en     timestamptz not null default now()
+);
+
+create index if not exists diagnosticos_creado_en_idx on public.diagnosticos (creado_en desc);
+create index if not exists diagnosticos_email_idx on public.diagnosticos (email);
+
+alter table public.diagnosticos enable row level security;
+
 select 'leads' as tabla, count(*) as filas from public.leads
 union all
 select 'sugerencias', count(*) from public.sugerencias
 union all
-select 'rate_limits', count(*) from public.rate_limits;
+select 'rate_limits', count(*) from public.rate_limits
+union all
+select 'diagnosticos', count(*) from public.diagnosticos;

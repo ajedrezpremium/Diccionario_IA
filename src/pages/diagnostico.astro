@@ -1,0 +1,207 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../lib/site';
+
+const titulo = 'Diagnóstico gratuito de IA para tu pyme';
+const descripcion = 'Solicita un diagnóstico gratuito: te ayudamos a detectar qué procesos de tu pyme puedes automatizar con IA y cuáles no merecen la pena.';
+---
+
+<Base title={`${titulo} | ${SITE.name}`} description={descripcion} canonical="/diagnostico">
+  <header class="border-b border-line bg-bg-alt/40">
+    <div class="contenedor py-12 sm:py-16">
+      <p class="chip">Chess AI Agency · Diagnóstico gratuito</p>
+      <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+        ¿Por dónde empezar con la IA en tu negocio?
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+        En 90 minutos revisamos tus procesos, identificamos los 3 casos con más retorno y te
+        decimos cuáles no merecen la pena. Sin compromiso y sin humo. Rellena el formulario y
+        te contactamos en menos de 48 horas.
+      </p>
+    </div>
+  </header>
+
+  <div class="contenedor grid gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr]">
+    <form id="form-diagnostico" class="tarjeta p-6 sm:p-8" novalidate>
+      <h2 class="font-display text-2xl font-semibold">Cuéntanos tu caso</h2>
+      <p class="mt-2 text-sm text-muted">
+        Los datos se usan solo para preparar el diagnóstico. No los compartimos ni los usamos
+        para entrenar modelos.
+      </p>
+
+      <!-- Honeypot -->
+      <div class="hidden" aria-hidden="true">
+        <label for="empresa-hp">Empresa</label>
+        <input id="empresa-hp" name="empresa_hp" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="mt-6 grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="nombre" class="text-sm font-semibold">Nombre y apellidos *</label>
+          <input id="nombre" name="nombre" type="text" required autocomplete="name" class="campo mt-1.5" />
+        </div>
+        <div>
+          <label for="email" class="text-sm font-semibold">Email profesional *</label>
+          <input id="email" name="email" type="email" required autocomplete="email" class="campo mt-1.5" />
+        </div>
+        <div>
+          <label for="empresa" class="text-sm font-semibold">Empresa *</label>
+          <input id="empresa" name="empresa" type="text" required autocomplete="organization" class="campo mt-1.5" />
+        </div>
+        <div>
+          <label for="telefono" class="text-sm font-semibold">Teléfono (opcional)</label>
+          <input id="telefono" name="telefono" type="tel" autocomplete="tel" class="campo mt-1.5" />
+        </div>
+        <div class="sm:col-span-2">
+          <label for="empleados" class="text-sm font-semibold">Tamaño del equipo</label>
+          <select id="empleados" name="empleados" class="campo mt-1.5">
+            <option value="">Selecciona…</option>
+            <option value="1-5">1 a 5 personas</option>
+            <option value="6-20">6 a 20 personas</option>
+            <option value="21-50">21 a 50 personas</option>
+            <option value="51-200">51 a 200 personas</option>
+            <option value="200+">Más de 200</option>
+          </select>
+        </div>
+      </div>
+
+      <fieldset class="mt-7 space-y-5">
+        <legend class="font-display text-lg font-semibold">Las 5 preguntas de filtro</legend>
+        <p class="text-xs text-muted">
+          No hace falta que las respuestas sean perfectas. Nos sirven para preparar la llamada.
+        </p>
+
+        <div>
+          <label for="p1" class="text-sm font-semibold">1. ¿Qué tarea te roba más tiempo a la semana?</label>
+          <textarea id="p1" name="p1" rows="3" required class="campo mt-1.5" placeholder="Ej. responder emails de clientes, preparar presupuestos, clasificar facturas…"></textarea>
+        </div>
+        <div>
+          <label for="p2" class="text-sm font-semibold">2. ¿Cuántas horas o euros cuesta ahora?</label>
+          <input id="p2" name="p2" type="text" class="campo mt-1.5" placeholder="Ej. 8 horas/semana, o 500 €/mes en horas extra" />
+        </div>
+        <div>
+          <label for="p3" class="text-sm font-semibold">3. ¿Dónde están los datos de esa tarea?</label>
+          <input id="p3" name="p3" type="text" class="campo mt-1.5" placeholder="Ej. CRM, hoja de cálculo, email, papel" />
+        </div>
+        <div>
+          <label for="p4" class="text-sm font-semibold">4. ¿Quién va a revisar lo que haga el agente?</label>
+          <input id="p4" name="p4" type="text" class="campo mt-1.5" placeholder="Ej. yo mismo, el responsable de administración" />
+        </div>
+        <div>
+          <label for="p5" class="text-sm font-semibold">5. ¿Cuánto estás dispuesto a invertir para resolverlo?</label>
+          <select id="p5" name="p5" class="campo mt-1.5">
+            <option value="">Selecciona…</option>
+            <option value="menos-1000">Menos de 1.000 €</option>
+            <option value="1000-3000">Entre 1.000 y 3.000 €</option>
+            <option value="3000-6000">Entre 3.000 y 6.000 €</option>
+            <option value="6000+">Más de 6.000 €</option>
+            <option value="no-se">Aún no lo sé</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <div class="mt-6">
+        <label class="flex items-start gap-2.5 text-sm">
+          <input id="consentimiento" name="consentimiento" type="checkbox" required class="mt-1 h-4 w-4 rounded border-line" />
+          <span>
+            Acepto que Chess AI Agency me contacte para preparar el diagnóstico y he leído la
+            <a href="/privacidad" class="enlace" target="_blank" rel="noopener">política de privacidad</a>.
+          </span>
+        </label>
+      </div>
+
+      <div class="mt-7 flex flex-wrap items-center gap-3">
+        <button type="submit" class="boton boton-primario" data-enviar>Enviar solicitud</button>
+        <p id="estado-diagnostico" class="text-sm text-muted" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <aside class="space-y-5">
+      <div class="tarjeta p-6">
+        <p class="text-xs font-bold uppercase tracking-[0.12em] text-muted">Qué incluye</p>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Revisión de tus procesos actuales</li>
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> 3 casos de uso priorizados por retorno</li>
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Estimación de horas y coste ahorrados</li>
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Lista de lo que NO merece la pena automatizar</li>
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Propuesta de piloto con precio y plazo</li>
+        </ul>
+      </div>
+
+      <div class="tarjeta p-6">
+        <p class="text-xs font-bold uppercase tracking-[0.12em] text-muted">Cómo funciona</p>
+        <ol class="mt-3 space-y-2 text-sm">
+          <li class="flex gap-2"><span class="font-mono text-brand">01</span> Rellenas este formulario.</li>
+          <li class="flex gap-2"><span class="font-mono text-brand">02</span> Te contactamos en menos de 48 h.</li>
+          <li class="flex gap-2"><span class="font-mono text-brand">03</span> Llamada de 90 min por videollamada.</li>
+          <li class="flex gap-2"><span class="font-mono text-brand">04</span> Recibes el informe y la propuesta.</li>
+        </ol>
+      </div>
+
+      <div class="rounded-2xl border border-line bg-bg-alt p-6">
+        <p class="font-display text-lg font-semibold">¿Prefieres escribir directamente?</p>
+        <p class="mt-2 text-sm text-muted">
+          Escribe a <a href={`mailto:${SITE.email}`} class="enlace">{SITE.email}</a> y te
+          respondemos en menos de 24 horas.
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const form = document.getElementById('form-diagnostico');
+      const estado = document.getElementById('estado-diagnostico');
+      const boton = form?.querySelector('[data-enviar]');
+      if (!form || !estado || !boton) return;
+
+      const EMAIL = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/;
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        estado.textContent = '';
+        estado.className = 'text-sm text-muted';
+
+        const datos = Object.fromEntries(new FormData(form));
+        if (datos.empresa_hp) return; // honeypot
+
+        if (!datos.nombre || !datos.email || !datos.empresa || !datos.p1) {
+          estado.textContent = 'Completa los campos obligatorios.';
+          estado.className = 'text-sm text-danger';
+          return;
+        }
+        if (!EMAIL.test(String(datos.email))) {
+          estado.textContent = 'Escribe un email válido.';
+          estado.className = 'text-sm text-danger';
+          return;
+        }
+        if (datos.consentimiento !== 'on') {
+          estado.textContent = 'Necesitamos tu consentimiento para contactarte.';
+          estado.className = 'text-sm text-danger';
+          return;
+        }
+
+        boton.disabled = true;
+        boton.textContent = 'Enviando…';
+        try {
+          const res = await fetch('/api/diagnostico', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(datos),
+          });
+          const json = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(json.mensaje || 'No se pudo enviar la solicitud.');
+          form.reset();
+          estado.textContent = 'Solicitud recibida. Te contactamos en menos de 48 horas.';
+          estado.className = 'text-sm text-ok';
+        } catch (error) {
+          estado.textContent = error instanceof Error ? error.message : 'Error al enviar.';
+          estado.className = 'text-sm text-danger';
+        } finally {
+          boton.disabled = false;
+          boton.textContent = 'Enviar solicitud';
+        }
+      });
+    })();
+  </script>
+</Base>
