@@ -7,17 +7,21 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/validar-contenido.mjs && node scripts/generar-og.mjs && node scripts/generar-libro.mjs && astro build && node scripts/copiar-pagefind.mjs",
+    "build": "node scripts/validar-contenido.mjs && node scripts/generar-og.mjs && node scripts/generar-libro.mjs && node scripts/generar-libro-kdp.mjs && node scripts/generar-portada-kdp.mjs && node scripts/generar-ebook.mjs && astro build && node scripts/copiar-pagefind.mjs",
     "preview": "astro preview",
     "validar": "node scripts/validar-contenido.mjs",
     "claves": "node --env-file=.env scripts/comprobar-claves.mjs",
     "contenido": "node scripts/generar-contenido.mjs",
     "libro": "node scripts/generar-libro.mjs",
+    "libro-kdp": "node scripts/generar-libro-kdp.mjs",
+    "portada-kdp": "node scripts/generar-portada-kdp.mjs",
+    "ebook": "node scripts/generar-ebook.mjs",
     "og": "node scripts/generar-og.mjs",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/vercel": "^10.0.8",
+    "@tailwindcss/postcss": "^4.3.5",
     "astro": "^6.4.8",
     "nodemailer": "^10.6.1",
     "pdfkit": "^0.21.0",
@@ -25,7 +29,6 @@
     "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.5",
     "gray-matter": "^4.0.3",
     "pagefind": "^1.6.0"
   },

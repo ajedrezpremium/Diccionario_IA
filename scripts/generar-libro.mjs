@@ -72,7 +72,7 @@ function nuevaPagina() {
     doc.font('Helvetica').fontSize(8).fillColor(color).text(
       String(paginaActual),
       doc.page.width - 70,
-      doc.page.height - 55,
+      doc.page.height - 80,
       { width: 30, align: 'right', lineBreak: false },
     );
   }
