@@ -83,12 +83,15 @@ const paginasTermino = {};
 function nuevaPagina() {
   if (paginaActual > 0) {
     // footer number on current page (skip first page = cover)
+    const _sx = doc.x, _sy = doc.y;
+    doc.x = doc.page.width - MARGIN - 20;
+    doc.y = doc.page.height - 64;
     doc.font('Body').fontSize(8).fillColor('#888888').text(
       String(paginaActual),
-      doc.page.width - MARGIN - 20,
-      doc.page.height - 64,
-      { width: 20, align: 'right', lineBreak: false },
+      { lineBreak: false },
     );
+    doc.x = _sx;
+    doc.y = _sy;
   }
   doc.addPage();
   paginaActual++;

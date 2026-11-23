@@ -13,7 +13,9 @@ export const SITE = {
   edition: '10',
   year: 2026,
   updated: '2026-11-22',
-  pdf: '/libro/diccionario-ia.pdf',
+  pdf: '/libro/guia-rapida-ia-20-terminos.pdf',
+  pdfCompleto: '/libro/diccionario-ia.pdf',
+  amazon: 'https://www.amazon.es/s?k=Diccionario+de+IA+para+tu+negocio',
 } as const;
 
 export const NAV = [

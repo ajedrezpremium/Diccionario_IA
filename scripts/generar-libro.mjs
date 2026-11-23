@@ -69,12 +69,14 @@ function nuevaPagina() {
   if (paginaActual > 1) {
     const esSeparador = paginasSeparador.has(paginaActual);
     const color = esSeparador ? '#ffffff99' : '#9a9a9a';
+    const _sx = doc.x, _sy = doc.y;
     doc.font('Helvetica').fontSize(8).fillColor(color).text(
       String(paginaActual),
-      doc.page.width - 70,
-      doc.page.height - 80,
-      { width: 30, align: 'right', lineBreak: false },
+      doc.page.width - 40,
+      doc.page.height - 50,
     );
+    doc.x = _sx;
+    doc.y = _sy;
   }
   doc.addPage();
   paginaActual++;
@@ -105,6 +107,11 @@ doc.font('Helvetica').fontSize(13).fillColor('#ffffff').text(
 doc.rect(56, 500, 220, 1).fill('#8f8ad8');
 doc.font('Helvetica-Bold').fontSize(10).fillColor('#ffffff').text('EDICIÓN 2026', 56, 515, { characterSpacing: 1.5 });
 doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('100 términos · 8 bloques · checklist final', 56, 540);
+
+const logoPath = path.join(RAIZ, 'scripts', 'img-bw', 'logo-bw.png');
+doc.image(logoPath, 56, 560, { width: 50 });
+doc.font('Helvetica-Bold').fontSize(9).fillColor('#d4af37').text('Estrategia · Innovación · Ejecución', 116, 575, { characterSpacing: 0.5 });
+
 doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com', 56, doc.page.height - 60);
 
 // ---------- Créditos ----------
@@ -372,6 +379,9 @@ for (const [sigla, desc] of siglas) {
 
 // ---------- Sobre Chess AI Agency ----------
 nuevaPagina();
+const logoPath3 = path.join(RAIZ, 'scripts', 'img-bw', 'logo-bw.png');
+doc.image(logoPath3, (doc.page.width - 80) / 2, 60, { width: 80 });
+doc.moveDown(4);
 doc.fillColor(TINTA).font('Helvetica-Bold').fontSize(24).text('Sobre Chess AI Agency');
 doc.moveDown(0.6);
 doc.font('Times-Roman').fontSize(11).fillColor(GRIS).text(
@@ -386,6 +396,10 @@ doc.text(
 doc.moveDown(0.6);
 doc.text('Contacto: agency.ajedrezpremium.com', { lineGap: 4 });
 
+const webImgPath = path.join(RAIZ, 'scripts', 'img-bw', 'web-bw.png');
+doc.moveDown(1);
+doc.image(webImgPath, 56, doc.y, { width: ANCHO });
+
 // ---------- Contraportada ----------
 nuevaPagina();
 doc.rect(0, 0, doc.page.width, doc.page.height).fill('#2c2878');
@@ -396,6 +410,10 @@ for (let gy = 0; gy < doc.page.height; gy += 40) {
   doc.moveTo(0, gy).lineTo(doc.page.width, gy).strokeColor('#ffffff08').lineWidth(0.5).stroke();
 }
 doc.rect(0, 0, 14, doc.page.height).fill('#f0b46a');
+const logoPath2 = path.join(RAIZ, 'scripts', 'img-bw', 'logo-bw.png');
+doc.image(logoPath2, 56, 120, { width: 60 });
+doc.font('Helvetica-Bold').fontSize(9).fillColor('#d4af37').text('Estrategia · Innovación · Ejecución', 126, 135, { characterSpacing: 0.5 });
+
 doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(14).text('ENTIENDE LA IA ANTES DE COMPRARLA', 56, 200, { characterSpacing: 1.5 });
 doc.font('Helvetica').fontSize(12).fillColor('#dcd8ff').text('100 términos · 8 bloques · checklist final', 56, 240);
 doc.font('Times-Roman').fontSize(11).fillColor('#ffffff').text(
@@ -406,13 +424,7 @@ doc.font('Helvetica-Bold').fontSize(11).fillColor('#f0b46a').text('¿Quieres que
 doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('Solicita un diagnóstico gratuito en agency.ajedrezpremium.com', 56, 405);
 doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com · diccionario-ia-livid.vercel.app', 56, doc.page.height - 60);
 
-// ---------- Relleno para impresión (múltiplo de 4) ----------
-const paginasAntesRelleno = doc.bufferedPageRange().count;
-const faltantes = (4 - (paginasAntesRelleno % 4)) % 4;
-const ultimaPaginaContenido = paginasAntesRelleno;
-for (let i = 0; i < faltantes; i++) {
-  doc.addPage();
-}
+// (Sin relleno: se eliminan las páginas en blanco)
 
 // (footer numbering moved to end of document)
 
@@ -444,24 +456,6 @@ doc.font('Times-Roman').fontSize(9).fillColor('#888').text(
   'Los números de página de cada término aparecen en el índice alfabético del final.',
   { lineGap: 2 },
 );
-
-// ---------- Numeración de páginas ----------
-const rangoFinal = doc.bufferedPageRange();
-const paginasSeparadorFinal = new Set(Object.values(paginasBloque));
-for (let i = 0; i < rangoFinal.count; i++) {
-  const numPag = i + 1;
-  if (numPag > ultimaPaginaContenido) continue; // skip padding pages
-  if (numPag === 1) continue; // skip cover
-  doc.switchToPage(rangoFinal.start + i);
-  const esSeparador = paginasSeparadorFinal.has(numPag);
-  const color = esSeparador ? '#ffffff99' : '#9a9a9a';
-  doc.y = doc.page.height - 55;
-  doc.x = doc.page.width - 70;
-  doc.font('Helvetica').fontSize(8).fillColor(color).text(
-    String(numPag),
-    { width: 30, align: 'right', lineBreak: false },
-  );
-}
 
 doc.end();
 

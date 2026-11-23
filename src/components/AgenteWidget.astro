@@ -148,20 +148,119 @@ import { SITE } from '../lib/site';
   <button
     type="button"
     data-abrir
-    class="flex items-center gap-2 rounded-full bg-brand px-4 py-3 font-semibold text-brand-ink shadow-lg transition-transform hover:-translate-y-0.5 sm:px-5"
+    class="robot-btn"
+    aria-label="Abrir asistente de IA"
     aria-expanded="false"
     aria-controls="panel-agente"
   >
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-      <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path>
-      <path d="M8 9h8M8 13h5"></path>
+    <svg viewBox="0 0 64 64" class="robot-svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#6d4bb5" />
+          <stop offset="100%" stop-color="#3f3aa8" />
+        </linearGradient>
+        <radialGradient id="eye" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" />
+          <stop offset="100%" stop-color="#cfcbf5" />
+        </radialGradient>
+      </defs>
+      <!-- antenna -->
+      <line x1="32" y1="8" x2="32" y2="16" stroke="#f0b46a" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="32" cy="7" r="3.2" fill="#f0b46a" />
+      <!-- ears -->
+      <rect x="6" y="27" width="6" height="13" rx="3" fill="#d4d0f5" opacity="0.85" />
+      <rect x="52" y="27" width="6" height="13" rx="3" fill="#d4d0f5" opacity="0.85" />
+      <!-- head -->
+      <rect x="13" y="16" width="38" height="32" rx="12" fill="url(#rg)" />
+      <rect x="13" y="16" width="38" height="32" rx="12" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.2" />
+      <!-- visor -->
+      <rect x="18" y="24" width="28" height="13" rx="6.5" fill="#14122e" opacity="0.9" />
+      <!-- eyes -->
+      <circle class="robot-eye" cx="25" cy="30.5" r="3.6" fill="url(#eye)" />
+      <circle class="robot-eye" cx="39" cy="30.5" r="3.6" fill="url(#eye)" />
+      <!-- smile -->
+      <path d="M26 42 Q32 46 38 42" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.9" />
     </svg>
-    <span class="hidden text-sm sm:inline">Preguntar a la IA</span>
-    <span class="text-sm sm:hidden">IA</span>
+    <span class="robot-tooltip">Preguntar a la IA</span>
   </button>
 </div>
 
 <style>
+  .robot-btn {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    filter: drop-shadow(0 6px 14px rgba(63, 58, 168, 0.4));
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  .robot-btn::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(63,58,168,0.35), transparent 70%);
+    animation: robot-pulse 2.4s ease-in-out infinite;
+    z-index: -1;
+  }
+  .robot-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    filter: drop-shadow(0 10px 20px rgba(63, 58, 168, 0.55));
+  }
+  .robot-btn:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+  .robot-svg {
+    width: 100%;
+    height: 100%;
+  }
+  .robot-eye {
+    animation: robot-blink 4.2s infinite;
+    transform-origin: center;
+  }
+  .robot-tooltip {
+    position: absolute;
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%) translateX(6px);
+    background: var(--ink);
+    color: var(--surface);
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 6px 10px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  .robot-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-left-color: var(--ink);
+  }
+  .robot-btn:hover .robot-tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+  @keyframes robot-pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.12); }
+  }
+  @keyframes robot-blink {
+    0%, 92%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.15); }
+  }
   .burbuja-ia :global(p) {
     margin: 0 0 0.55rem;
   }

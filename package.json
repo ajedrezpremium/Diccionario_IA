@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/validar-contenido.mjs && node scripts/generar-og.mjs && node scripts/generar-libro.mjs && node scripts/generar-libro-kdp.mjs && node scripts/generar-portada-kdp.mjs && node scripts/generar-ebook.mjs && astro build && node scripts/copiar-pagefind.mjs",
+    "build": "node scripts/validar-contenido.mjs && node scripts/generar-og.mjs && node scripts/generar-libro.mjs && node scripts/generar-libro-kdp.mjs && node scripts/generar-portada-kdp.mjs && node scripts/generar-ebook.mjs && node scripts/generar-guia-rapida.mjs && astro build && node scripts/copiar-pagefind.mjs",
     "preview": "astro preview",
     "validar": "node scripts/validar-contenido.mjs",
     "claves": "node --env-file=.env scripts/comprobar-claves.mjs",
@@ -16,6 +16,7 @@
     "libro-kdp": "node scripts/generar-libro-kdp.mjs",
     "portada-kdp": "node scripts/generar-portada-kdp.mjs",
     "ebook": "node scripts/generar-ebook.mjs",
+    "guia-rapida": "node scripts/generar-guia-rapida.mjs",
     "og": "node scripts/generar-og.mjs",
     "astro": "astro"
   },

@@ -13,20 +13,20 @@ const conteos = contarPorCategoria();
 const muestra = DESTACADOS.slice(0, 6);
 const faq = [
   {
-    p: '¿El libro es realmente gratis?',
-    r: 'Sí. Solo pedimos tu email para enviártelo y avisarte cuando haya una edición nueva. No hay coste ni suscripción obligatoria.',
+    p: '¿La guía es realmente gratis?',
+    r: 'Sí. Solo pedimos tu email para enviártela y avisarte cuando haya novedades. No hay coste ni suscripción obligatoria.',
   },
   {
-    p: '¿En qué formato está?',
-    r: 'En PDF, pensado para leer en móvil, tablet u ordenador. Puedes imprimirlo si lo prefieres.',
+    p: '¿Cuántos términos incluye la guía gratis?',
+    r: '20 términos esenciales con definición, ejemplo de negocio y aplicación práctica. Es una introducción, no el libro completo.',
   },
   {
-    p: '¿Puedo compartirlo con mi equipo?',
+    p: '¿Dónde está el libro completo de 100 términos?',
+    r: 'En Amazon: tapa blanda (14,99 €) y ebook (6,99 €). Incluye los 100 términos, errores frecuentes, FAQ, índice alfabético y checklist ampliado.',
+  },
+  {
+    p: '¿Puedo compartir la guía con mi equipo?',
     r: 'Puedes compartir el enlace de descarga con tu equipo. No lo revendas ni lo publiques como si fuera tuyo.',
-  },
-  {
-    p: '¿Con qué frecuencia se actualiza?',
-    r: `Esta es la edición ${SITE.version}, con ${TOTAL_TERMINOS} términos. La revisamos cuando cambia el sector o añadimos fichas nuevas.`,
   },
 ];
 
@@ -34,11 +34,11 @@ const bloques = [
   jsonLd({
     '@context': 'https://schema.org',
     '@type': 'Book',
-    name: 'Diccionario de IA para tu negocio',
-    description: `Edición ${SITE.version} con ${TOTAL_TERMINOS} términos de inteligencia artificial explicados en español y aplicados a pymes.`,
+    name: 'Guía rápida de IA para tu negocio',
+    description: '20 términos esenciales de inteligencia artificial explicados en español y aplicados a pymes.',
     inLanguage: 'es',
     bookFormat: 'https://schema.org/EBook',
-    author: { '@type': 'Person', name: SITE.author },
+    author: { '@type': 'Organization', name: SITE.author },
     publisher: { '@type': 'Organization', name: SITE.agency },
     url: urlAbsoluta('/libro'),
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', availability: 'https://schema.org/InStock' },
@@ -47,8 +47,8 @@ const bloques = [
 ---
 
 <Base
-  title={`Libro de IA en PDF gratis (${TOTAL_TERMINOS} términos) | ${SITE.name}`}
-  description={`Descarga gratis el Diccionario de IA para tu negocio: ${TOTAL_TERMINOS} términos en español, ejemplos reales y checklist de automatización. Edición ${SITE.version}.`}
+  title={`Guía rápida de IA en PDF gratis (20 términos) | ${SITE.name}`}
+  description="Descarga gratis la Guía rápida de IA para tu negocio: 20 términos esenciales en español, con ejemplos reales y checklist inicial. El libro completo de 100 términos está en Amazon."
   canonical="/libro"
   image="/og/portada.png"
   jsonLd={bloques}
@@ -57,20 +57,20 @@ const bloques = [
     <div class="fondo-cuadricula pointer-events-none absolute inset-0 opacity-50" aria-hidden="true"></div>
     <div class="contenedor relative grid gap-12 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
       <div>
-        <p class="chip">Lead magnet · Edición {SITE.version}</p>
+        <p class="chip">Guía gratuita · 20 términos</p>
         <h1 class="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
-          El diccionario completo,<br />
+          Una introducción clara,<br />
           <span class="texto-degradado">en tu bandeja de entrada</span>
         </h1>
         <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-          {TOTAL_TERMINOS} términos de IA explicados en español, ordenados por categoría, con
-          ejemplos de negocio y una checklist para decidir qué automatizar primero. Gratis y sin
-          spam.
+          20 términos esenciales de IA explicados en español, con ejemplos de negocio y un
+          checklist inicial. Gratis y sin spam. Si quieres el diccionario completo de {TOTAL_TERMINOS}
+          términos, lo tienes en <a href={SITE.amazon} class="enlace" target="_blank" rel="noopener">Amazon</a>.
         </p>
         <ul class="mt-6 space-y-2 text-sm">
-          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Lectura ágil: definición, ejemplo y aplicación práctica</li>
-          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Índice alfabético y por categorías</li>
-          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Actualizado en {SITE.year}, en español de España</li>
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> 20 términos clave, sin jerga innecesaria</li>
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Ejemplos reales y checklist para empezar</li>
+          <li class="flex items-start gap-2"><span class="mt-0.5 text-ok">✓</span> Libro completo: tapa blanda 14,99 € · ebook 6,99 €</li>
         </ul>
       </div>
 
@@ -79,12 +79,12 @@ const bloques = [
           <div class="absolute inset-0 translate-x-3 translate-y-3 rounded-r-lg rounded-l-sm bg-accent/30" aria-hidden="true"></div>
           <div class="relative aspect-[3/4] overflow-hidden rounded-r-xl rounded-l-sm border border-brand/30 bg-gradient-to-br from-[#2c2878] via-[#3f3aa8] to-[#6d4bb5] p-6 text-white shadow-2xl">
             <div class="absolute inset-y-0 left-0 w-2 bg-black/20" aria-hidden="true"></div>
-            <p class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-white/70">Edición {SITE.version}</p>
-            <p class="mt-8 font-display text-3xl font-semibold leading-none">Diccionario<br />de IA</p>
+            <p class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-white/70">Guía gratuita · 2026</p>
+            <p class="mt-8 font-display text-3xl font-semibold leading-none">Guía rápida<br />de IA</p>
             <p class="mt-3 text-xs text-white/80">para tu negocio</p>
             <div class="mt-8 h-px w-10 bg-white/40"></div>
             <p class="mt-4 text-[0.65rem] leading-relaxed text-white/80">
-              {TOTAL_TERMINOS} términos<br />Explicados sin jerga<br />Ejemplos reales
+              20 términos<br />Explicados sin jerga<br />Ejemplos reales
             </p>
             <p class="absolute bottom-5 left-6 right-6 text-[0.6rem] uppercase tracking-[0.16em] text-white/60">
               Chess AI Agency

@@ -3,11 +3,11 @@ import { SITE, urlAbsoluta } from '../site';
 function plantillaLibro(): string {
   const enlace = urlAbsoluta(SITE.pdf);
   return `<div style="font-family:Segoe UI,Arial,sans-serif;max-width:560px;margin:0 auto;color:#17181d;line-height:1.6">
-  <p style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#5d616b;margin:0 0 8px">Diccionario IA · ${SITE.version}</p>
-  <h1 style="font-family:Georgia,serif;font-size:26px;line-height:1.25;margin:0 0 16px">Tu libro ya está listo</h1>
-  <p>Gracias por pedir el <strong>Diccionario de IA para tu negocio</strong>. Dentro encontrarás los 100 términos explicados en español, con ejemplos reales y una guía para detectar qué puedes automatizar primero.</p>
+  <p style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#5d616b;margin:0 0 8px">Diccionario IA · Guía gratuita</p>
+  <h1 style="font-family:Georgia,serif;font-size:26px;line-height:1.25;margin:0 0 16px">Tu guía ya está lista</h1>
+  <p>Gracias por pedir la <strong>Guía rápida de IA para tu negocio</strong>. Dentro encontrarás 20 términos esenciales explicados en español, con ejemplos reales y un checklist para empezar.</p>
   <p style="margin:24px 0">
-    <a href="${enlace}" style="background:#3f3aa8;color:#fff;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:600;display:inline-block">Descargar el PDF</a>
+    <a href="${enlace}" style="background:#3f3aa8;color:#fff;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:600;display:inline-block">Descargar la guía</a>
   </p>
   <p style="font-size:14px;color:#5d616b">Si el botón no funciona, copia este enlace:<br><a href="${enlace}" style="color:#3f3aa8">${enlace}</a></p>
   <hr style="border:none;border-top:1px solid #e2ddd2;margin:24px 0">
@@ -34,8 +34,8 @@ export async function enviarLibroPorEmail(email: string): Promise<{ ok: boolean;
     await transporte.sendMail({
       from: `"${process.env.GMAIL_FROM_NAME || SITE.name}" <${usuario}>`,
       to: email,
-      subject: 'Tu Diccionario de IA en PDF (100 términos)',
-      text: `Gracias por pedir el Diccionario de IA. Descárgalo aquí: ${urlAbsoluta(SITE.pdf)}\n\n¿Quieres aplicarlo a tu negocio? Responde a este correo.\n\nChess AI Agency · ${SITE.agencyUrl}`,
+      subject: 'Tu Guía rápida de IA para tu negocio (20 términos)',
+      text: `Gracias por pedir la Guía rápida de IA para tu negocio (20 términos). Descárgala aquí: ${urlAbsoluta(SITE.pdf)}\n\n¿Quieres los 100 términos? Búscalo en Amazon: ${SITE.amazon}\n\nChess AI Agency · ${SITE.agencyUrl}`,
       html: plantillaLibro(),
     });
 

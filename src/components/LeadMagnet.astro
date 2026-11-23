@@ -11,8 +11,8 @@ interface Props {
 const {
   origen = 'general',
   compacto = false,
-  titulo = 'El Diccionario de IA para tu negocio, en PDF',
-  texto = 'Los 100 términos, ordenados por categoría y con ejemplos reales. Te lo enviamos gratis y sin spam.',
+  titulo = 'Guía rápida de IA para tu negocio',
+  texto = '20 términos esenciales explicados en español, con ejemplos reales. Te la enviamos gratis y sin spam.',
 } = Astro.props;
 ---
 
@@ -26,7 +26,7 @@ const {
   <div class="pointer-events-none absolute -bottom-20 -right-16 h-56 w-56 rounded-full bg-accent/10 blur-3xl" aria-hidden="true"></div>
   <div class="relative grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-center">
     <div>
-      <p class="text-xs font-bold uppercase tracking-[0.12em] text-accent">Libro digital · {SITE.version}</p>
+      <p class="text-xs font-bold uppercase tracking-[0.12em] text-accent">Guía gratuita · 20 términos</p>
       <h2
         id={`titulo-libro-${origen}`}
         class="mt-2 font-display text-2xl font-semibold leading-tight tracking-tight"
@@ -36,13 +36,13 @@ const {
       <p class="mt-2 text-sm leading-relaxed text-muted">{texto}</p>
       <ul class="mt-4 space-y-1.5 text-sm text-muted">
         <li class="flex items-start gap-2">
-          <span class="mt-1 text-ok" aria-hidden="true">✓</span> 100 fichas claras, sin jerga innecesaria
+          <span class="mt-1 text-ok" aria-hidden="true">✓</span> 20 términos clave, sin jerga innecesaria
         </li>
         <li class="flex items-start gap-2">
-          <span class="mt-1 text-ok" aria-hidden="true">✓</span> Ejemplos por sector y checklist de automatización
+          <span class="mt-1 text-ok" aria-hidden="true">✓</span> Ejemplos reales y checklist inicial
         </li>
         <li class="flex items-start gap-2">
-          <span class="mt-1 text-ok" aria-hidden="true">✓</span> Actualizado en {SITE.year}, en español
+          <span class="mt-1 text-ok" aria-hidden="true">✓</span> ¿Quieres los 100? Está en <a href={SITE.amazon} class="enlace" target="_blank" rel="noopener">Amazon</a> (tapa blanda 14,99 € / ebook 6,99 €)
         </li>
       </ul>
     </div>
@@ -84,18 +84,18 @@ const {
       </label>
 
       <button type="submit" class="boton boton-primario w-full">
-        Enviarme el PDF gratis
+        Enviarme la guía gratis
       </button>
       <p data-mensaje class="min-h-5 text-xs" role="status" aria-live="polite"></p>
     </form>
 
     <div data-lead-exito hidden class="space-y-3">
-      <p class="text-sm font-semibold text-ok">¡Listo! El libro ya está de camino.</p>
+      <p class="text-sm font-semibold text-ok">¡Listo! La guía ya está de camino.</p>
       <p class="text-sm text-muted">
         Puedes descargarlo ahora mismo. También te hemos enviado el enlace por email.
       </p>
       <a href={SITE.pdf} class="boton boton-primario w-full" download>
-        Descargar el PDF
+        Descargar la guía
       </a>
     </div>
   </div>
@@ -158,7 +158,7 @@ const {
             error instanceof Error ? error.message : 'Algo falló. Inténtalo de nuevo.';
           mensaje.className = 'min-h-5 text-xs text-danger';
           boton.disabled = false;
-          boton.textContent = 'Enviarme el PDF gratis';
+          boton.textContent = 'Enviarme la guía gratis';
         }
       });
     });
