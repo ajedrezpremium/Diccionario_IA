@@ -44,7 +44,9 @@ const TINTA = '#1f2430';
 const GRIS = '#5b6170';
 const LINEA = '#d9d5cc';
 const AZUL = '#3f3aa8';
-const ANCHO = 595.28 - 56 - 56;
+const MARGEN_IZQ = 28;
+const MARGEN_DER = 40;
+const ANCHO = 595.28 - MARGEN_IZQ - MARGEN_DER;
 
 let paginaActual = 1;
 const paginasBloque = {};
@@ -55,7 +57,7 @@ let paginaIndice = null;
 
 const doc = new PDFDocument({
   size: 'A4',
-  margins: { top: 56, bottom: 40, left: 56, right: 56 },
+  margins: { top: 56, bottom: 40, left: MARGEN_IZQ, right: MARGEN_DER },
   bufferPages: true,
   info: {
     Title: 'Diccionario de IA para tu negocio',
@@ -94,27 +96,27 @@ for (let gy = 0; gy < doc.page.height; gy += 40) {
 }
 doc.rect(0, 0, 14, doc.page.height).fill('#f0b46a');
 
-doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(11).text('CHESS AI AGENCY', 56, 90, { characterSpacing: 2 });
-doc.rect(56, 112, 60, 3).fill('#f0b46a');
+doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(11).text('CHESS AI AGENCY', MARGEN_IZQ, 90, { characterSpacing: 2 });
+doc.rect(MARGEN_IZQ, 112, 60, 3).fill('#f0b46a');
 
-doc.font('Helvetica-Bold').fontSize(58).fillColor('#ffffff').text('Diccionario', 56, 180);
-doc.font('Helvetica-Bold').fontSize(58).fillColor('#f0b46a').text('de IA', 56, 242);
-doc.font('Helvetica').fontSize(28).fillColor('#ffffff').text('para tu negocio', 56, 320);
+doc.font('Helvetica-Bold').fontSize(58).fillColor('#ffffff').text('Diccionario', MARGEN_IZQ, 180);
+doc.font('Helvetica-Bold').fontSize(58).fillColor('#f0b46a').text('de IA', MARGEN_IZQ, 242);
+doc.font('Helvetica').fontSize(28).fillColor('#ffffff').text('para tu negocio', MARGEN_IZQ, 320);
 
 doc.font('Helvetica').fontSize(13).fillColor('#ffffff').text(
   '100 términos explicados en español, con ejemplos reales\ny sin jerga innecesaria. Para pymes, autónomos\ny profesionales que no programan.',
-  56, 390, { lineGap: 6 },
+  MARGEN_IZQ, 390, { lineGap: 6 },
 );
 
-doc.rect(56, 500, 220, 1).fill('#8f8ad8');
-doc.font('Helvetica-Bold').fontSize(10).fillColor('#ffffff').text('EDICIÓN 2026', 56, 515, { characterSpacing: 1.5 });
-doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('100 términos · 8 bloques · checklist final', 56, 540);
+doc.rect(MARGEN_IZQ, 500, 220, 1).fill('#8f8ad8');
+doc.font('Helvetica-Bold').fontSize(10).fillColor('#ffffff').text('EDICIÓN 2026', MARGEN_IZQ, 515, { characterSpacing: 1.5 });
+doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('100 términos · 8 bloques · checklist final', MARGEN_IZQ, 540);
 
 const logoPath = path.join(RAIZ, 'scripts', 'img-bw', 'logo-bw.png');
-doc.image(logoPath, 56, 560, { width: 50 });
+doc.image(logoPath, MARGEN_IZQ, 560, { width: 50 });
 doc.font('Helvetica-Bold').fontSize(9).fillColor('#d4af37').text('Estrategia · Innovación · Ejecución', 116, 575, { characterSpacing: 0.5 });
 
-doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com', 56, doc.page.height - 60);
+doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com', MARGEN_IZQ, doc.page.height - 60);
 
 // ---------- Créditos ----------
 nuevaPagina();
@@ -197,11 +199,11 @@ for (const bloqueSlug of ORDEN_BLOQUES) {
 
   doc.rect(0, 0, doc.page.width, doc.page.height).fill(bloque.color);
   doc.rect(0, 0, 14, doc.page.height).fill('#ffffff33');
-  doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(12).text('BLOQUE', 56, 120, { characterSpacing: 2 });
-  doc.font('Helvetica-Bold').fontSize(52).fillColor('#ffffff').text(bloque.nombre, 56, 170, { width: ANCHO });
-  doc.font('Helvetica').fontSize(14).fillColor('#e8e4ff').text(bloque.descripcion, 56, doc.y + 16, { width: ANCHO, lineGap: 4 });
-  doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text(`${lista.length} términos en este bloque`, 56, doc.page.height - 100);
-  doc.font('Helvetica').fontSize(8.5).fillColor('#dcd8ff').text(lista.map((t) => t.t).join(' · '), 56, doc.page.height - 75, { width: ANCHO, lineGap: 2 });
+  doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(12).text('BLOQUE', MARGEN_IZQ, 120, { characterSpacing: 2 });
+  doc.font('Helvetica-Bold').fontSize(52).fillColor('#ffffff').text(bloque.nombre, MARGEN_IZQ, 170, { width: ANCHO });
+  doc.font('Helvetica').fontSize(14).fillColor('#e8e4ff').text(bloque.descripcion, MARGEN_IZQ, doc.y + 16, { width: ANCHO, lineGap: 4 });
+  doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text(`${lista.length} términos en este bloque`, MARGEN_IZQ, doc.page.height - 100);
+  doc.font('Helvetica').fontSize(8.5).fillColor('#dcd8ff').text(lista.map((t) => t.t).join(' · '), MARGEN_IZQ, doc.page.height - 75, { width: ANCHO, lineGap: 2 });
 
   // Fichas
   for (const t of lista) {
@@ -429,18 +431,18 @@ for (let gy = 0; gy < doc.page.height; gy += 40) {
 }
 doc.rect(0, 0, 14, doc.page.height).fill('#f0b46a');
 const logoPath2 = path.join(RAIZ, 'scripts', 'img-bw', 'logo-bw.png');
-doc.image(logoPath2, 56, 120, { width: 60 });
+doc.image(logoPath2, MARGEN_IZQ, 120, { width: 60 });
 doc.font('Helvetica-Bold').fontSize(9).fillColor('#d4af37').text('Estrategia · Innovación · Ejecución', 126, 135, { characterSpacing: 0.5 });
 
-doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(14).text('ENTIENDE LA IA ANTES DE COMPRARLA', 56, 200, { characterSpacing: 1.5 });
-doc.font('Helvetica').fontSize(12).fillColor('#dcd8ff').text('100 términos · 8 bloques · checklist final', 56, 240);
+doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(14).text('ENTIENDE LA IA ANTES DE COMPRARLA', MARGEN_IZQ, 200, { characterSpacing: 1.5 });
+doc.font('Helvetica').fontSize(12).fillColor('#dcd8ff').text('100 términos · 8 bloques · checklist final', MARGEN_IZQ, 240);
 doc.font('Times-Roman').fontSize(11).fillColor('#ffffff').text(
   'La IA no es magia ni amenaza: es una herramienta. Este diccionario te da el vocabulario para decidir con criterio.',
-  56, 300, { width: ANCHO, lineGap: 4 },
+  MARGEN_IZQ, 300, { width: ANCHO, lineGap: 4 },
 );
-doc.font('Helvetica-Bold').fontSize(11).fillColor('#f0b46a').text('¿Quieres que lo revisemos contigo?', 56, 380);
-doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('Solicita un diagnóstico gratuito en agency.ajedrezpremium.com', 56, 405);
-doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com · diccionario-ia-livid.vercel.app', 56, doc.page.height - 60);
+doc.font('Helvetica-Bold').fontSize(11).fillColor('#f0b46a').text('¿Quieres que lo revisemos contigo?', MARGEN_IZQ, 380);
+doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('Solicita un diagnóstico gratuito en agency.ajedrezpremium.com', MARGEN_IZQ, 405);
+doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com · diccionario-ia-livid.vercel.app', MARGEN_IZQ, doc.page.height - 60);
 
 // (Sin relleno: se eliminan las páginas en blanco)
 
@@ -465,7 +467,7 @@ doc.y = 120;
 for (const slug of ORDEN_BLOQUES) {
   const bloque = BLOQUES[slug];
   const pageNum = paginasBloque[slug];
-  doc.font('Helvetica-Bold').fontSize(13).fillColor(bloque.color).text(bloque.nombre, 56, doc.y, { continued: true });
+  doc.font('Helvetica-Bold').fontSize(13).fillColor(bloque.color).text(bloque.nombre, MARGEN_IZQ, doc.y, { continued: true });
   doc.font('Helvetica').fontSize(11).fillColor(GRIS).text(`  ···  ${pageNum}`, { goTo: slug, lineGap: 4 });
   doc.moveDown(0.5);
 }
