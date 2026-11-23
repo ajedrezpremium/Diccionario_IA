@@ -141,7 +141,7 @@ doc.moveDown(1);
 doc.font('Heading-Bold').fontSize(13).fillColor('#000000').text('Quién lo escribe');
 doc.moveDown(0.3);
 doc.font('Body').fontSize(11).fillColor('#333333').text(
-  'Roberto Páramos Domínguez es el autor de este libro y fundador de Chess AI Agency, una agencia que diseña e integra agentes de IA permanentes en webs y procesos de pymes. El diccionario nace de lo que aprendemos en proyectos reales.',
+  'Roberto Páramos Domínguez —Maestro Internacional de Ajedrez, autor de más de quince libros y fundador de Chess AI Agency— escribe desde la experiencia de haber formado a más de 3.000 personas y de integrar agentes de IA en pymes reales. El diccionario nace de lo que aprendemos en esos proyectos.',
   { lineGap: 4 },
 );
 
@@ -361,7 +361,7 @@ nuevaPagina();
 doc.fillColor('#000000').font('Heading-Bold').fontSize(20).text('Sobre el autor');
 doc.moveDown(0.5);
 doc.font('Body').fontSize(11).fillColor('#333333').text(
-  'Roberto Páramos Domínguez es autor de 16 libros y fundador de Chess AI Agency, una agencia que diseña e integra agentes de IA permanentes en webs y procesos de pymes. El diccionario nace de lo que aprendemos en proyectos reales.',
+  'Roberto Páramos Domínguez (Caracas, 1972) es Maestro Internacional de Ajedrez, escritor y divulgador, con más de tres décadas dedicadas profesionalmente al ajedrez en España. Autor de más de quince libros, ha formado a más de 3.000 alumnos y dirigió durante seis años la Escuela Internacional Kasparov–Marcote.\n\nSu carrera empezó en la competición —campeón juvenil de Galicia, subcampeón de España sub-20 y doce títulos por equipos— y continuó en la enseñanza. De ahí viene su forma de explicar: primero entender las reglas y después decidir con criterio.\n\nEmpresario y emprendedor, ha fundado compañías de formación, gestión e innovación, entre ellas JRedition y Ajedrez Premium. En Chess AI Agency aplica esa misma visión estratégica a la inteligencia artificial: diseña e integra agentes de IA permanentes en webs y procesos de pymes.\n\nEste diccionario nace de esa experiencia: de lo que aprendemos en proyectos reales con negocios que quieren entender la IA antes de comprarla.\n\n«El ajedrez, como la vida, es 90 % estratégia.»',
   { lineGap: 4 },
 );
 doc.moveDown(0.5);

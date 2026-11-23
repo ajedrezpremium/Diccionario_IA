@@ -6,8 +6,8 @@ const RAIZ = process.cwd();
 const SALIDA_DIR = path.join(RAIZ, 'public', 'libro');
 const SALIDA = path.join(SALIDA_DIR, 'diccionario-ia-kdp-portada.pdf');
 
-// KDP Cover dimensions for 140 pages, white paper, 6" x 9"
-const PAGES = 140;
+// KDP Cover dimensions for 168 pages, white paper, 6" x 9"
+const PAGES = 168;
 const SPINE_WIDTH_IN = PAGES * 0.002252; // 0.31528"
 const BLEED = 0.125 * 72; // 9pt
 const TRIM_W = 6 * 72; // 432pt

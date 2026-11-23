@@ -110,7 +110,7 @@ doc.text('La IA cambia rápido. Si encuentras un término desactualizado o falta
 doc.moveDown(1);
 doc.font('Helvetica-Bold').fontSize(13).fillColor(TINTA).text('Quién lo escribe');
 doc.moveDown(0.3);
-doc.font('Times-Roman').fontSize(11).fillColor(GRIS).text('Chess AI Agency es una agencia que diseña e integra agentes de IA permanentes en webs y procesos de pymes. El diccionario nace de lo que aprendemos en proyectos reales.', { lineGap: 4 });
+doc.font('Times-Roman').fontSize(11).fillColor(GRIS).text('Chess AI Agency es una agencia que diseña e integra agentes de IA permanentes en webs y procesos de pymes. La dirige Roberto Páramos Domínguez, Maestro Internacional de Ajedrez y autor de más de quince libros, con más de tres décadas explicando conceptos complejos a quienes no programan. El diccionario nace de lo que aprendemos en proyectos reales.', { lineGap: 4 });
 doc.moveDown(0.4);
 doc.text('No escribimos desde la barrera. Cada término se contrasta con lo que vemos en clientes: qué funciona, qué se rompe y qué sale caro.', { lineGap: 4 });
 doc.moveDown(1);

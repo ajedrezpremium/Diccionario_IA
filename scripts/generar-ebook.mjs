@@ -181,7 +181,7 @@ ${indiceHtml}
 
 <div class="autor-box">
   <h1>Sobre el autor</h1>
-  <p>Roberto Páramos Domínguez es autor de 16 libros y fundador de Chess AI Agency, una agencia que diseña e integra agentes de IA permanentes en webs y procesos de pymes. El diccionario nace de lo que aprendemos en proyectos reales.</p>
+  <p>Roberto Páramos Domínguez (Caracas, 1972) es Maestro Internacional de Ajedrez, escritor y divulgador, con más de tres décadas dedicadas profesionalmente al ajedrez en España. Autor de más de quince libros, ha formado a más de 3.000 alumnos y dirigió durante seis años la Escuela Internacional Kasparov–Marcote.</p><p>Su carrera empezó en la competición —campeón juvenil de Galicia, subcampeón de España sub-20 y doce títulos por equipos— y continuó en la enseñanza. De ahí viene su forma de explicar: primero entender las reglas y después decidir con criterio.</p><p>Empresario y emprendedor, ha fundado compañías de formación, gestión e innovación, entre ellas JRedition y Ajedrez Premium. En Chess AI Agency aplica esa misma visión estratégica a la inteligencia artificial: diseña e integra agentes de IA permanentes en webs y procesos de pymes.</p><p>Este diccionario nace de esa experiencia: de lo que aprendemos en proyectos reales con negocios que quieren entender la IA antes de comprarla.</p><p>«El ajedrez, como la vida, es 90 % estratégia.»</p>
   <p>Servicios: diagnóstico de procesos, implantación de agentes de atención y cualificación, formación para equipos y mantenimiento continuo.</p>
   <p>Contacto: agency.ajedrezpremium.com</p>
 </div>
