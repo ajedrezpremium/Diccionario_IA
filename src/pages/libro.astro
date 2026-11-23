@@ -5,7 +5,7 @@ import CtaAgencia from '../components/CtaAgencia.astro';
 import FAQ from '../components/FAQ.astro';
 import TarjetaTermino from '../components/TarjetaTermino.astro';
 import { CATEGORIAS, ORDEN_CATEGORIAS } from '../lib/categorias';
-import { DESTACADOS, TOTAL_TERMINOS, contarPorCategoria } from '../lib/terminos';
+import { DESTACADOS, contarPorCategoria } from '../lib/terminos';
 import { SITE, urlAbsoluta } from '../lib/site';
 import { jsonLd } from '../lib/seo';
 
@@ -64,7 +64,7 @@ const bloques = [
         </h1>
         <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
           20 términos esenciales de IA explicados en español, con ejemplos de negocio y un
-          checklist inicial. Gratis y sin spam. Si quieres el diccionario completo de {TOTAL_TERMINOS}
+          checklist inicial. Gratis y sin spam. Si quieres el diccionario completo de 120
           términos, lo tienes en <a href={SITE.amazon} class="enlace" target="_blank" rel="noopener">Amazon</a>.
         </p>
         <ul class="mt-6 space-y-2 text-sm">
