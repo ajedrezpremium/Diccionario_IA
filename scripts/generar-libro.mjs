@@ -379,9 +379,6 @@ for (const [sigla, desc] of siglas) {
 
 // ---------- Sobre Chess AI Agency ----------
 nuevaPagina();
-const logoPath3 = path.join(RAIZ, 'scripts', 'img-bw', 'logo-bw.png');
-doc.image(logoPath3, (doc.page.width - 80) / 2, 60, { width: 80 });
-doc.moveDown(4);
 doc.fillColor(TINTA).font('Helvetica-Bold').fontSize(24).text('Sobre Chess AI Agency');
 doc.moveDown(0.6);
 doc.font('Times-Roman').fontSize(11).fillColor(GRIS).text(
@@ -395,10 +392,6 @@ doc.text(
 );
 doc.moveDown(0.6);
 doc.text('Contacto: agency.ajedrezpremium.com', { lineGap: 4 });
-
-const webImgPath = path.join(RAIZ, 'scripts', 'img-bw', 'web-bw.png');
-doc.moveDown(1);
-doc.image(webImgPath, 56, doc.y, { width: ANCHO });
 
 // ---------- Contraportada ----------
 nuevaPagina();
