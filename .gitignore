@@ -25,3 +25,5 @@ public/og/*.png
 
 .vercel
 .env*
+
+test.pdf

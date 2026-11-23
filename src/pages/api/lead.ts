@@ -77,7 +77,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       {
         error: 'servicio_no_configurado',
         mensaje:
-          'El servicio de descargas aún no está disponible. Inténtalo más tarde o escribe a hola@chessaiagency.com.',
+          'El servicio de descargas aún no está disponible. Inténtalo más tarde o escribe a chessagencyai@gmail.com.',
       },
       503,
     );

@@ -3,7 +3,7 @@ export const EMPRESA = {
   razonSocial: 'Chess AI Agency',
   nif: 'B-XXXXXXXX',
   domicilio: 'Calle, número, CP, ciudad (España)',
-  email: 'hola@chessaiagency.com',
+  email: 'chessagencyai@gmail.com',
   web: 'https://chessaiagency.com',
   pais: 'España',
   fundador: 'Equipo de Chess AI Agency',

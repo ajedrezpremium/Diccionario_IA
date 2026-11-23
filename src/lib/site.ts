@@ -8,7 +8,7 @@ export const SITE = {
   author: 'Chess AI Agency',
   agency: 'Chess AI Agency',
   agencyUrl: 'https://agency.ajedrezpremium.com',
-  email: 'hola@chessaiagency.com',
+  email: 'chessagencyai@gmail.com',
   version: 'v10',
   edition: '10',
   year: 2026,
