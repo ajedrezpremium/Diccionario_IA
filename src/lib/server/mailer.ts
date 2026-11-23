@@ -12,7 +12,7 @@ function plantillaLibro(): string {
   <p style="font-size:14px;color:#5d616b">Si el botón no funciona, copia este enlace:<br><a href="${enlace}" style="color:#3f3aa8">${enlace}</a></p>
   <hr style="border:none;border-top:1px solid #e2ddd2;margin:24px 0">
   <p style="font-size:14px;color:#5d616b">¿Quieres aplicar esto a tu negocio? Responde a este correo y lo vemos. Sin compromiso.</p>
-  <p style="font-size:13px;color:#5d616b">Roberto Páramos · Chess AI Agency<br>${SITE.agencyUrl}</p>
+  <p style="font-size:13px;color:#5d616b">Chess AI Agency<br>${SITE.agencyUrl}</p>
   <p style="font-size:12px;color:#8a8f99">Recibes este correo porque solicitaste el libro en ${SITE.url}. Puedes darte de baja respondiendo con la palabra BAJA.</p>
 </div>`;
 }

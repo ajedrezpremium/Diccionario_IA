@@ -46,15 +46,17 @@ const migas = [
 
       <h2>Quién lo escribe</h2>
       <p>
-        El proyecto lo impulsa <strong>{SITE.author}</strong>, fundador de{' '}
-        <a href={SITE.agencyUrl} rel="noopener">{SITE.agency}</a>, una agencia que diseña e integra
-        agentes de IA permanentes en webs y procesos de pymes. La experiencia viene de proyectos
-        reales: atención al cliente, cualificación de leads, documentación interna y tareas
-        repetitivas que alguien hacía a mano.
+        El proyecto lo impulsa <a href={SITE.agencyUrl} rel="noopener">{SITE.agency}</a>, una agencia
+        que diseña e integra agentes de IA permanentes en webs y procesos de pymes. Detrás de cada
+        ficha hay un equipo de desarrollo y consultoría que trabaja con clientes reales: atención al
+        cliente, cualificación de leads, documentación interna y tareas repetitivas que antes se
+        hacían a mano.
       </p>
       <p>
         No escribimos desde la barrera. Cada término se contrasta con lo que vemos en clientes:
-        qué funciona, qué se rompe y qué sale caro.
+        qué funciona, qué se rompe y qué sale caro. Las fichas se revisan y editan a mano por el
+        equipo; usamos herramientas de IA como apoyo de documentación, pero no publicamos texto
+        generado sin criterio.
       </p>
 
       <h2>Cómo se escribe cada ficha</h2>
@@ -94,14 +96,18 @@ const migas = [
     <aside class="space-y-5">
       <div class="tarjeta p-6">
         <div class="flex items-center gap-3">
-          <span class="grid h-12 w-12 place-items-center rounded-full bg-brand font-display text-lg font-bold text-brand-ink">RP</span>
+          <span
+            class="grid h-12 w-12 place-items-center rounded-full bg-brand font-display text-sm font-bold text-brand-ink"
+            aria-hidden="true">CA</span
+          >
           <div>
-            <p class="font-semibold">{SITE.author}</p>
-            <p class="text-xs text-muted">Founder & CEO · {SITE.agency}</p>
+            <p class="font-semibold">{SITE.agency}</p>
+            <p class="text-xs text-muted">Equipo de desarrollo y consultoría IA</p>
           </div>
         </div>
         <p class="mt-4 text-sm leading-relaxed text-muted">
-          Diseña agentes de IA para pymes y escribe sobre lo que aprende integrándolos.
+          Diseñamos e integramos agentes de IA permanentes en webs y procesos de pymes. El
+          diccionario nace de lo que aprendemos en proyectos reales.
         </p>
         <a href={SITE.agencyUrl} class="boton boton-secundario mt-4 w-full" rel="noopener">
           Ver la agencia

@@ -5,7 +5,7 @@ export const SITE = {
     '100 términos de inteligencia artificial explicados en español, con ejemplos reales de negocio. Glosario práctico para pymes y profesionales que no programan.',
   locale: 'es_ES',
   lang: 'es',
-  author: 'Roberto Páramos',
+  author: 'Chess AI Agency',
   agency: 'Chess AI Agency',
   agencyUrl: 'https://chessaiagency.com',
   email: 'hola@chessaiagency.com',
