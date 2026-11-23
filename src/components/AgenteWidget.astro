@@ -112,7 +112,7 @@ import { SITE } from '../lib/site';
           rows="1"
           maxlength="1200"
           placeholder="Pregunta lo que quieras sobre IA…"
-          class="campo max-h-28 min-h-[44px] resize-none !py-2.5 text-sm"
+          class="campo max-h-28 min-h-[44px] resize-none !py-2.5 !text-base sm:!text-sm"
         ></textarea>
         <button
           type="button"
@@ -285,6 +285,15 @@ import { SITE } from '../lib/site';
     height: min(88vh, 780px);
     top: 6vh;
   }
+  @media (max-width: 639px) {
+    /* En móvil el modo ampliado debe seguir dentro de la pantalla */
+    #panel-agente.agente-grande {
+      width: auto;
+      height: auto;
+      top: 0.5rem;
+      bottom: 6rem;
+    }
+  }
   .agente-acciones {
     display: flex;
     flex-wrap: wrap;
@@ -414,6 +423,39 @@ import { SITE } from '../lib/site';
     const alFinal = () => {
       zonaMensajes.scrollTop = zonaMensajes.scrollHeight;
     };
+
+    // En móvil, el teclado virtual encoge el viewport visual. Sin este ajuste
+    // el campo y el botón enviar quedan detrás del teclado y no se puede escribir.
+    const vv = window.visualViewport;
+    const esMovil = () => window.matchMedia('(max-width: 639px)').matches;
+    let tecladoAbierto = false;
+
+    const limpiarAjuste = () => {
+      if (!tecladoAbierto) return;
+      panel.style.top = '';
+      panel.style.bottom = '';
+      panel.style.height = '';
+      tecladoAbierto = false;
+    };
+
+    const ajustarAlTeclado = () => {
+      if (!vv || !esMovil() || panel.classList.contains('hidden')) return;
+      const altoTeclado = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+      if (altoTeclado > 80) {
+        panel.style.top = '0.5rem';
+        panel.style.bottom = `${altoTeclado + 8}px`;
+        panel.style.height = 'auto';
+        tecladoAbierto = true;
+      } else {
+        limpiarAjuste();
+      }
+      requestAnimationFrame(alFinal);
+    };
+
+    if (vv) {
+      vv.addEventListener('resize', ajustarAlTeclado);
+      vv.addEventListener('scroll', ajustarAlTeclado);
+    }
 
     const burbuja = (rol) => {
       const envoltorio = document.createElement('div');
@@ -664,6 +706,7 @@ import { SITE } from '../lib/site';
       panel.classList.add('flex');
       abrir.setAttribute('aria-expanded', 'true');
       input.focus();
+      requestAnimationFrame(ajustarAlTeclado);
       alFinal();
       window.plausible?.('Agente abierto');
 
@@ -677,6 +720,7 @@ import { SITE } from '../lib/site';
     };
 
     const cerrarPanel = () => {
+      limpiarAjuste();
       panel.classList.add('hidden');
       panel.classList.remove('flex');
       abrir.setAttribute('aria-expanded', 'false');
