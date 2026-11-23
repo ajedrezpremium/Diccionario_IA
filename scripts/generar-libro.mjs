@@ -338,7 +338,7 @@ doc.font('Helvetica').fontSize(12).fillColor('#dcd8ff').text('100 términos · 8
 doc.font('Times-Roman').fontSize(11).fillColor('#ffffff').text('La IA no es magia ni amenaza: es una herramienta. Este diccionario te da el vocabulario para decidir con criterio.', MARGEN_IZQ, 300, { width: ANCHO, lineGap: 4 });
 doc.font('Helvetica-Bold').fontSize(11).fillColor('#f0b46a').text('¿Quieres que lo revisemos contigo?', MARGEN_IZQ, 380);
 doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('Solicita un diagnóstico gratuito en agency.ajedrezpremium.com', MARGEN_IZQ, 405);
-doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com · diccionario-ia-livid.vercel.app', MARGEN_IZQ, doc.page.height - 60);
+doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com · diccionario.ajedrezpremium.com', MARGEN_IZQ, doc.page.height - 60);
 
 // TOC with page numbers (antes de cerrar el documento)
 doc.switchToPage(paginaTOC - 1);

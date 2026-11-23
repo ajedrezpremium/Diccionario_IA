@@ -84,7 +84,7 @@ for (const letra of letras) {
   indiceHtml += '  <div class="letra">' + letra + '</div>\n';
   const delaletra = terminos.filter((t) => t.t.charAt(0).toUpperCase() === letra).sort((a, b) => a.t.localeCompare(b.t, 'es'));
   for (const t of delaletra) {
-    indiceHtml += '  <div class="termino"><a href="https://diccionario-ia-livid.vercel.app/que-es/' + t.slug + '">' + esc(t.t) + '</a> <span class="bloque">' + esc(BLOQUES[t.cat]) + '</span></div>\n';
+    indiceHtml += '  <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/' + t.slug + '">' + esc(t.t) + '</a> <span class="bloque">' + esc(BLOQUES[t.cat]) + '</span></div>\n';
   }
 }
 
@@ -192,7 +192,7 @@ ${indiceHtml}
   <p>La IA no es magia ni amenaza: es una herramienta. Este diccionario te da el vocabulario para decidir con criterio.</p>
   <p><strong>¿Quieres que lo revisemos contigo?</strong></p>
   <p>Solicita un diagnóstico gratuito en agency.ajedrezpremium.com</p>
-  <p>JRedition · agency.ajedrezpremium.com · diccionario-ia-livid.vercel.app</p>
+  <p>JRedition · agency.ajedrezpremium.com · diccionario.ajedrezpremium.com</p>
 </div>
 
 </body>

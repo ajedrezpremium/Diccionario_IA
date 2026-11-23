@@ -198,7 +198,7 @@ export async function llamarModelo(
     authorization: `Bearer ${cfg.apiKey}`,
   };
   if (cfg.proveedor === 'openrouter') {
-    cabeceras['HTTP-Referer'] = process.env.PUBLIC_SITE_URL || 'https://diccionario-ia-livid.vercel.app';
+    cabeceras['HTTP-Referer'] = process.env.PUBLIC_SITE_URL || 'https://diccionario.ajedrezpremium.com';
     cabeceras['X-Title'] = 'Diccionario IA';
   }
 
