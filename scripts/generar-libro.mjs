@@ -97,10 +97,18 @@ doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(11).text('CHESS AI AGEN
 });
 doc.rect(56, 112, 60, 3).fill('#f0b46a');
 
+// Subtle grid pattern
+for (let gx = 0; gx < doc.page.width; gx += 40) {
+  doc.moveTo(gx, 0).lineTo(gx, doc.page.height).strokeColor('#ffffff08').lineWidth(0.5).stroke();
+}
+for (let gy = 0; gy < doc.page.height; gy += 40) {
+  doc.moveTo(0, gy).lineTo(doc.page.width, gy).strokeColor('#ffffff08').lineWidth(0.5).stroke();
+}
+
 doc.font('Helvetica-Bold').fontSize(58).fillColor('#ffffff').text('Diccionario', 56, 180);
 doc.font('Helvetica-Bold').fontSize(58).fillColor('#f0b46a').text('de IA', 56, 242);
 
-doc.font('Helvetica').fontSize(24).fillColor('#dcd8ff').text('para tu negocio', 56, 320);
+doc.font('Helvetica').fontSize(28).fillColor('#ffffff').text('para tu negocio', 56, 320);
 
 doc.font('Helvetica').fontSize(13).fillColor('#ffffff').text(
   '100 términos explicados en español, con ejemplos reales\\ny sin jerga innecesaria. Para pymes, autónomos\\ny profesionales que no programan.',
@@ -232,7 +240,7 @@ for (const bloqueSlug of ORDEN_BLOQUES) {
     }
 
     // Header
-    doc.font('Helvetica-Bold').fontSize(9).fillColor(bloque.color).text(bloque.nombre.toUpperCase(), { characterSpacing: 1.2 });
+    doc.font('Helvetica-Bold').fontSize(10.5).fillColor(bloque.color).text(bloque.nombre.toUpperCase(), { characterSpacing: 1.2 });
     doc.moveDown(0.3);
     doc.font('Helvetica-Bold').fontSize(24).fillColor(TINTA).text(t.t, { lineGap: 2 });
     doc.moveDown(0.2);
@@ -431,6 +439,11 @@ doc.font('Times-Roman').fontSize(11).fillColor('#ffffff').text(
 doc.font('Helvetica-Bold').fontSize(11).fillColor('#f0b46a').text('¿Quieres que lo revisemos contigo?', 56, 380);
 doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('Solicita un diagnóstico gratuito en agency.ajedrezpremium.com', 56, 405);
 doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com · diccionario-ia-livid.vercel.app', 56, doc.page.height - 60);
+
+// ---------- Relleno para impresión (múltiplo de 4) ----------
+while (paginaActual % 4 !== 0) {
+  nuevaPagina();
+}
 
 // ---------- Numeración de páginas ----------
 const rango = doc.bufferedPageRange();
