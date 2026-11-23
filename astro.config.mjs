@@ -17,7 +17,7 @@ function leerEnv(clave) {
 const site =
   process.env.PUBLIC_SITE_URL ||
   leerEnv('PUBLIC_SITE_URL') ||
-  'https://diccionario-ia.vercel.app';
+  'https://diccionario.ajedrezpremium.com';
 
 export default defineConfig({
   site,

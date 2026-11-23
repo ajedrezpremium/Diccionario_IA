@@ -2,7 +2,7 @@
 
 Glosario de **100 términos de inteligencia artificial en español** para pymes, autónomos y profesionales que no programan. Incluye agente conversacional, buscador instantáneo, libro en PDF y captación de leads.
 
-- **Web:** https://diccionario-ia.vercel.app
+- **Web:** https://diccionario.ajedrezpremium.com
 - **Repositorio:** https://github.com/ajedrezpremium/Diccionario_IA
 - **Edición:** v10 · 2026
 

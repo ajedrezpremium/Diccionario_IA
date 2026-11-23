@@ -25,4 +25,4 @@ jobs:
       - name: Build (valida contenido, genera PDF/OG, compila y pagina)
         run: npm run build
         env:
-          PUBLIC_SITE_URL: https://diccionario-ia.vercel.app
+          PUBLIC_SITE_URL: https://diccionario.ajedrezpremium.com

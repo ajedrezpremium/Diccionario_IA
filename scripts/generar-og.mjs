@@ -101,14 +101,14 @@ await generar('portada', {
   kicker: 'CHESS AI AGENCY · EDICIÓN 10',
   titulo: 'Diccionario de IA para tu negocio',
   subtitulo: '100 términos explicados en español, con ejemplos reales y sin jerga.',
-  pie: 'Gratis en diccionario-ia.vercel.app/libro',
+  pie: 'Gratis en diccionario.ajedrezpremium.com/libro',
 });
 
 await generar('default', {
   kicker: 'GLOSARIO DE INTELIGENCIA ARTIFICIAL',
   titulo: 'La IA, explicada sin humo',
   subtitulo: '100 términos en español para pymes y profesionales que no programan.',
-  pie: 'diccionario-ia.vercel.app',
+  pie: 'diccionario.ajedrezpremium.com',
 });
 
 for (const t of INDICE) {
@@ -116,7 +116,7 @@ for (const t of INDICE) {
     kicker: `DICCIONARIO IA · ${CATEGORIAS[t.categoria].toUpperCase()}`,
     titulo: t.termino,
     subtitulo: t.definicionCorta,
-    pie: `diccionario-ia.vercel.app/que-es/${t.slug}`,
+    pie: `diccionario.ajedrezpremium.com/que-es/${t.slug}`,
   });
 }
 

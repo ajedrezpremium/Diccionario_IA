@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = ({ site }) => {
-  const base = (site?.toString() || 'https://diccionario-ia.vercel.app').replace(/\/$/, '');
+  const base = (site?.toString() || 'https://diccionario.ajedrezpremium.com').replace(/\/$/, '');
   const cuerpo = `# Diccionario IA — robots.txt
 User-agent: *
 Allow: /

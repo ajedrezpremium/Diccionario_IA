@@ -1,6 +1,6 @@
 export const SITE = {
   name: import.meta.env.PUBLIC_SITE_NAME || 'Diccionario IA',
-  url: (import.meta.env.PUBLIC_SITE_URL || 'https://diccionario-ia.vercel.app').replace(/\/$/, ''),
+  url: (import.meta.env.PUBLIC_SITE_URL || 'https://diccionario.ajedrezpremium.com').replace(/\/$/, ''),
   description:
     '150 términos de inteligencia artificial explicados en español, con ejemplos reales de negocio. Glosario práctico para pymes y profesionales que no programan.',
   locale: 'es_ES',
