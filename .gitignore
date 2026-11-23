@@ -27,3 +27,6 @@ public/og/*.png
 .env*
 
 test.pdf
+
+test2.pdf
+scripts/test-minimal.mjs
