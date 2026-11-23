@@ -38,15 +38,16 @@ for (const modulo of modulos) {
 fs.mkdirSync(SALIDA_DIR, { recursive: true });
 
 // Register embedded fonts
+const FONT_DIR = path.join(RAIZ, 'scripts', 'fonts');
 const FONTS = {
-  body: 'C:/Windows/Fonts/georgia.ttf',
-  bodyBold: 'C:/Windows/Fonts/georgiab.ttf',
-  bodyItalic: 'C:/Windows/Fonts/georgiai.ttf',
-  bodyBoldItalic: 'C:/Windows/Fonts/georgiaz.ttf',
-  heading: 'C:/Windows/Fonts/segoeui.ttf',
-  headingBold: 'C:/Windows/Fonts/segoeuib.ttf',
-  headingItalic: 'C:/Windows/Fonts/segoeuii.ttf',
-  mono: 'C:/Windows/Fonts/consola.ttf',
+  body: path.join(FONT_DIR, 'georgia.ttf'),
+  bodyBold: path.join(FONT_DIR, 'georgiab.ttf'),
+  bodyItalic: path.join(FONT_DIR, 'georgiai.ttf'),
+  bodyBoldItalic: path.join(FONT_DIR, 'georgiaz.ttf'),
+  heading: path.join(FONT_DIR, 'segoeui.ttf'),
+  headingBold: path.join(FONT_DIR, 'segoeuib.ttf'),
+  headingItalic: path.join(FONT_DIR, 'segoeuii.ttf'),
+  mono: path.join(FONT_DIR, 'consola.ttf'),
 };
 
 const doc = new PDFDocument({

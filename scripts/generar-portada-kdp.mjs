@@ -34,11 +34,12 @@ doc.pipe(fs.createWriteStream(SALIDA));
 
 doc.addPage();
 
+const FONT_DIR = path.join(process.cwd(), 'scripts', 'fonts');
 // Register fonts
-doc.registerFont('Heading', 'C:/Windows/Fonts/segoeui.ttf');
-doc.registerFont('Heading-Bold', 'C:/Windows/Fonts/segoeuib.ttf');
-doc.registerFont('Body', 'C:/Windows/Fonts/georgia.ttf');
-doc.registerFont('Body-Italic', 'C:/Windows/Fonts/georgiai.ttf');
+doc.registerFont('Heading', path.join(FONT_DIR, 'segoeui.ttf'));
+doc.registerFont('Heading-Bold', path.join(FONT_DIR, 'segoeuib.ttf'));
+doc.registerFont('Body', path.join(FONT_DIR, 'georgia.ttf'));
+doc.registerFont('Body-Italic', path.join(FONT_DIR, 'georgiai.ttf'));
 
 // Background
 doc.rect(0, 0, TOTAL_W, TOTAL_H).fill('#1a1a2e');
