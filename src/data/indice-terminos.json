@@ -1274,5 +1274,251 @@
       "Lock-in"
     ],
     "destacado": false
+  },
+  {
+    "termino": "Gobernanza de datos",
+    "slug": "gobernanza-de-datos",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Conjunto de reglas, responsables y procesos que garantizan que los datos sean correctos, accesibles y usados de forma lícita.",
+    "alias": [
+      "Gobernanza de datos",
+      "Data governance"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Linaje de datos",
+    "slug": "linaje-de-datos",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Registro de dónde viene cada dato, qué transformaciones ha sufrido y en qué informes o modelos se ha usado.",
+    "alias": [
+      "Linaje de datos",
+      "Data lineage"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Feature store",
+    "slug": "feature-store",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Repositorio centralizado de variables —features— calculadas y validadas que se reutilizan en modelos y análisis.",
+    "alias": [
+      "Feature store",
+      "Almacén de características"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Datos maestros",
+    "slug": "datos-maestros",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "intermedio",
+    "definicionCorta": "Datos esenciales y compartidos que describen entidades clave del negocio, como clientes, productos o empleados.",
+    "alias": [
+      "Datos maestros",
+      "Master data"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Metadatos",
+    "slug": "metadatos",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "intermedio",
+    "definicionCorta": "Datos que describen a otros datos: origen, formato, significado, fecha de actualización y responsable.",
+    "alias": [
+      "Metadatos",
+      "Metadata"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Datos abiertos",
+    "slug": "datos-abiertos",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "basico",
+    "definicionCorta": "Datos que cualquiera puede usar, reutilizar y redistribuir libremente, respetando las condiciones de su licencia.",
+    "alias": [
+      "Datos abiertos",
+      "Open data"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Auditoría de algoritmos",
+    "slug": "auditoria-de-algoritmos",
+    "categoria": "seguridad-y-etica",
+    "nivel": "avanzado",
+    "definicionCorta": "Revisión sistemática de un sistema de IA para comprobar su precisión, sesgos, cumplimiento normativo y trazabilidad.",
+    "alias": [
+      "Auditoría de algoritmos",
+      "AI audit",
+      "Auditoría de IA"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Anonimización",
+    "slug": "anonimizacion-web",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Proceso de eliminar o transformar datos personales para que no sea posible identificar a una persona ni combinando información.",
+    "alias": [
+      "Anonimización",
+      "Anonymization"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Sesgo de confirmación",
+    "slug": "sesgo-confirmacion",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Tendencia a favorecer información que confirma lo que ya se cree e ignorar la que lo contradice, también en sistemas de IA.",
+    "alias": [
+      "Sesgo de confirmación",
+      "Confirmation bias"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Explicabilidad",
+    "slug": "explicabilidad",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Capacidad de un sistema de IA para justificar por qué dio una respuesta o tomó una decisión de forma comprensible.",
+    "alias": [
+      "Explicabilidad",
+      "Explainability",
+      "Interpretabilidad"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Derecho a la explicación",
+    "slug": "derecho-a-la-explicacion",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Derecho de una persona a recibir una explicación clara cuando una decisión automatizada afecta a sus intereses.",
+    "alias": [
+      "Derecho a la explicación",
+      "Right to explanation"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Evaluación de sesgos",
+    "slug": "evaluacion-de-sesgos",
+    "categoria": "seguridad-y-etica",
+    "nivel": "avanzado",
+    "definicionCorta": "Proceso de medir si un sistema de IA produce resultados distintos e injustos entre grupos de personas.",
+    "alias": [
+      "Evaluación de sesgos",
+      "Bias evaluation",
+      "Pruebas de equidad"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Datos personales",
+    "slug": "datos-personales",
+    "categoria": "seguridad-y-etica",
+    "nivel": "basico",
+    "definicionCorta": "Cualquier información que permite identificar o hacer identificable a una persona, directa o indirectamente.",
+    "alias": [
+      "Datos personales",
+      "Datos de carácter personal",
+      "Personal data"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "IA explicable",
+    "slug": "ia-explicable",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Campo de la IA que busca que las decisiones de un modelo sean comprensibles para las personas que las reciben o supervisan.",
+    "alias": [
+      "IA explicable (XAI)",
+      "XAI",
+      "Explainable AI"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Robustez",
+    "slug": "robustez",
+    "categoria": "seguridad-y-etica",
+    "nivel": "avanzado",
+    "definicionCorta": "Capacidad de un modelo de mantener su rendimiento cuando recibe entradas ruidosas, inesperadas o ligeramente distintas de las vistas en entrenamiento.",
+    "alias": [
+      "Robustez del modelo",
+      "Robustness"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Trazabilidad",
+    "slug": "trazabilidad",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Capacidad de reconstruir el historial de una decisión o respuesta: qué datos, modelo, instrucciones y pasos intervinieron.",
+    "alias": [
+      "Trazabilidad",
+      "Traceability"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Consentimiento informado",
+    "slug": "consentimiento-informado",
+    "categoria": "seguridad-y-etica",
+    "nivel": "basico",
+    "definicionCorta": "Acuerdo libre, específico y explícito de una persona para que se traten sus datos, tras recibir información clara sobre el uso.",
+    "alias": [
+      "Consentimiento informado",
+      "Consentimiento RGPD"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Minimización de datos",
+    "slug": "minimizacion-de-datos",
+    "categoria": "seguridad-y-etica",
+    "nivel": "basico",
+    "definicionCorta": "Principio del RGPD que obliga a recoger solo los datos personales estrictamente necesarios para una finalidad concreta.",
+    "alias": [
+      "Minimización de datos",
+      "Data minimization"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Evaluación de riesgos",
+    "slug": "evaluacion-de-riesgos",
+    "categoria": "seguridad-y-etica",
+    "nivel": "avanzado",
+    "definicionCorta": "Análisis previo de los posibles daños de un sistema de IA y de las medidas para prevenirlos o reducirlos.",
+    "alias": [
+      "Evaluación de riesgos de IA",
+      "AI impact assessment",
+      "Evaluación de impacto"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Derechos digitales",
+    "slug": "derechos-digitales",
+    "categoria": "seguridad-y-etica",
+    "nivel": "basico",
+    "definicionCorta": "Derechos de las personas en el entorno digital, incluidos el acceso, la rectificación, la supresión y la oposición al tratamiento de datos.",
+    "alias": [
+      "Derechos digitales",
+      "Derechos del RGPD"
+    ],
+    "destacado": false
   }
 ]

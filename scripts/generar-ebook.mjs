@@ -7,7 +7,7 @@ const SALIDA = path.join(SALIDA_DIR, 'diccionario-ia-ebook.html');
 
 const modulos = [
   '01-fundamentos.mjs', '02-modelos.mjs', '03-agentes.mjs', '04-herramientas.mjs',
-  '05-datos.mjs', '06-prompting.mjs', '07-seguridad.mjs', '08-negocio.mjs',
+  '05-datos.mjs', '06-prompting.mjs', '07-seguridad.mjs', '08-negocio.mjs', '09-extra.mjs', '10-nuevos.mjs', '11-final.mjs'
 ];
 
 const BLOQUES = {

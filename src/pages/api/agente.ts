@@ -91,5 +91,6 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     );
   }
 
-  return llamarModelo(mensajes, contexto);
+  const consulta = mensajes[mensajes.length - 1]?.content ?? '';
+  return llamarModelo(mensajes, contexto, consulta);
 };
