@@ -114,7 +114,7 @@ doc.font('Body').fontSize(11).fillColor('#ffffff').text('Roberto Páramos Domín
 doc.end();
 
 await new Promise((resolve, reject) => {
-  stream.on('finish', resolve);
+  stream.on('close', resolve);
   stream.on('error', reject);
   doc.on('error', reject);
 });
