@@ -228,8 +228,9 @@ for (const bloqueSlug of ORDEN_BLOQUES) {
     doc.moveDown(0.3);
 
     // "En una frase" box
-    const defTextHeight = doc.heightOfString(t.def, { width: ANCHO - 20, fontSize: 11, lineGap: 2, font: 'Body-Italic' });
-    const defHeight = defTextHeight + 24;
+    doc.font('Body-Italic').fontSize(11);
+    const defTextHeight = doc.heightOfString(t.def, { width: ANCHO - 20, lineGap: 2 });
+    const defHeight = defTextHeight + 30;
     const defY = doc.y;
     doc.rect(MARGIN, defY, ANCHO, defHeight).fill('#f0f0f0');
     doc.rect(MARGIN, defY, 3, defHeight).fill('#333333');
@@ -254,8 +255,9 @@ for (const bloqueSlug of ORDEN_BLOQUES) {
     // Analogía (destacada)
     doc.font('Heading-Bold').fontSize(11).fillColor('#000000').text('Una analogía');
     doc.moveDown(0.1);
-    const analogTextHeight = doc.heightOfString(t.analogia, { width: ANCHO - 20, fontSize: 10.5, lineGap: 3, font: 'Body-Italic' });
-    const analogHeight = analogTextHeight + 14;
+    doc.font('Body-Italic').fontSize(10.5);
+    const analogTextHeight = doc.heightOfString(t.analogia, { width: ANCHO - 20, lineGap: 3 });
+    const analogHeight = analogTextHeight + 20;
     const analogY = doc.y;
     doc.rect(MARGIN, analogY, ANCHO, analogHeight).fill('#f5f5f5');
     doc.rect(MARGIN, analogY, 3, analogHeight).fill('#333333');

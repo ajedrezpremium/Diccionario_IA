@@ -30,7 +30,8 @@ const doc = new PDFDocument({
   },
 });
 
-doc.pipe(fs.createWriteStream(SALIDA));
+const stream = fs.createWriteStream(SALIDA);
+doc.pipe(stream);
 
 doc.addPage();
 
@@ -113,7 +114,8 @@ doc.font('Body').fontSize(11).fillColor('#ffffff').text('Roberto Páramos Domín
 doc.end();
 
 await new Promise((resolve, reject) => {
-  doc.on('end', resolve);
+  stream.on('finish', resolve);
+  stream.on('error', reject);
   doc.on('error', reject);
 });
 
