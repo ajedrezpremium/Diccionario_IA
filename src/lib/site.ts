@@ -23,7 +23,7 @@ export const NAV = [
   { href: '/categorias', label: 'Categorías' },
   { href: '/indice', label: 'Índice A-Z' },
   { href: '/libro', label: 'Libro' },
-  { href: '/sobre', label: 'Sobre' },
+  { href: '/sobre', label: 'Proyecto' },
 ] as const;
 
 export function urlAbsoluta(path: string): string {
