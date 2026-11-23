@@ -22,7 +22,7 @@ export const NAV = [
   { href: '/terminos', label: 'Términos' },
   { href: '/categorias', label: 'Categorías' },
   { href: '/indice', label: 'Índice A-Z' },
-  { href: '/libro', label: 'Libro gratis' },
+  { href: '/libro', label: 'Libro' },
   { href: '/sobre', label: 'Sobre' },
 ] as const;
 
