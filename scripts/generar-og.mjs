@@ -100,14 +100,14 @@ const generar = async (nombre, datos) => {
 await generar('portada', {
   kicker: 'CHESS AI AGENCY · EDICIÓN 10',
   titulo: 'Diccionario de IA para tu negocio',
-  subtitulo: '100 términos explicados en español, con ejemplos reales y sin jerga.',
+  subtitulo: `${INDICE.length} términos explicados en español, con ejemplos reales y sin jerga.`,
   pie: 'Gratis en diccionario.ajedrezpremium.com/libro',
 });
 
 await generar('default', {
   kicker: 'GLOSARIO DE INTELIGENCIA ARTIFICIAL',
   titulo: 'La IA, explicada sin humo',
-  subtitulo: '100 términos en español para pymes y profesionales que no programan.',
+  subtitulo: `${INDICE.length} términos en español para pymes y profesionales que no programan.`,
   pie: 'diccionario.ajedrezpremium.com',
 });
 
