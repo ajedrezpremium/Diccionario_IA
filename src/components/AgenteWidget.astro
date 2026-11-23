@@ -261,19 +261,20 @@ import { SITE } from '../lib/site';
     0%, 92%, 100% { transform: scaleY(1); }
     95% { transform: scaleY(0.15); }
   }
-  .burbuja-ia :global(p) {
+  /* Estos elementos se crean por JS: necesitan selectores globales (Astro scoped no los alcanza) */
+  :global(.burbuja-ia p) {
     margin: 0 0 0.55rem;
   }
-  .burbuja-ia :global(p:last-child) {
+  :global(.burbuja-ia p:last-child) {
     margin-bottom: 0;
   }
-  .burbuja-ia :global(a) {
+  :global(.burbuja-ia a) {
     color: var(--brand);
     text-decoration: underline;
     text-underline-offset: 2px;
     font-weight: 600;
   }
-  .burbuja-ia :global(code) {
+  :global(.burbuja-ia code) {
     font-family: var(--font-mono);
     font-size: 0.85em;
     background: var(--bg-alt);
@@ -294,7 +295,7 @@ import { SITE } from '../lib/site';
       bottom: 6rem;
     }
   }
-  .agente-acciones {
+  :global(.agente-acciones) {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
@@ -302,7 +303,7 @@ import { SITE } from '../lib/site';
     padding-top: 0.65rem;
     border-top: 1px solid var(--line);
   }
-  .agente-acciones button {
+  :global(.agente-acciones button) {
     display: inline-grid;
     place-items: center;
     width: 34px;
@@ -315,11 +316,11 @@ import { SITE } from '../lib/site';
     cursor: pointer;
     transition: all 0.15s ease;
   }
-  .agente-acciones button:hover {
+  :global(.agente-acciones button:hover) {
     border-color: var(--brand);
     color: var(--brand);
   }
-  .agente-acciones button.activo {
+  :global(.agente-acciones button.activo) {
     background: var(--brand-soft);
     color: var(--brand);
     border-color: var(--brand);
@@ -333,7 +334,7 @@ import { SITE } from '../lib/site';
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.08); }
   }
-  .puntos::after {
+  :global(.puntos::after) {
     content: '';
     display: inline-block;
     width: 1.2em;
