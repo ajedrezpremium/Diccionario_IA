@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import PDFDocument from 'pdfkit';
 
+const EMAIL_CONTACTO = 'chessagencyai@gmail.com';
+
 const RAIZ = process.cwd();
 const SALIDA_DIR = path.join(RAIZ, 'public', 'libro');
 const SALIDA = path.join(SALIDA_DIR, 'diccionario-ia.pdf');
@@ -379,19 +381,42 @@ for (const [sigla, desc] of siglas) {
 
 // ---------- Sobre Chess AI Agency ----------
 nuevaPagina();
-doc.fillColor(TINTA).font('Helvetica-Bold').fontSize(24).text('Sobre Chess AI Agency');
-doc.moveDown(0.6);
-doc.font('Times-Roman').fontSize(11).fillColor(GRIS).text(
-  'Chess AI Agency es una agencia que diseña e integra agentes de IA permanentes en webs y procesos de pymes. El diccionario nace de lo que aprendemos en proyectos reales.',
-  { lineGap: 4 },
+doc.fillColor(TINTA).font('Helvetica-Bold').fontSize(22).text('Sobre Chess AI Agency');
+doc.moveDown(0.15);
+doc.font('Helvetica').fontSize(9).fillColor(GRIS).text('Agencia de inteligencia artificial aplicada al ajedrez, los deportes y los negocios', { lineGap: 2 });
+doc.moveDown(0.5);
+
+doc.font('Times-Roman').fontSize(10).fillColor(TINTA).text(
+  'Somos un equipo especializado en IA aplicada al ajedrez, los deportes y los negocios. Trabajamos desde septiembre de 2025 con un enfoque práctico: soluciones reales, sin adornos y con resultados medibles. Nuestro núcleo es desarrollo propio —orquestación de agentes, recuperación de información y flujos de análisis— complementado con servicios cloud cuando aportan valor.',
+  { lineGap: 3, align: 'justify' },
 );
-doc.moveDown(0.6);
-doc.text(
-  'Servicios: diagnóstico de procesos, implantación de agentes de atención y cualificación, formación para equipos y mantenimiento continuo.',
-  { lineGap: 4 },
-);
-doc.moveDown(0.6);
-doc.text('Contacto: agency.ajedrezpremium.com', { lineGap: 4 });
+doc.moveDown(0.35);
+
+const blockTitulo = (titulo) => {
+  doc.font('Helvetica-Bold').fontSize(10.5).fillColor(AZUL).text(titulo);
+  doc.moveDown(0.1);
+};
+const blockTexto = (texto) => {
+  doc.font('Times-Roman').fontSize(9.5).fillColor(TINTA).text(texto, { lineGap: 3, align: 'justify' });
+  doc.moveDown(0.3);
+};
+
+blockTitulo('Misión');
+blockTexto('Democratizar la IA de élite para el ecosistema ajedrecístico y deportivo: agentes autónomos, plataformas inteligentes y soluciones empresariales reales para entrenar, competir, organizar y analizar el deporte. IA accesible para clubes, federaciones y jugadores, con automatización de gestión y análisis predictivo.');
+
+blockTitulo('Visión');
+blockTexto('Ser una referencia creciente en IA aplicada al ajedrez y los deportes, ampliando la cartera de proyectos de forma sostenible sobre arquitectura propia. Es una meta en construcción, no un logro ya alcanzado.');
+
+blockTitulo('Filosofía y valores');
+blockTexto('Código revisado, pruebas y despliegues medidos. Preferimos soluciones que se mantengan en el tiempo a atajos. Decisiones basadas en datos, colaboración cercana como equipo ampliado, integridad absoluta con los datos del cliente (sin minería ni venta) y velocidad de iteración con feedback continuo.');
+
+blockTitulo('Equipo y tecnología');
+blockTexto('Equipo remoto y multilingüe —español, gallego e inglés— con perfiles de ingeniería, producto y ajedrez. Orquestación multi-modelo (OpenRouter, Gemini, Groq), análisis de partidas e inferencia eficiente con costes controlados, siguiendo buenas prácticas RGPD y acceso controlado.');
+
+blockTitulo('En cifras y casos reales');
+blockTexto('30 proyectos en marcha · 14 meses de trayectoria · 3 idiomas de atención · agente IA 24/7. Casos verificables: ChessOrganizers.com (gestión de torneos, 95 % de automatización, 200+ torneos/año), Football AI / Sports Genius (análisis táctico, 99,2 % de precisión en eventos) y Chess AI Premium (entrenamiento nivel Gran Maestro, 50+ academias). Candidaturas presentadas a ENISA, BF Sport 2027 y Business Factory 360, sin inversión confirmada.');
+doc.moveDown(0.2);
+doc.font('Helvetica-Bold').fontSize(9.5).fillColor(AZUL).text('web: agency.ajedrezpremium.com   ·   contacto: ' + EMAIL_CONTACTO, { lineGap: 2 });
 
 // ---------- Contraportada ----------
 nuevaPagina();
