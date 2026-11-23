@@ -4,11 +4,11 @@ nombreCompleto: "Inteligencia artificial"
 slug: "inteligencia-artificial"
 categoria: "fundamentos"
 nivel: "basico"
-definicionCorta: "Disciplina que diseña sistemas capaces de realizar tareas asociadas a la inteligencia humana, como entender texto, reconocer imágenes o decidir."
+definicionCorta: "Disciplina que diseña sistemas capaces de realizar tareas que antes requerían inteligencia humana, y también de optimizar procesos, detectar patrones o resolver problemas sin."
 sinonimos: ["IA", "Artificial intelligence"]
 relacionados: ["machine-learning", "ia-generativa", "llm", "agente-de-ia"]
 metaTitulo: "Qué es Inteligencia artificial en IA: guía para pymes"
-metaDescripcion: "Disciplina que diseña sistemas capaces de realizar tareas asociadas a la inteligencia humana, como entender texto, reconocer imágenes o decidir."
+metaDescripcion: "Disciplina que diseña sistemas capaces de realizar tareas que antes requerían inteligencia humana, y también de optimizar procesos, detectar patrones o resolver."
 actualizado: 2026-11-22
 destacado: true
 faq:

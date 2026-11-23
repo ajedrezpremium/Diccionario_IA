@@ -4,11 +4,11 @@ nombreCompleto: "Sistema multiagente"
 slug: "multiagente"
 categoria: "agentes"
 nivel: "avanzado"
-definicionCorta: "Conjunto de agentes especializados que colaboran, se reparten tareas o se revisan entre sí para resolver un problema."
+definicionCorta: "Conjunto de agentes especializados que colaboran o se revisan entre sí. Suele incluir un agente coordinador que distribuye tareas, gestiona resultados, detecta errores y."
 sinonimos: ["Multi-agent system", "Sistema de agentes"]
 relacionados: ["orquestacion", "agente-de-ia", "workflow", "observabilidad"]
 metaTitulo: "Qué es Sistema multiagente en IA: guía para pymes"
-metaDescripcion: "Conjunto de agentes especializados que colaboran, se reparten tareas o se revisan entre sí para resolver un problema. Explicado para pymes."
+metaDescripcion: "Conjunto de agentes especializados que colaboran o se revisan entre sí. Suele incluir un agente coordinador que distribuye tareas, gestiona resultados, detecta."
 actualizado: 2026-11-22
 destacado: false
 faq:

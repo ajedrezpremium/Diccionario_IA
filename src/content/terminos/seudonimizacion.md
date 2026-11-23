@@ -1,14 +1,14 @@
 ---
-termino: "Anonimización"
-nombreCompleto: "Anonimización"
-slug: "anonimizacion-web"
+termino: "Seudonimización"
+nombreCompleto: "Seudonimización"
+slug: "seudonimizacion"
 categoria: "seguridad-y-etica"
 nivel: "intermedio"
-definicionCorta: "Proceso de eliminar o transformar datos personales para que no sea posible identificar a una persona ni combinando información."
-sinonimos: ["Anonymization"]
+definicionCorta: "Proceso de sustituir los identificadores de un dato por otros artificiales, de modo que la persona solo pueda reidentificarse con información adicional guardada por separado."
+sinonimos: ["Pseudonymization"]
 relacionados: ["privacidad", "rgpd", "datos-sinteticos", "gobernanza-de-datos"]
-metaTitulo: "Qué es Anonimización en IA: guía para pymes"
-metaDescripcion: "Proceso de eliminar o transformar datos personales para que no sea posible identificar a una persona ni combinando información."
+metaTitulo: "Qué es Seudonimización en IA: guía para pymes"
+metaDescripcion: "Proceso de sustituir los identificadores de un dato por otros artificiales, de modo que la persona solo pueda reidentificarse con información adicional guardada por."
 actualizado: 2026-11-22
 destacado: false
 faq:

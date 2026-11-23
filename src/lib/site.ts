@@ -2,7 +2,7 @@ export const SITE = {
   name: import.meta.env.PUBLIC_SITE_NAME || 'Diccionario IA',
   url: (import.meta.env.PUBLIC_SITE_URL || 'https://diccionario-ia.vercel.app').replace(/\/$/, ''),
   description:
-    '100 términos de inteligencia artificial explicados en español, con ejemplos reales de negocio. Glosario práctico para pymes y profesionales que no programan.',
+    '150 términos de inteligencia artificial explicados en español, con ejemplos reales de negocio. Glosario práctico para pymes y profesionales que no programan.',
   locale: 'es_ES',
   lang: 'es',
   author: 'Chess AI Agency',

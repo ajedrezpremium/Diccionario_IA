@@ -107,8 +107,8 @@ if (!fs.existsSync(INDICE)) {
   }
 }
 
-if (ficheros.length !== 120) {
-  errores.push(`Se esperaban 120 fichas y hay ${ficheros.length}.`);
+if (ficheros.length !== 150) {
+  errores.push(`Se esperaban 150 fichas y hay ${ficheros.length}.`);
 }
 
 console.log(`Fichas revisadas: ${ficheros.length}`);

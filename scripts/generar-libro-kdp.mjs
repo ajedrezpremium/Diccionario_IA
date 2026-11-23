@@ -58,7 +58,7 @@ const doc = new PDFDocument({
   info: {
     Title: 'Diccionario de IA para tu negocio',
     Author: 'Roberto Páramos Domínguez',
-    Subject: '100 términos de inteligencia artificial explicados en español',
+    Subject: '120 términos de inteligencia artificial explicados en español',
     Keywords: 'IA, inteligencia artificial, glosario, pymes, español, Amazon KDP',
     Creator: 'Chess AI Agency',
     Producer: 'JRedition',
@@ -112,13 +112,13 @@ doc.font('Heading-Bold').fontSize(42).fillColor('#d4af37').text('de IA', MARGIN,
 doc.font('Heading').fontSize(20).fillColor('#e8e4ff').text('para tu negocio', MARGIN, 310);
 
 doc.font('Body').fontSize(12).fillColor('#ffffff').text(
-  '100 términos explicados en español, con ejemplos reales\ny sin jerga innecesaria. Para pymes, autónomos\ny profesionales que no programan.',
+  '120 términos explicados en español, con ejemplos reales\ny sin jerga innecesaria. Para pymes, autónomos\ny profesionales que no programan.',
   MARGIN, 370, { lineGap: 5 },
 );
 
 doc.rect(MARGIN, 470, 180, 1).fill('#8f8ad8');
 doc.font('Heading-Bold').fontSize(10).fillColor('#ffffff').text('EDICIÓN 2026', MARGIN, 485, { characterSpacing: 1.5 });
-doc.font('Heading').fontSize(10).fillColor('#b9b5e8').text('100 términos · 8 bloques · checklist final', MARGIN, 505);
+doc.font('Heading').fontSize(10).fillColor('#b9b5e8').text('120 términos · 8 bloques · checklist final', MARGIN, 505);
 
 doc.font('Body').fontSize(10).fillColor('#8f8ad8').text('Roberto Páramos Domínguez', MARGIN, PAGE_H - 80);
 doc.font('Body').fontSize(8).fillColor('#8f8ad8').text('agency.ajedrezpremium.com', MARGIN, PAGE_H - 60);
@@ -128,7 +128,7 @@ nuevaPagina();
 doc.fillColor('#000000').font('Heading-Bold').fontSize(22).text('Antes de empezar');
 doc.moveDown(0.6);
 doc.font('Body').fontSize(11).fillColor('#333333').text(
-  'Este libro reúne los 100 términos del Diccionario IA, un glosario público escrito para que puedas entender qué te están vendiendo, qué necesitas de verdad y qué puedes ignorar sin remordimientos.',
+  'Este libro reúne los 120 términos del Diccionario IA, un glosario público escrito para que puedas entender qué te están vendiendo, qué necesitas de verdad y qué puedes ignorar sin remordimientos.',
   { lineGap: 4 },
 );
 doc.moveDown(0.5);
@@ -374,7 +374,7 @@ nuevaPagina();
 doc.rect(0, 0, PAGE_W, PAGE_H).fill('#1a1a2e');
 doc.rect(0, 0, 8, PAGE_H).fill('#d4af37');
 doc.fillColor('#ffffff').font('Heading-Bold').fontSize(12).text('ENTIENDE LA IA ANTES DE COMPRARLA', MARGIN, 200, { characterSpacing: 1.5 });
-doc.font('Heading').fontSize(11).fillColor('#dcd8ff').text('100 términos · 8 bloques · checklist final', MARGIN, 230);
+doc.font('Heading').fontSize(11).fillColor('#dcd8ff').text('120 términos · 8 bloques · checklist final', MARGIN, 230);
 doc.font('Body').fontSize(10).fillColor('#ffffff').text(
   'La IA no es magia ni amenaza: es una herramienta. Este diccionario te da el vocabulario para decidir con criterio.',
   MARGIN, 290, { width: ANCHO, lineGap: 4 },

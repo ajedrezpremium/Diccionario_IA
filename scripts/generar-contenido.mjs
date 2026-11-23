@@ -14,7 +14,7 @@ const modulos = [
   '05-datos.mjs',
   '06-prompting.mjs',
   '07-seguridad.mjs',
-  '08-negocio.mjs', '09-extra.mjs', '10-nuevos.mjs', '11-final.mjs'
+  '08-negocio.mjs', '09-extra.mjs', '10-nuevos.mjs', '11-final.mjs', '12-web30.mjs', '13-web20.mjs', '14-web3.mjs'
 ];
 
 const terminos = [];
@@ -86,8 +86,8 @@ const relacionadosValidos = (t) => {
   return [...lista, ...mismaCategoria].slice(0, Math.max(2, lista.length)).slice(0, 6);
 };
 
-if (terminos.length !== 120) {
-  errores.push(`Se esperaban 120 términos y hay ${terminos.length}.`);
+if (terminos.length !== 150) {
+  errores.push(`Se esperaban 150 términos y hay ${terminos.length}.`);
 }
 
 if (errores.length) {

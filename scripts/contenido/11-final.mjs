@@ -1,7 +1,7 @@
 export default [
   {
     t: 'IA explicable', full: 'IA explicable (XAI)', slug: 'ia-explicable', cat: 'seguridad-y-etica', nivel: 'intermedio',
-    def: 'Campo de la IA que busca que las decisiones de un modelo sean comprensibles para las personas que las reciben o supervisan.',
+    def: 'Campo de la IA que busca que las decisiones de un modelo sean comprensibles. No existe una obligación general de explicar técnicamente cualquier respuesta: el AI Act exige requisitos concretos según el tipo de sistema y su nivel de riesgo.',
     sin: ['XAI', 'Explainable AI'], rel: ['explicabilidad', 'auditoria-de-algoritmos', 'transparencia-algoritmica', 'ia-act'],
     p1: 'No basta con que el modelo acierte: hay que poder entender por qué. La IA explicable desarrolla métodos para mostrar qué variables influyeron y cómo.',
     p2: 'Algunos modelos son interpretables por diseño; otros requieren técnicas posteriores que aproximan la explicación. Siempre es una aproximación.',
@@ -61,7 +61,7 @@ export default [
   },
   {
     t: 'Evaluación de riesgos', full: 'Evaluación de riesgos de IA', slug: 'evaluacion-de-riesgos', cat: 'seguridad-y-etica', nivel: 'avanzado',
-    def: 'Análisis previo de los posibles daños de un sistema de IA y de las medidas para prevenirlos o reducirlos.',
+    def: 'Análisis previo de los posibles daños de un sistema de IA y de las medidas para reducirlos. No es lo mismo que la evaluación de impacto sobre derechos fundamentales, exigida solo en determinados supuestos.',
     sin: ['AI impact assessment', 'Evaluación de impacto'], rel: ['ia-act', 'auditoria-de-algoritmos', 'seguridad-de-agentes', 'gobernanza-de-datos'],
     p1: 'Antes de desplegar, se identifican escenarios de fallo, quién puede resultar afectado, qué gravedad tendría y qué controles se aplican.',
     p2: 'Es obligatoria para sistemas de alto riesgo bajo el AI Act y recomendable para cualquier agente que toque dinero o datos.',

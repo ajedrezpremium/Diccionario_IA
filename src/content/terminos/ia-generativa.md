@@ -4,11 +4,11 @@ nombreCompleto: "Inteligencia artificial generativa"
 slug: "ia-generativa"
 categoria: "fundamentos"
 nivel: "basico"
-definicionCorta: "Rama de la IA que crea contenido nuevo —texto, imágenes, audio o código— a partir de patrones aprendidos de datos existentes."
+definicionCorta: "Rama de la IA que crea contenido nuevo —texto, imágenes, audio, vídeo o código— con modelos que aprenden patrones de grandes conjuntos de datos."
 sinonimos: ["Generative AI", "GenAI"]
 relacionados: ["inteligencia-artificial", "llm", "texto-a-imagen", "alucinacion"]
 metaTitulo: "Qué es IA generativa en IA: guía para pymes"
-metaDescripcion: "Rama de la IA que crea contenido nuevo —texto, imágenes, audio o código— a partir de patrones aprendidos de datos existentes."
+metaDescripcion: "Rama de la IA que crea contenido nuevo —texto, imágenes, audio, vídeo o código— con modelos que aprenden patrones de grandes conjuntos de datos."
 actualizado: 2026-11-22
 destacado: true
 faq:

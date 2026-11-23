@@ -4,11 +4,11 @@ nombreCompleto: "Agente autónomo"
 slug: "agente-autonomo"
 categoria: "agentes"
 nivel: "avanzado"
-definicionCorta: "Agente que planifica y ejecuta varios pasos sin intervención humana continua, dentro de límites y objetivos definidos."
+definicionCorta: "Agente que planifica y ejecuta secuencias de tareas con supervisión limitada, dentro de límites y objetivos definidos."
 sinonimos: ["Autonomous agent"]
 relacionados: ["agente-de-ia", "human-in-the-loop", "bucle-agentico", "seguridad-de-agentes"]
 metaTitulo: "Qué es Agente autónomo en IA: guía para pymes"
-metaDescripcion: "Agente que planifica y ejecuta varios pasos sin intervención humana continua, dentro de límites y objetivos definidos. Explicado para pymes."
+metaDescripcion: "Agente que planifica y ejecuta secuencias de tareas con supervisión limitada, dentro de límites y objetivos definidos. Explicado para pymes."
 actualizado: 2026-11-22
 destacado: false
 faq:

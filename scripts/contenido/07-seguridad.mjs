@@ -27,7 +27,7 @@ export default [
     slug: 'privacidad',
     cat: 'seguridad-y-etica',
     nivel: 'basico',
-    def: 'Protección de la información personal y confidencial que se comparte con sistemas de IA, desde la recogida hasta el borrado.',
+    def: 'Protección de la información personal y confidencial que se comparte con sistemas de IA, desde la recogida hasta el borrado. Depende del proveedor, el contrato, la configuración y el tratamiento concreto, no solo del nombre del plan.',
     sin: ['Privacidad de datos'],
     rel: ['rgpd', 'anonimizacion', 'soberania-del-dato', 'seguridad-de-agentes'],
     p1: 'Cada vez que envías un texto a un modelo, ese texto sale de tu equipo y llega a un proveedor. Puede incluir nombres, emails, datos de salud o secretos comerciales. La pregunta clave es: ¿qué guarda el proveedor, durante cuánto tiempo y para qué?',

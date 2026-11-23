@@ -26,7 +26,7 @@ Para modelos grandes, la memoria de la GPU (VRAM) es el límite: si el modelo no
 
 ## Una analogía para entenderlo
 
-> Un equipo de mil repartidores en moto frente a un solo camión. Para muchas entregas pequeñas, el equipo gana.
+> Un equipo de repartidores en moto frente a un solo camión: para muchas entregas pequeñas el equipo gana, aunque no todas las motos son iguales y a veces basta el camión.
 
 ## Ejemplo real de negocio
 

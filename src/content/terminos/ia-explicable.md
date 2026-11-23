@@ -4,11 +4,11 @@ nombreCompleto: "IA explicable (XAI)"
 slug: "ia-explicable"
 categoria: "seguridad-y-etica"
 nivel: "intermedio"
-definicionCorta: "Campo de la IA que busca que las decisiones de un modelo sean comprensibles para las personas que las reciben o supervisan."
+definicionCorta: "Campo de la IA que busca que las decisiones de un modelo sean comprensibles. No existe una obligación general de explicar técnicamente cualquier respuesta: el AI Act exige."
 sinonimos: ["XAI", "Explainable AI"]
 relacionados: ["explicabilidad", "auditoria-de-algoritmos", "transparencia-algoritmica", "ia-act"]
 metaTitulo: "Qué es IA explicable en IA: guía para pymes"
-metaDescripcion: "Campo de la IA que busca que las decisiones de un modelo sean comprensibles para las personas que las reciben o supervisan."
+metaDescripcion: "Campo de la IA que busca que las decisiones de un modelo sean comprensibles. No existe una obligación general de explicar técnicamente cualquier respuesta: el AI."
 actualizado: 2026-11-22
 destacado: false
 faq:

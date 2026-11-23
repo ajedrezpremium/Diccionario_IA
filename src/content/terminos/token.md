@@ -4,11 +4,11 @@ nombreCompleto: "Token"
 slug: "token"
 categoria: "fundamentos"
 nivel: "basico"
-definicionCorta: "Unidad mínima de texto que procesa un modelo: puede ser una palabra completa, un trozo de palabra o un signo de puntuación."
+definicionCorta: "Unidad de tokenización: pieza de texto —o de otro tipo de entrada— que un modelo procesa. Puede ser una palabra, un trozo de palabra, un signo o un token especial."
 sinonimos: ["Tokens"]
 relacionados: ["ventana-de-contexto", "coste-por-token", "llm", "embedding"]
 metaTitulo: "Qué es Token en IA: guía para pymes"
-metaDescripcion: "Unidad mínima de texto que procesa un modelo: puede ser una palabra completa, un trozo de palabra o un signo de puntuación."
+metaDescripcion: "Unidad de tokenización: pieza de texto —o de otro tipo de entrada— que un modelo procesa. Puede ser una palabra, un trozo de palabra, un signo o un token especial."
 actualizado: 2026-11-22
 destacado: true
 faq:

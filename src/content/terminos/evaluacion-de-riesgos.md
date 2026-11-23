@@ -4,11 +4,11 @@ nombreCompleto: "Evaluación de riesgos de IA"
 slug: "evaluacion-de-riesgos"
 categoria: "seguridad-y-etica"
 nivel: "avanzado"
-definicionCorta: "Análisis previo de los posibles daños de un sistema de IA y de las medidas para prevenirlos o reducirlos."
+definicionCorta: "Análisis previo de los posibles daños de un sistema de IA y de las medidas para reducirlos. No es lo mismo que la evaluación de impacto sobre derechos fundamentales, exigida."
 sinonimos: ["AI impact assessment", "Evaluación de impacto"]
 relacionados: ["ia-act", "auditoria-de-algoritmos", "seguridad-de-agentes", "gobernanza-de-datos"]
 metaTitulo: "Qué es Evaluación de riesgos en IA: guía para pymes"
-metaDescripcion: "Análisis previo de los posibles daños de un sistema de IA y de las medidas para prevenirlos o reducirlos. Explicado para pymes."
+metaDescripcion: "Análisis previo de los posibles daños de un sistema de IA y de las medidas para reducirlos. No es lo mismo que la evaluación de impacto sobre derechos."
 actualizado: 2026-11-22
 destacado: false
 faq:

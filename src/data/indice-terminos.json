@@ -4,7 +4,7 @@
     "slug": "inteligencia-artificial",
     "categoria": "fundamentos",
     "nivel": "basico",
-    "definicionCorta": "Disciplina que diseña sistemas capaces de realizar tareas asociadas a la inteligencia humana, como entender texto, reconocer imágenes o decidir.",
+    "definicionCorta": "Disciplina que diseña sistemas capaces de realizar tareas que antes requerían inteligencia humana, y también de optimizar procesos, detectar patrones o resolver problemas sin.",
     "alias": [
       "Inteligencia artificial",
       "IA",
@@ -54,7 +54,7 @@
     "slug": "token",
     "categoria": "fundamentos",
     "nivel": "basico",
-    "definicionCorta": "Unidad mínima de texto que procesa un modelo: puede ser una palabra completa, un trozo de palabra o un signo de puntuación.",
+    "definicionCorta": "Unidad de tokenización: pieza de texto —o de otro tipo de entrada— que un modelo procesa. Puede ser una palabra, un trozo de palabra, un signo o un token especial.",
     "alias": [
       "Token",
       "Tokens"
@@ -140,7 +140,7 @@
     "slug": "ia-generativa",
     "categoria": "fundamentos",
     "nivel": "basico",
-    "definicionCorta": "Rama de la IA que crea contenido nuevo —texto, imágenes, audio o código— a partir de patrones aprendidos de datos existentes.",
+    "definicionCorta": "Rama de la IA que crea contenido nuevo —texto, imágenes, audio, vídeo o código— con modelos que aprenden patrones de grandes conjuntos de datos.",
     "alias": [
       "Inteligencia artificial generativa",
       "Generative AI",
@@ -500,7 +500,7 @@
     "slug": "agente-autonomo",
     "categoria": "agentes",
     "nivel": "avanzado",
-    "definicionCorta": "Agente que planifica y ejecuta varios pasos sin intervención humana continua, dentro de límites y objetivos definidos.",
+    "definicionCorta": "Agente que planifica y ejecuta secuencias de tareas con supervisión limitada, dentro de límites y objetivos definidos.",
     "alias": [
       "Agente autónomo",
       "Autonomous agent"
@@ -525,7 +525,7 @@
     "slug": "multiagente",
     "categoria": "agentes",
     "nivel": "avanzado",
-    "definicionCorta": "Conjunto de agentes especializados que colaboran, se reparten tareas o se revisan entre sí para resolver un problema.",
+    "definicionCorta": "Conjunto de agentes especializados que colaboran o se revisan entre sí. Suele incluir un agente coordinador que distribuye tareas, gestiona resultados, detecta errores y.",
     "alias": [
       "Sistema multiagente",
       "Multi-agent system",
@@ -1361,14 +1361,14 @@
     "destacado": false
   },
   {
-    "termino": "Anonimización",
-    "slug": "anonimizacion-web",
+    "termino": "Seudonimización",
+    "slug": "seudonimizacion",
     "categoria": "seguridad-y-etica",
     "nivel": "intermedio",
-    "definicionCorta": "Proceso de eliminar o transformar datos personales para que no sea posible identificar a una persona ni combinando información.",
+    "definicionCorta": "Proceso de sustituir los identificadores de un dato por otros artificiales, de modo que la persona solo pueda reidentificarse con información adicional guardada por separado.",
     "alias": [
-      "Anonimización",
-      "Anonymization"
+      "Seudonimización",
+      "Pseudonymization"
     ],
     "destacado": false
   },
@@ -1440,7 +1440,7 @@
     "slug": "ia-explicable",
     "categoria": "seguridad-y-etica",
     "nivel": "intermedio",
-    "definicionCorta": "Campo de la IA que busca que las decisiones de un modelo sean comprensibles para las personas que las reciben o supervisan.",
+    "definicionCorta": "Campo de la IA que busca que las decisiones de un modelo sean comprensibles. No existe una obligación general de explicar técnicamente cualquier respuesta: el AI Act exige.",
     "alias": [
       "IA explicable (XAI)",
       "XAI",
@@ -1501,7 +1501,7 @@
     "slug": "evaluacion-de-riesgos",
     "categoria": "seguridad-y-etica",
     "nivel": "avanzado",
-    "definicionCorta": "Análisis previo de los posibles daños de un sistema de IA y de las medidas para prevenirlos o reducirlos.",
+    "definicionCorta": "Análisis previo de los posibles daños de un sistema de IA y de las medidas para reducirlos. No es lo mismo que la evaluación de impacto sobre derechos fundamentales, exigida.",
     "alias": [
       "Evaluación de riesgos de IA",
       "AI impact assessment",
@@ -1518,6 +1518,378 @@
     "alias": [
       "Derechos digitales",
       "Derechos del RGPD"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Context Engineering",
+    "slug": "context-engineering",
+    "categoria": "prompting",
+    "nivel": "avanzado",
+    "definicionCorta": "Disciplina de diseñar y gestionar toda la información que recibe un agente: instrucciones, historial, documentos, herramientas y reglas.",
+    "alias": [
+      "Context Engineering (ingeniería del contexto)",
+      "Ingeniería del contexto"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "AI Gateway",
+    "slug": "ai-gateway",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "avanzado",
+    "definicionCorta": "Capa intermedia que centraliza el acceso a distintos modelos y proveedores, gestionando claves, costes, límites y seguridad.",
+    "alias": [
+      "AI Gateway (pasarela de IA)",
+      "Pasarela de IA",
+      "LLM gateway"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Model Routing",
+    "slug": "model-routing",
+    "categoria": "modelos",
+    "nivel": "avanzado",
+    "definicionCorta": "Selección automática del modelo más adecuado para cada tarea, equilibrando calidad, coste, latencia y disponibilidad.",
+    "alias": [
+      "Model Routing (enrutado de modelos)",
+      "Enrutado de modelos",
+      "Multi-model routing"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Agent Evaluation",
+    "slug": "agent-evaluation",
+    "categoria": "agentes",
+    "nivel": "avanzado",
+    "definicionCorta": "Medición objetiva de la calidad de un agente: aciertos, errores, coste, latencia y cumplimiento de instrucciones en tareas representativas.",
+    "alias": [
+      "Agent Evaluation (evaluación de agentes)",
+      "Evaluación de agentes",
+      "Agent evals"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Guardrails",
+    "slug": "guardrails",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Límites y controles que restringen lo que un sistema de IA puede decir o hacer: temas prohibidos, formatos, acciones y umbrales.",
+    "alias": [
+      "Guardrails (barandillas de seguridad)",
+      "Barandillas",
+      "Controles de seguridad"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Agent-to-Agent",
+    "slug": "agent-to-agent",
+    "categoria": "agentes",
+    "nivel": "avanzado",
+    "definicionCorta": "Protocolo y patrón de comunicación que permite a agentes de sistemas distintos descubrirse, intercambiar mensajes y colaborar en tareas.",
+    "alias": [
+      "Agent-to-Agent (A2A)",
+      "A2A",
+      "Comunicación entre agentes"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Voice AI",
+    "slug": "voice-ai",
+    "categoria": "modelos",
+    "nivel": "intermedio",
+    "definicionCorta": "Tecnología que permite a un sistema entender y generar lenguaje hablado: transcripción, síntesis de voz y conversación en tiempo real.",
+    "alias": [
+      "Voice AI (IA de voz)",
+      "IA de voz",
+      "Asistente de voz"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "AI Observability",
+    "slug": "ai-observability",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "avanzado",
+    "definicionCorta": "Supervisión específica de sistemas de IA: calidad de respuestas, trazas de agente, costes, latencia, errores y derivaciones.",
+    "alias": [
+      "AI Observability (observabilidad de IA)",
+      "Observabilidad de IA",
+      "LLM observability"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Agentic Workflow",
+    "slug": "agentic-workflow",
+    "categoria": "agentes",
+    "nivel": "intermedio",
+    "definicionCorta": "Proceso de trabajo en el que un agente interpreta, decide y ejecuta pasos con herramientas, combinando reglas fijas con autonomía limitada.",
+    "alias": [
+      "Agentic Workflow (flujo agéntico)",
+      "Flujo agéntico"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Computer Vision",
+    "slug": "computer-vision",
+    "categoria": "modelos",
+    "nivel": "intermedio",
+    "definicionCorta": "Campo de la IA que permite a un sistema interpretar imágenes y vídeo: clasificar escenas, detectar objetos o leer texto.",
+    "alias": [
+      "Computer Vision (visión artificial)",
+      "Visión artificial",
+      "Visión por computadora"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Reranking",
+    "slug": "reranking",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Segunda fase de recuperación que reordena los fragmentos candidatos para que los más relevantes queden primero.",
+    "alias": [
+      "Reranking (reordenación)",
+      "Reordenación"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Búsqueda híbrida",
+    "slug": "busqueda-hibrida",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "intermedio",
+    "definicionCorta": "Combinación de búsqueda por palabras clave y búsqueda semántica para fusionar resultados y mejorar la precisión.",
+    "alias": [
+      "Búsqueda híbrida",
+      "Hybrid search"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Evaluation Dataset",
+    "slug": "evaluation-dataset",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Colección de casos representativos con respuestas o criterios esperados, usada para medir y comparar sistemas de IA.",
+    "alias": [
+      "Evaluation Dataset (conjunto de evaluación)",
+      "Conjunto de evaluación",
+      "Dataset de evals"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Data Poisoning",
+    "slug": "data-poisoning",
+    "categoria": "seguridad-y-etica",
+    "nivel": "avanzado",
+    "definicionCorta": "Ataque que introduce datos maliciosos o engañosos en el conjunto de entrenamiento o en el conocimiento recuperado para manipular el modelo.",
+    "alias": [
+      "Data Poisoning (envenenamiento de datos)",
+      "Envenenamiento de datos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Model Drift",
+    "slug": "model-drift",
+    "categoria": "modelos",
+    "nivel": "avanzado",
+    "definicionCorta": "Caída del rendimiento de un modelo con el tiempo porque los datos reales cambian y dejan de parecerse a los usados en entrenamiento o evaluación.",
+    "alias": [
+      "Model Drift (deriva del modelo)",
+      "Deriva del modelo",
+      "Data drift"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Adversarial Testing",
+    "slug": "adversarial-testing",
+    "categoria": "seguridad-y-etica",
+    "nivel": "avanzado",
+    "definicionCorta": "Pruebas deliberadas con entradas manipuladas para descubrir cómo un modelo puede fallar, engañarse o saltarse sus límites.",
+    "alias": [
+      "Adversarial Testing (pruebas adversariales)",
+      "Pruebas adversariales"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Output Validation",
+    "slug": "output-validation",
+    "categoria": "seguridad-y-etica",
+    "nivel": "intermedio",
+    "definicionCorta": "Comprobación automática de la respuesta de un modelo antes de mostrarla o usarla: formato, rangos, fuentes y reglas de negocio.",
+    "alias": [
+      "Output Validation (validación de salida)",
+      "Validación de salida"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Tool Registry",
+    "slug": "tool-registry",
+    "categoria": "agentes",
+    "nivel": "avanzado",
+    "definicionCorta": "Catálogo central de las herramientas que un agente puede usar, con descripción, parámetros, permisos y nivel de riesgo.",
+    "alias": [
+      "Tool Registry (registro de herramientas)",
+      "Registro de herramientas"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Long Context",
+    "slug": "long-context",
+    "categoria": "modelos",
+    "nivel": "avanzado",
+    "definicionCorta": "Capacidad de un modelo para procesar ventanas de contexto muy grandes, permitiéndole considerar documentos extensos en una sola petición.",
+    "alias": [
+      "Long Context (contexto largo)",
+      "Ventana larga",
+      "Contexto extenso"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Inference Optimization",
+    "slug": "inference-optimization",
+    "categoria": "modelos",
+    "nivel": "avanzado",
+    "definicionCorta": "Conjunto de técnicas para reducir coste y latencia al ejecutar un modelo: cuantización, caché, lotes, destilación o modelos más pequeños.",
+    "alias": [
+      "Inference Optimization (optimización de inferencia)",
+      "Optimización de inferencia"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Multi-Modal RAG",
+    "slug": "multi-modal-rag",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Recuperación aumentada que indexa y busca en varios tipos de contenido a la vez: texto, imágenes, tablas o audio.",
+    "alias": [
+      "Multi-Modal RAG (RAG multimodal)",
+      "RAG multimodal"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Semantic Cache",
+    "slug": "semantic-cache",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Caché que reutiliza respuestas anteriores cuando una nueva pregunta tiene un significado parecido, aunque no esté escrita igual.",
+    "alias": [
+      "Semantic Cache (caché semántica)",
+      "Caché semántica"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "AI Readiness",
+    "slug": "ai-readiness",
+    "categoria": "negocio",
+    "nivel": "intermedio",
+    "definicionCorta": "Grado en que una organización tiene los datos, procesos, personas y controles necesarios para adoptar IA con éxito.",
+    "alias": [
+      "AI Readiness (preparación para IA)",
+      "Preparación para IA",
+      "Madurez en IA"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Process Mining",
+    "slug": "process-mining",
+    "categoria": "negocio",
+    "nivel": "avanzado",
+    "definicionCorta": "Técnica que reconstruye cómo funcionan realmente los procesos a partir de los registros de los sistemas, en lugar del manual teórico.",
+    "alias": [
+      "Process Mining (minería de procesos)",
+      "Minería de procesos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Change Management",
+    "slug": "change-management",
+    "categoria": "negocio",
+    "nivel": "intermedio",
+    "definicionCorta": "Proceso de preparar, acompañar y consolidar a las personas cuando se introduce una herramienta o una forma de trabajar nueva.",
+    "alias": [
+      "Change Management (gestión del cambio)",
+      "Gestión del cambio"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "AI Governance",
+    "slug": "ai-governance",
+    "categoria": "negocio",
+    "nivel": "avanzado",
+    "definicionCorta": "Conjunto de políticas, responsables y controles para que el uso de IA en una organización sea seguro, cumpla la ley y esté alineado con sus objetivos.",
+    "alias": [
+      "AI Governance (gobernanza de IA)",
+      "Gobernanza de IA"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Token Optimization",
+    "slug": "token-optimization",
+    "categoria": "negocio",
+    "nivel": "intermedio",
+    "definicionCorta": "Práctica de reducir el número de tokens consumidos por petición sin perder calidad: recortar contexto, resumir historial y limitar salida.",
+    "alias": [
+      "Token Optimization (optimización de tokens)",
+      "Optimización de tokens"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Data Mesh",
+    "slug": "data-mesh",
+    "categoria": "datos-y-conocimiento",
+    "nivel": "avanzado",
+    "definicionCorta": "Modelo organizativo que reparte la propiedad de los datos entre equipos de negocio, cada uno responsable de su propio producto de datos.",
+    "alias": [
+      "Data Mesh (malla de datos)",
+      "Malla de datos"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Synthetic Monitoring",
+    "slug": "synthetic-monitoring",
+    "categoria": "herramientas-desarrollo",
+    "nivel": "avanzado",
+    "definicionCorta": "Supervisión que ejecuta peticiones de prueba periódicas para detectar fallos o caídas de calidad antes de que los usuarios lo noten.",
+    "alias": [
+      "Synthetic Monitoring (monitorización sintética)",
+      "Monitorización sintética"
+    ],
+    "destacado": false
+  },
+  {
+    "termino": "Prompt Versioning",
+    "slug": "prompt-versioning",
+    "categoria": "prompting",
+    "nivel": "intermedio",
+    "definicionCorta": "Práctica de guardar cada versión de un prompt con su fecha, autor y resultados, para poder comparar, revertir y auditar cambios.",
+    "alias": [
+      "Prompt Versioning (control de versiones de prompts)",
+      "Control de versiones de prompts"
     ],
     "destacado": false
   }

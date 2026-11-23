@@ -51,7 +51,7 @@
 <div class="portada">
   <h1>Diccionario de IA</h1>
   <p class="subtitulo">para tu negocio</p>
-  <p>100 términos explicados en español, con ejemplos reales y sin jerga innecesaria.</p>
+  <p>120 términos explicados en español, con ejemplos reales y sin jerga innecesaria.</p>
   <p>Para pymes, autónomos y profesionales que no programan.</p>
   <p class="autor">Roberto Páramos Domínguez</p>
   <p class="editorial">JRedition · Edición 2026</p>
@@ -73,7 +73,7 @@
     <li><strong>Prompting</strong> (10 términos)</li>
     <li style="font-size:0.85em;color:#555;margin-left:1em">Prompt engineering · Zero-shot · Cadena de pensamiento · Role prompting · Salida estructurada · Contexto · Plantilla de prompt · Evaluación de prompts · Iteración de prompts · Delimitadores</li>
     <li><strong>Seguridad, ética y legal</strong> (24 términos)</li>
-    <li style="font-size:0.85em;color:#555;margin-left:1em">Prompt injection · Privacidad · RGPD · AI Act · Transparencia algorítmica · Derechos de autor · Deepfake · Red teaming · Anonimización · Seguridad de agentes · Auditoría de algoritmos · Anonimización · Sesgo de confirmación · Explicabilidad · Derecho a la explicación · Evaluación de sesgos · Datos personales · IA explicable · Robustez · Trazabilidad · Consentimiento informado · Minimización de datos · Evaluación de riesgos · Derechos digitales</li>
+    <li style="font-size:0.85em;color:#555;margin-left:1em">Prompt injection · Privacidad · RGPD · AI Act · Transparencia algorítmica · Derechos de autor · Deepfake · Red teaming · Anonimización · Seguridad de agentes · Auditoría de algoritmos · Seudonimización · Sesgo de confirmación · Explicabilidad · Derecho a la explicación · Evaluación de sesgos · Datos personales · IA explicable · Robustez · Trazabilidad · Consentimiento informado · Minimización de datos · Evaluación de riesgos · Derechos digitales</li>
     <li><strong>Negocio y aplicación</strong> (10 términos)</li>
     <li style="font-size:0.85em;color:#555;margin-left:1em">Automatización con IA · ROI de la IA · Caso de uso · Prueba de concepto · Coste por token · Copiloto · Agente de atención al cliente · Cualificación de leads · Soberanía del dato · Vendor lock-in</li>
 
@@ -89,7 +89,7 @@
 <div class="ficha">
   <h2 class="ficha-titulo">Inteligencia artificial</h2>
   <p class="nivel">Nivel: Básico · Ficha 1 de 120</p>
-  <div class="definicion">Disciplina que diseña sistemas capaces de realizar tareas asociadas a la inteligencia humana, como entender texto, reconocer imágenes o decidir.</div>
+  <div class="definicion">Disciplina que diseña sistemas capaces de realizar tareas que antes requerían inteligencia humana, y también de optimizar procesos, detectar patrones o resolver problemas sin imitar capacidades humanas.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>La inteligencia artificial no es una sola cosa: es un paraguas que cubre muchas técnicas. Algunas aprenden de datos, otras siguen reglas, otras optimizan decisiones. Lo que comparten es el objetivo: que una máquina resuelva una tarea que antes requería criterio humano.</p><p>Hoy la IA que más se usa es estrecha: hace muy bien una tarea concreta y nada más. Un modelo puede redactar correos magníficamente y, sin embargo, no saber si el pedido ha llegado. Esa distinción importa mucho cuando alguien te vende «IA» como si fuera un empleado completo.</p></div>
   <div class="seccion analogia"><h3>Una analogía</h3><p>Piensa en un aprendiz muy rápido al que le enseñas miles de ejemplos. Aprende el patrón, pero no entiende el mundo como tú.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Una clínica dental recibe llamadas para pedir cita, cambiar hora y preguntar precios. Un sistema de IA puede transcribir la llamada, detectar el motivo y proponer un hueco, pero la confirmación final sigue necesitando una regla de negocio.</p></div>
@@ -153,7 +153,7 @@
 <div class="ficha">
   <h2 class="ficha-titulo">Token</h2>
   <p class="nivel">Nivel: Básico · Ficha 5 de 120</p>
-  <div class="definicion">Unidad mínima de texto que procesa un modelo: puede ser una palabra completa, un trozo de palabra o un signo de puntuación.</div>
+  <div class="definicion">Unidad de tokenización: pieza de texto —o de otro tipo de entrada— que un modelo procesa. Puede ser una palabra, un trozo de palabra, un signo o un token especial.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>Los modelos no leen letras ni palabras como nosotros: trocean el texto en piezas llamadas tokens. «Inteligencia» puede ser un token o varios según el modelo. Los espacios y los acentos también influyen en cómo se parte el texto.</p><p>Los tokens aparecen en dos sitios clave: la ventana de contexto (cuántos caben a la vez) y el precio (cuántos consumes). Por eso un prompt enorme con diez documentos puede costar más y dejar menos espacio para la respuesta.</p></div>
   <div class="seccion analogia"><h3>Una analogía</h3><p>Son las piezas de Lego con las que se construye el texto. Cuantas más piezas, más grande es la construcción y más caro el kit.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Un despacho de abogados envía contratos de 30 páginas al asistente para resumirlos. Antes de lanzarlo, calcula tokens para saber si caben y cuánto costará cada consulta.</p></div>
@@ -235,7 +235,7 @@
   <p class="nivel">Nivel: Básico · Ficha 10 de 120</p>
   <div class="definicion">Procesador especializado en ejecutar muchas operaciones en paralelo, clave para entrenar y ejecutar modelos de IA con rapidez.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>Una CPU tiene pocos núcleos muy potentes; una GPU tiene miles de núcleos más simples. La IA necesita multiplicar y sumar matrices enormes, una tarea ideal para hacer muchas operaciones a la vez. Por eso las GPU aceleran tanto el entrenamiento como la inferencia.</p><p>Para modelos grandes, la memoria de la GPU (VRAM) es el límite: si el modelo no cabe, no se puede ejecutar. En la nube se alquila por horas; en local, una GPU de consumo puede servir para modelos pequeños y cuantizados.</p></div>
-  <div class="seccion analogia"><h3>Una analogía</h3><p>Un equipo de mil repartidores en moto frente a un solo camión. Para muchas entregas pequeñas, el equipo gana.</p></div>
+  <div class="seccion analogia"><h3>Una analogía</h3><p>Un equipo de repartidores en moto frente a un solo camión: para muchas entregas pequeñas el equipo gana, aunque no todas las motos son iguales y a veces basta el camión.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Una agencia quiere probar un modelo local para no enviar datos a la nube. Con una GPU de 16 GB puede ejecutar un modelo pequeño cuantizado, suficiente para clasificar textos.</p></div>
   <div class="seccion"><h3>Cómo aplicarlo en tu pyme</h3><p>No compres hardware para un piloto. Usa una API o alquila cómputo por horas. Si la privacidad exige local, calcula VRAM, consumo y mantenimiento antes de decidir.</p></div>
   <div class="seccion"><h3>Errores frecuentes</h3><p>Creer que hace falta una GPU para usar IA, que más VRAM implica mejor modelo sin más o que el único coste es la tarjeta.</p></div>
@@ -265,7 +265,7 @@
 <div class="ficha">
   <h2 class="ficha-titulo">IA generativa</h2>
   <p class="nivel">Nivel: Básico · Ficha 12 de 120</p>
-  <div class="definicion">Rama de la IA que crea contenido nuevo —texto, imágenes, audio o código— a partir de patrones aprendidos de datos existentes.</div>
+  <div class="definicion">Rama de la IA que crea contenido nuevo —texto, imágenes, audio, vídeo o código— con modelos que aprenden patrones de grandes conjuntos de datos. Según su arquitectura, predicen secuencias, transforman representaciones o refinan resultados de forma iterativa.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>La IA generativa no se limita a clasificar o predecir: produce. Un modelo de lenguaje escribe, un modelo de imagen dibuja, uno de audio compone voz. Lo hace estimando qué pieza tiene más probabilidades de encajar a continuación, no copiando un original.</p><p>Es útil para borradores, variaciones y tareas de creatividad asistida. También es la que más riesgos presenta: invenciones, sesgos, derechos de autor y contenido que suena convincente sin ser cierto. La revisión humana no es opcional.</p></div>
   <div class="seccion analogia"><h3>Una analogía</h3><p>Un ilustrador que ha visto millones de dibujos y compone uno nuevo. No copia uno existente, pero su estilo bebe de todo lo que ha visto.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Una floristería genera descripciones para el catálogo y tres propuestas de post para Instagram. La dueña elige, corrige precios y añade fotos reales antes de publicar.</p></div>
@@ -723,7 +723,7 @@
 <div class="ficha">
   <h2 class="ficha-titulo">Agente autónomo</h2>
   <p class="nivel">Nivel: Avanzado · Ficha 40 de 120</p>
-  <div class="definicion">Agente que planifica y ejecuta varios pasos sin intervención humana continua, dentro de límites y objetivos definidos.</div>
+  <div class="definicion">Agente que planifica y ejecuta secuencias de tareas con supervisión limitada, dentro de límites y objetivos definidos. Se distingue del asistente —que responde y propone— y del agente —que usa herramientas y ejecuta acciones.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>La autonomía es un gradiente. Un agente puede proponer, ejecutar con aprobación o actuar solo dentro de un límite. Cuanto más autonomía, más eficiencia potencial y más riesgo. La clave está en definir el perímetro: qué puede tocar, cuánto puede gastar y cuándo debe parar.</p><p>En una pyme, la autonomía total rara vez compensa. Lo habitual es automatizar el 80 % y reservar las decisiones sensibles para una persona. Así se gana tiempo sin perder control.</p></div>
   <div class="seccion analogia"><h3>Una analogía</h3><p>Un mensajero al que das una ruta y un límite de gasto. No necesita llamarte en cada esquina, pero sabe cuándo volver.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Un agente revisa el stock cada mañana y prepara borradores de pedido a proveedores. El responsable los aprueba antes de enviarlos. Si detecta una anomalía, avisa.</p></div>
@@ -755,7 +755,7 @@
 <div class="ficha">
   <h2 class="ficha-titulo">Sistema multiagente</h2>
   <p class="nivel">Nivel: Avanzado · Ficha 42 de 120</p>
-  <div class="definicion">Conjunto de agentes especializados que colaboran, se reparten tareas o se revisan entre sí para resolver un problema.</div>
+  <div class="definicion">Conjunto de agentes especializados que colaboran o se revisan entre sí. Suele incluir un agente coordinador que distribuye tareas, gestiona resultados, detecta errores y controla el proceso.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>En un sistema multiagente, cada agente tiene un rol: investigar, redactar, revisar, ejecutar. Se comunican por mensajes o comparten un estado. Puede haber un coordinador o trabajar en paralelo.</p><p>La promesa es especialización; el coste es complejidad. Multiplicas llamadas, latencia y puntos de fallo. Muchas veces un solo agente con buenas herramientas y un workflow claro da mejor resultado.</p></div>
   <div class="seccion analogia"><h3>Una analogía</h3><p>Un equipo de especialistas con un coordinador: cada uno aporta lo suyo y contrastan resultados.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Un equipo de contenidos usa un agente investigador, otro redactor y otro editor. El editor revisa fuentes y tono; una persona da el visto bueno final.</p></div>
@@ -1511,7 +1511,7 @@
 <div class="ficha">
   <h2 class="ficha-titulo">Privacidad</h2>
   <p class="nivel">Nivel: Básico · Ficha 82 de 120</p>
-  <div class="definicion">Protección de la información personal y confidencial que se comparte con sistemas de IA, desde la recogida hasta el borrado.</div>
+  <div class="definicion">Protección de la información personal y confidencial que se comparte con sistemas de IA, desde la recogida hasta el borrado. Depende del proveedor, el contrato, la configuración y el tratamiento concreto, no solo del nombre del plan.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>Cada vez que envías un texto a un modelo, ese texto sale de tu equipo y llega a un proveedor. Puede incluir nombres, emails, datos de salud o secretos comerciales. La pregunta clave es: ¿qué guarda el proveedor, durante cuánto tiempo y para qué?</p><p>La privacidad se diseña: minimizar datos, anonimizar lo que no sea necesario, elegir proveedores con garantías, limitar el acceso y tener una política clara. No basta con una casilla de consentimiento al final.</p></div>
   <div class="seccion analogia"><h3>Una analogía</h3><p>Enviar una carta: cuanto más confidencial es, más importa quién la transporta y qué hace con una copia.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Una clínica quiere resumir informes. Antes de usar una API pública, comprueba si el proveedor entrena con los datos, dónde los almacena y si puede firmar un contrato de encargado del tratamiento.</p></div>
@@ -1669,9 +1669,9 @@
 </div>
 
 <div class="ficha">
-  <h2 class="ficha-titulo">Anonimización</h2>
+  <h2 class="ficha-titulo">Seudonimización</h2>
   <p class="nivel">Nivel: Intermedio · Ficha 108 de 120</p>
-  <div class="definicion">Proceso de eliminar o transformar datos personales para que no sea posible identificar a una persona ni combinando información.</div>
+  <div class="definicion">Proceso de sustituir los identificadores de un dato por otros artificiales, de modo que la persona solo pueda reidentificarse con información adicional guardada por separado.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>Borrar el nombre no basta: una fecha, un código postal y un puesto pueden identificar a alguien. Hay que considerar el riesgo de reidentificación.</p><p>La seudonimización no es anonimización si se puede revertir con una clave.</p></div>
   <div class="seccion analogia"><h3>Una analogía</h3><p>Difuminar una cara en una foto: si el resto permite reconocer a la persona, no está anonimizada.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Un hospital elimina identificadores, agrupa edades por rangos y revisa combinaciones sensibles.</p></div>
@@ -1767,7 +1767,7 @@
 <div class="ficha">
   <h2 class="ficha-titulo">IA explicable</h2>
   <p class="nivel">Nivel: Intermedio · Ficha 114 de 120</p>
-  <div class="definicion">Campo de la IA que busca que las decisiones de un modelo sean comprensibles para las personas que las reciben o supervisan.</div>
+  <div class="definicion">Campo de la IA que busca que las decisiones de un modelo sean comprensibles. No existe una obligación general de explicar técnicamente cualquier respuesta: el AI Act exige requisitos concretos según el tipo de sistema y su nivel de riesgo.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>No basta con que el modelo acierte: hay que poder entender por qué. La IA explicable desarrolla métodos para mostrar qué variables influyeron y cómo.</p><p>Algunos modelos son interpretables por diseño; otros requieren técnicas posteriores que aproximan la explicación. Siempre es una aproximación.</p></div>
   <div class="seccion analogia"><h3>Una analogía</h3><p>No es ver el motor, es entender por qué el coche frenó.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Un sistema de crédito muestra qué factores influyeron en una decisión para que el solicitante pueda entenderla.</p></div>
@@ -1847,7 +1847,7 @@
 <div class="ficha">
   <h2 class="ficha-titulo">Evaluación de riesgos</h2>
   <p class="nivel">Nivel: Avanzado · Ficha 119 de 120</p>
-  <div class="definicion">Análisis previo de los posibles daños de un sistema de IA y de las medidas para prevenirlos o reducirlos.</div>
+  <div class="definicion">Análisis previo de los posibles daños de un sistema de IA y de las medidas para reducirlos. No es lo mismo que la evaluación de impacto sobre derechos fundamentales, exigida solo en determinados supuestos.</div>
   <div class="seccion"><h3>En qué consiste</h3><p>Antes de desplegar, se identifican escenarios de fallo, quién puede resultar afectado, qué gravedad tendría y qué controles se aplican.</p><p>Es obligatoria para sistemas de alto riesgo bajo el AI Act y recomendable para cualquier agente que toque dinero o datos.</p></div>
   <div class="seccion analogia"><h3>Una analogía</h3><p>El estudio de seguridad de una obra antes de abrirla al público.</p></div>
   <div class="seccion"><h3>Ejemplo real de negocio</h3><p>Una clínica evalúa su agente de citas y detecta que podría dar información errónea a urgencias; añade derivación humana.</p></div>
@@ -2070,7 +2070,6 @@
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/ia-act">AI Act</a> <span class="bloque">Seguridad, ética y legal</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/alucinacion">Alucinación</a> <span class="bloque">Modelos y lenguaje</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/anonimizacion">Anonimización</a> <span class="bloque">Seguridad, ética y legal</span></div>
-  <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/anonimizacion-web">Anonimización</a> <span class="bloque">Seguridad, ética y legal</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/api">API</a> <span class="bloque">Herramientas y desarrollo</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/auditoria-de-algoritmos">Auditoría de algoritmos</a> <span class="bloque">Seguridad, ética y legal</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/automatizacion-con-ia">Automatización con IA</a> <span class="bloque">Negocio y aplicación</span></div>
@@ -2181,6 +2180,7 @@
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/seguridad-de-agentes">Seguridad de agentes</a> <span class="bloque">Seguridad, ética y legal</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/sesgo">Sesgo</a> <span class="bloque">Datos y conocimiento</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/sesgo-confirmacion">Sesgo de confirmación</a> <span class="bloque">Seguridad, ética y legal</span></div>
+  <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/seudonimizacion">Seudonimización</a> <span class="bloque">Seguridad, ética y legal</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/multiagente">Sistema multiagente</a> <span class="bloque">Agentes y automatización</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/skill">Skill</a> <span class="bloque">Agentes y automatización</span></div>
   <div class="termino"><a href="https://diccionario.ajedrezpremium.com/que-es/soberania-del-dato">Soberanía del dato</a> <span class="bloque">Negocio y aplicación</span></div>
@@ -2214,7 +2214,7 @@
 
 <div class="contraportada">
   <h1>ENTIENDE LA IA ANTES DE COMPRARLA</h1>
-  <p>100 términos · 8 bloques · checklist final</p>
+  <p>120 términos · 8 bloques · checklist final</p>
   <p>La IA no es magia ni amenaza: es una herramienta. Este diccionario te da el vocabulario para decidir con criterio.</p>
   <p><strong>¿Quieres que lo revisemos contigo?</strong></p>
   <p>Solicita un diagnóstico gratuito en agency.ajedrezpremium.com</p>

@@ -141,7 +141,7 @@ const html = `<!DOCTYPE html>
 <div class="portada">
   <h1>Diccionario de IA</h1>
   <p class="subtitulo">para tu negocio</p>
-  <p>100 términos explicados en español, con ejemplos reales y sin jerga innecesaria.</p>
+  <p>120 términos explicados en español, con ejemplos reales y sin jerga innecesaria.</p>
   <p>Para pymes, autónomos y profesionales que no programan.</p>
   <p class="autor">Roberto Páramos Domínguez</p>
   <p class="editorial">JRedition · Edición 2026</p>
@@ -188,7 +188,7 @@ ${indiceHtml}
 
 <div class="contraportada">
   <h1>ENTIENDE LA IA ANTES DE COMPRARLA</h1>
-  <p>100 términos · 8 bloques · checklist final</p>
+  <p>120 términos · 8 bloques · checklist final</p>
   <p>La IA no es magia ni amenaza: es una herramienta. Este diccionario te da el vocabulario para decidir con criterio.</p>
   <p><strong>¿Quieres que lo revisemos contigo?</strong></p>
   <p>Solicita un diagnóstico gratuito en agency.ajedrezpremium.com</p>

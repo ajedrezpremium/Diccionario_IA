@@ -6,9 +6,9 @@ export default [
 
 
   {
-    t: 'Anonimización', full: 'Anonimización', slug: 'anonimizacion-web', cat: 'seguridad-y-etica', nivel: 'intermedio',
-    def: 'Proceso de eliminar o transformar datos personales para que no sea posible identificar a una persona ni combinando información.',
-    sin: ['Anonymization'], rel: ['privacidad', 'rgpd', 'datos-sinteticos', 'gobernanza-de-datos'],
+    t: 'Seudonimización', full: 'Seudonimización', slug: 'seudonimizacion', cat: 'seguridad-y-etica', nivel: 'intermedio',
+    def: 'Proceso de sustituir los identificadores de un dato por otros artificiales, de modo que la persona solo pueda reidentificarse con información adicional guardada por separado.',
+    sin: ['Pseudonymization'], rel: ['privacidad', 'rgpd', 'datos-sinteticos', 'gobernanza-de-datos'],
     p1: 'Borrar el nombre no basta: una fecha, un código postal y un puesto pueden identificar a alguien. Hay que considerar el riesgo de reidentificación.',
     p2: 'La seudonimización no es anonimización si se puede revertir con una clave.',
     analogia: 'Difuminar una cara en una foto: si el resto permite reconocer a la persona, no está anonimizada.',

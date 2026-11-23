@@ -67,7 +67,7 @@ doc.font('Times-Roman').fontSize(11).fillColor(GRIS).text(
 );
 doc.moveDown(0.5);
 doc.text(
-  'Si quieres el Diccionario completo —100 términos, 8 bloques, ejemplos, errores frecuentes, FAQ, índice alfabético y checklist de automatización— búscalo en Amazon en formato tapa blanda o ebook.',
+  'Si quieres el Diccionario completo —120 términos, 8 bloques, ejemplos, errores frecuentes, FAQ, índice alfabético y checklist de automatización— búscalo en Amazon en formato tapa blanda o ebook.',
   { lineGap: 4 },
 );
 doc.moveDown(0.8);
@@ -132,10 +132,10 @@ for (const [i, p] of preguntas.entries()) {
   doc.moveDown(0.3);
 }
 doc.moveDown(1);
-doc.font('Helvetica-Bold').fontSize(13).fillColor(TINTA).text('¿Quieres los 100 términos completos?');
+doc.font('Helvetica-Bold').fontSize(13).fillColor(TINTA).text('¿Quieres los 120 términos completos?');
 doc.moveDown(0.3);
 doc.font('Times-Roman').fontSize(10.5).fillColor(GRIS).text(
-  'El Diccionario de IA para tu negocio está disponible en Amazon: tapa blanda (14,99 €) y ebook (6,99 €). Incluye 100 términos, ejemplos, errores frecuentes, FAQ, índice y checklist ampliado.',
+  'El Diccionario de IA para tu negocio está disponible en Amazon: tapa blanda (14,99 €) y ebook (6,99 €). Incluye 120 términos, ejemplos, errores frecuentes, FAQ, índice y checklist ampliado.',
   { lineGap: 4 },
 );
 doc.moveDown(0.5);
@@ -173,7 +173,7 @@ doc.font('Helvetica-Bold').fontSize(9).fillColor(GOLD).text('Estrategia · Innov
 doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(14).text('ENTIENDE LA IA ANTES DE COMPRARLA', 56, 200, { characterSpacing: 1.5 });
 doc.font('Helvetica').fontSize(12).fillColor('#dcd8ff').text('20 términos · guía gratuita · checklist inicial', 56, 240);
 doc.font('Times-Roman').fontSize(11).fillColor('#ffffff').text('La IA no es magia ni amenaza: es una herramienta. Esta guía te da el vocabulario para empezar a decidir con criterio.', 56, 300, { width: 483, lineGap: 4 });
-doc.font('Helvetica-Bold').fontSize(11).fillColor(GOLD).text('¿Quieres los 100 términos completos?', 56, 380);
+doc.font('Helvetica-Bold').fontSize(11).fillColor(GOLD).text('¿Quieres los 120 términos completos?', 56, 380);
 doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('Búscalo en Amazon: tapa blanda 14,99 € · ebook 6,99 €', 56, 405);
 doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremium.com · chessagencyai@gmail.com', 56, doc.page.height - 80);
 

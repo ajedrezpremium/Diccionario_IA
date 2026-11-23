@@ -38,7 +38,7 @@ const doc = new PDFDocument({
   size: 'A4',
   margins: { top: 56, bottom: 40, left: MARGEN_IZQ, right: MARGEN_DER },
   bufferPages: true,
-  info: { Title: 'Diccionario de IA para tu negocio', Author: 'Chess AI Agency', Subject: '100 términos de inteligencia artificial explicados en español' },
+  info: { Title: 'Diccionario de IA para tu negocio', Author: 'Chess AI Agency', Subject: '120 términos de inteligencia artificial explicados en español' },
 });
 doc.pipe(fs.createWriteStream(SALIDA));
 
@@ -89,10 +89,10 @@ doc.rect(MARGEN_IZQ, 112, 60, 3).fill('#f0b46a');
 doc.font('Helvetica-Bold').fontSize(58).fillColor('#ffffff').text('Diccionario', MARGEN_IZQ, 180);
 doc.font('Helvetica-Bold').fontSize(58).fillColor('#f0b46a').text('de IA', MARGEN_IZQ, 242);
 doc.font('Helvetica').fontSize(28).fillColor('#ffffff').text('para tu negocio', MARGEN_IZQ, 320);
-doc.font('Helvetica').fontSize(13).fillColor('#ffffff').text('100 términos explicados en español, con ejemplos reales\ny sin jerga innecesaria. Para pymes, autónomos\ny profesionales que no programan.', MARGEN_IZQ, 390, { lineGap: 6 });
+doc.font('Helvetica').fontSize(13).fillColor('#ffffff').text('120 términos explicados en español, con ejemplos reales\ny sin jerga innecesaria. Para pymes, autónomos\ny profesionales que no programan.', MARGEN_IZQ, 390, { lineGap: 6 });
 doc.rect(MARGEN_IZQ, 500, 220, 1).fill('#8f8ad8');
 doc.font('Helvetica-Bold').fontSize(10).fillColor('#ffffff').text('EDICIÓN 2026', MARGEN_IZQ, 515, { characterSpacing: 1.5 });
-doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('100 términos · 8 bloques · checklist final', MARGEN_IZQ, 540);
+doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('120 términos · 8 bloques · checklist final', MARGEN_IZQ, 540);
 const logoPortada = path.join(RAIZ, 'scripts', 'img-bw', 'logo-bw.png');
 doc.image(logoPortada, MARGEN_IZQ, 560, { width: 50 });
 doc.font('Helvetica-Bold').fontSize(9).fillColor('#d4af37').text('Estrategia · Innovación · Ejecución', MARGEN_IZQ + 60, 575, { characterSpacing: 0.5 });
@@ -102,7 +102,7 @@ doc.font('Helvetica').fontSize(9).fillColor('#8f8ad8').text('agency.ajedrezpremi
 nuevaPagina();
 doc.fillColor(TINTA).font('Helvetica-Bold').fontSize(22).text('Antes de empezar');
 doc.moveDown(0.6);
-doc.font('Times-Roman').fontSize(11).fillColor(GRIS).text('Este libro reúne los 100 términos del Diccionario IA, un glosario público escrito para que puedas entender qué te están vendiendo, qué necesitas de verdad y qué puedes ignorar sin remordimientos.', { lineGap: 4 });
+doc.font('Times-Roman').fontSize(11).fillColor(GRIS).text('Este libro reúne los 120 términos del Diccionario IA, un glosario público escrito para que puedas entender qué te están vendiendo, qué necesitas de verdad y qué puedes ignorar sin remordimientos.', { lineGap: 4 });
 doc.moveDown(0.5);
 doc.text('Cada ficha sigue la misma estructura: definición en una frase, explicación sencilla, una analogía, un ejemplo de negocio, aplicación práctica, errores frecuentes y preguntas frecuentes.', { lineGap: 4 });
 doc.moveDown(0.5);
@@ -260,7 +260,7 @@ for (const [i, p] of preguntas.entries()) {
   doc.moveDown(0.5);
 }
 doc.moveDown(1);
-doc.font('Helvetica-Bold').fontSize(13).fillColor(TINTA).text('¿Quieres los 100 términos completos?');
+doc.font('Helvetica-Bold').fontSize(13).fillColor(TINTA).text('¿Quieres los 120 términos completos?');
 doc.moveDown(0.3);
 doc.font('Times-Roman').fontSize(10.5).fillColor(GRIS).text('El Diccionario de IA para tu negocio está disponible en Amazon: tapa blanda (14,99 €) y ebook (6,99 €).', { lineGap: 4 });
 doc.moveDown(0.4);
@@ -334,7 +334,7 @@ const logoContra = path.join(RAIZ, 'scripts', 'img-bw', 'logo-bw.png');
 doc.image(logoContra, MARGEN_IZQ, 120, { width: 60 });
 doc.font('Helvetica-Bold').fontSize(9).fillColor('#d4af37').text('Estrategia · Innovación · Ejecución', MARGEN_IZQ + 70, 135);
 doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(14).text('ENTIENDE LA IA ANTES DE COMPRARLA', MARGEN_IZQ, 200, { characterSpacing: 1.5 });
-doc.font('Helvetica').fontSize(12).fillColor('#dcd8ff').text('100 términos · 8 bloques · checklist final', MARGEN_IZQ, 240);
+doc.font('Helvetica').fontSize(12).fillColor('#dcd8ff').text('120 términos · 8 bloques · checklist final', MARGEN_IZQ, 240);
 doc.font('Times-Roman').fontSize(11).fillColor('#ffffff').text('La IA no es magia ni amenaza: es una herramienta. Este diccionario te da el vocabulario para decidir con criterio.', MARGEN_IZQ, 300, { width: ANCHO, lineGap: 4 });
 doc.font('Helvetica-Bold').fontSize(11).fillColor('#f0b46a').text('¿Quieres que lo revisemos contigo?', MARGEN_IZQ, 380);
 doc.font('Helvetica').fontSize(10).fillColor('#b9b5e8').text('Solicita un diagnóstico gratuito en agency.ajedrezpremium.com', MARGEN_IZQ, 405);
