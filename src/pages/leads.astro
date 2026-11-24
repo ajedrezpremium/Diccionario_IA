@@ -1,0 +1,173 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../lib/site';
+---
+
+<Base
+  title={`Leads | ${SITE.name}`}
+  description="Panel privado de leads."
+  canonical="/leads"
+  noindex
+>
+  <section class="contenedor py-12 sm:py-16">
+    <p class="chip">Privado</p>
+    <h1 class="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+      Leads de la guía
+    </h1>
+    <p class="mt-3 max-w-2xl text-sm text-muted">
+      Correos que dejaron su email para descargar la guía rápida y solicitudes de diagnóstico.
+    </p>
+
+    <form id="form-acceso" class="mt-8 flex max-w-md flex-col gap-3 sm:flex-row sm:items-end">
+      <div class="flex-1">
+        <label for="token" class="mb-1 block text-xs font-semibold text-muted">Token de acceso</label>
+        <input id="token" type="password" class="campo" autocomplete="off" placeholder="••••••••" />
+      </div>
+      <button type="submit" class="boton boton-primario">Cargar</button>
+    </form>
+
+    <p id="error" hidden class="mt-4 rounded-xl border border-danger/30 bg-danger/5 px-4 py-3 text-sm text-danger"></p>
+
+    <div id="panel" hidden class="mt-10">
+      <div id="stats" class="grid gap-3 sm:grid-cols-3"></div>
+
+      <div class="mt-6 flex items-center justify-between gap-4">
+        <h2 class="font-display text-xl font-semibold">Últimos registros</h2>
+        <button id="csv" type="button" class="boton boton-secundario">Descargar CSV</button>
+      </div>
+
+      <div class="mt-4 overflow-x-auto rounded-2xl border border-line bg-surface">
+        <table class="w-full text-left text-sm">
+          <thead class="border-b border-line text-xs uppercase tracking-wide text-muted">
+            <tr>
+              <th class="px-4 py-3">Tipo</th>
+              <th class="px-4 py-3">Email</th>
+              <th class="px-4 py-3">Origen / Empresa</th>
+              <th class="px-4 py-3">Fecha</th>
+            </tr>
+          </thead>
+          <tbody id="filas"></tbody>
+        </table>
+      </div>
+      <p id="aviso" class="mt-3 text-xs text-muted"></p>
+    </div>
+  </section>
+</Base>
+
+<script is:inline>
+  (() => {
+    const form = document.getElementById('form-acceso');
+    const input = document.getElementById('token');
+    const errorBox = document.getElementById('error');
+    const panel = document.getElementById('panel');
+    const stats = document.getElementById('stats');
+    const filas = document.getElementById('filas');
+    const aviso = document.getElementById('aviso');
+    const btnCsv = document.getElementById('csv');
+    let token = sessionStorage.getItem('diccionario-leads-token') || '';
+
+    const escapar = (v) =>
+      String(v ?? '').replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+      })[c]);
+
+    const fecha = (iso) => {
+      if (!iso) return '—';
+      const d = new Date(iso);
+      return Number.isNaN(d.getTime())
+        ? String(iso).slice(0, 16)
+        : d.toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'short' });
+    };
+
+    const mostrarError = (texto) => {
+      errorBox.textContent = texto;
+      errorBox.hidden = false;
+      panel.hidden = true;
+    };
+
+    async function cargar(clave) {
+      errorBox.hidden = true;
+      try {
+        const res = await fetch('/api/leads', {
+          headers: { Authorization: `Bearer ${clave}` },
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          mostrarError(
+            data.error === 'no_autorizado'
+              ? 'Token incorrecto.'
+              : data.error === 'token_no_configurado'
+                ? 'Falta configurar LEADS_ADMIN_TOKEN en Vercel.'
+                : 'No se pudieron cargar los leads. Inténtalo de nuevo.',
+          );
+          return;
+        }
+
+        const leads = data.leads || [];
+        const diagnosticos = data.diagnosticos || [];
+        const hace7 = Date.now() - 7 * 24 * 60 * 60 * 1000;
+        const recientes = leads.filter((l) => new Date(l.creado_en).getTime() > hace7).length;
+        const origenes = {};
+        for (const l of leads) origenes[l.origen || 'desconocido'] = (origenes[l.origen || 'desconocido'] || 0) + 1;
+        const topOrigen = Object.entries(origenes).sort((a, b) => b[1] - a[1])[0];
+
+        stats.innerHTML = [
+          ['Descargas de la guía', leads.length],
+          ['Últimos 7 días', recientes],
+          ['Solicitudes de diagnóstico', diagnosticos.length],
+          ['Origen más frecuente', topOrigen ? `${topOrigen[0]} (${topOrigen[1]})` : '—'],
+        ]
+          .map(
+            ([label, valor]) =>
+              `<div class="rounded-2xl border border-line bg-surface p-4"><p class="text-xs text-muted">${escapar(label)}</p><p class="mt-1 font-display text-2xl font-semibold">${escapar(valor)}</p></div>`,
+          )
+          .join('');
+
+        const filasHtml = [
+          ...leads.map(
+            (l) =>
+              `<tr class="border-b border-line/70"><td class="px-4 py-3 text-muted">Guía</td><td class="px-4 py-3">${escapar(l.email)}</td><td class="px-4 py-3 text-muted">${escapar(l.origen)}</td><td class="px-4 py-3 text-muted whitespace-nowrap">${escapar(fecha(l.creado_en))}</td></tr>`,
+          ),
+          ...diagnosticos.map(
+            (d) =>
+              `<tr class="border-b border-line/70"><td class="px-4 py-3 text-muted">Diagnóstico</td><td class="px-4 py-3">${escapar(d.email)}</td><td class="px-4 py-3 text-muted">${escapar(d.nombre)} · ${escapar(d.empresa)}</td><td class="px-4 py-3 text-muted whitespace-nowrap">${escapar(fecha(d.creado_en))}</td></tr>`,
+          ),
+        ];
+        filas.innerHTML =
+          filasHtml.join('') || '<tr><td colspan="4" class="px-4 py-6 text-center text-muted">Todavía no hay registros.</td></tr>';
+        aviso.textContent = `Actualizado ${fecha(data.generado)} · máximo 500 registros por tabla.`;
+        panel.hidden = false;
+      } catch {
+        mostrarError('No se pudo conectar con el servidor.');
+      }
+    }
+
+    if (token) {
+      input.value = token;
+      cargar(token);
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      token = input.value.trim();
+      sessionStorage.setItem('diccionario-leads-token', token);
+      cargar(token);
+    });
+
+    btnCsv.addEventListener('click', async () => {
+      const res = await fetch('/api/leads?format=csv', {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) {
+        mostrarError('No se pudo descargar el CSV.');
+        return;
+      }
+      const url = URL.createObjectURL(await res.blob());
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'leads-diccionario-ia.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  })();
+</script>
