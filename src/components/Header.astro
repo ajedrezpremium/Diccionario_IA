@@ -20,7 +20,7 @@ const activo = (href: string) => ruta === href || ruta.startsWith(href + '/');
       </span>
     </a>
 
-    <nav class="hidden items-center gap-1 md:flex" aria-label="Navegación principal">
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Navegación principal">
       {
         NAV.map((item) => (
           <a
@@ -70,7 +70,7 @@ const activo = (href: string) => ruta === href || ruta.startsWith(href + '/');
 
       <a
         href="/diagnostico"
-        class="boton boton-fantasma hidden !px-2.5 sm:inline-flex"
+        class="boton boton-fantasma hidden !px-2.5 lg:inline-flex"
         aria-label="Solicitar diagnóstico gratuito de IA para tu pyme"
         title="Diagnóstico gratuito"
       >
@@ -82,7 +82,7 @@ const activo = (href: string) => ruta === href || ruta.startsWith(href + '/');
 
       <a
         href="/libro"
-        class="boton boton-fantasma hidden !px-2.5 sm:inline-flex"
+        class="boton boton-fantasma hidden !px-2.5 lg:inline-flex"
         aria-label="Guía gratuita de IA (20 términos)"
         title="Guía gratuita de IA · 20 términos"
       >
@@ -96,7 +96,7 @@ const activo = (href: string) => ruta === href || ruta.startsWith(href + '/');
       <button
         type="button"
         id="boton-menu"
-        class="boton boton-fantasma !px-2.5 md:hidden"
+        class="boton boton-fantasma !px-2.5 lg:hidden"
         aria-label="Abrir menú"
         aria-expanded="false"
         aria-controls="menu-movil"
@@ -108,7 +108,7 @@ const activo = (href: string) => ruta === href || ruta.startsWith(href + '/');
     </div>
   </div>
 
-  <div id="menu-movil" class="hidden border-t border-line bg-bg md:hidden">
+  <div id="menu-movil" class="hidden border-t border-line bg-bg lg:hidden">
     <nav class="contenedor flex flex-col gap-1 py-3" aria-label="Navegación móvil">
       {
         NAV.map((item) => (

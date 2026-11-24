@@ -35,7 +35,7 @@ export async function enviarLibroPorEmail(email: string): Promise<{ ok: boolean;
       from: `"${process.env.GMAIL_FROM_NAME || SITE.name}" <${usuario}>`,
       to: email,
       subject: 'Tu Guía rápida de IA para tu negocio (20 términos)',
-      text: `Gracias por pedir la Guía rápida de IA para tu negocio (20 términos). Descárgala aquí: ${urlAbsoluta(SITE.pdf)}\n\n¿Quieres los 100 términos? Búscalo en Amazon: ${SITE.amazon}\n\nChess AI Agency · ${SITE.agencyUrl}`,
+      text: `Gracias por pedir la Guía rápida de IA para tu negocio (20 términos). Descárgala aquí: ${urlAbsoluta(SITE.pdf)}\n\n¿Quieres los 120 términos? Búscalo en Amazon: ${SITE.amazon}\n\nChess AI Agency · ${SITE.agencyUrl}`,
       html: plantillaLibro(),
     });
 

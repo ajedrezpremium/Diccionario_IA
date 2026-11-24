@@ -37,7 +37,7 @@ const prod = import.meta.env.PROD;
     <div class="rounded-2xl border border-line bg-surface p-6 sm:p-8">
       <h2 class="font-display text-2xl font-semibold">Atajos útiles</h2>
       <div class="mt-4 flex flex-wrap gap-2">
-        <a href="/terminos" class="boton boton-secundario">Los 100 términos</a>
+        <a href="/terminos" class="boton boton-secundario">Los 150 términos</a>
         <a href="/indice" class="boton boton-secundario">Índice A-Z</a>
         <a href="/categorias" class="boton boton-secundario">Categorías</a>
         <a href="/libro" class="boton boton-primario">Libro gratis en PDF</a>
@@ -64,7 +64,7 @@ const prod = import.meta.env.PROD;
 
       const ui = new window.PagefindUI({
         element: '#pagefind-ui',
-        showSubResults: true,
+        showSubResults: false,
         showImages: false,
         resetStyles: false,
         translations: {
