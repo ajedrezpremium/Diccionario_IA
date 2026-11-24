@@ -7,10 +7,10 @@ const SALIDA_DIR = path.join(RAIZ, 'public', 'libro');
 const SALIDA = path.join(SALIDA_DIR, 'diccionario-ia-kdp.pdf');
 
 // KDP 6" x 9" (15.24 x 22.86 cm)
-const PAGE_W = 7 * 72; // 504
-const PAGE_H = 10 * 72; // 720
-const MARGIN = 50; // 0.69"
-const ANCHO = PAGE_W - MARGIN * 2; // 404
+const PAGE_W = 6 * 72; // 432
+const PAGE_H = 9 * 72; // 648
+const MARGIN = 54; // 0.75"
+const ANCHO = PAGE_W - MARGIN * 2; // 324
 
 const modulos = [
   '01-fundamentos.mjs', '02-modelos.mjs', '03-agentes.mjs', '04-herramientas.mjs',

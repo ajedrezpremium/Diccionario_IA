@@ -6,9 +6,9 @@ const RAIZ = process.cwd();
 const SALIDA_DIR = path.join(RAIZ, 'public', 'libro');
 const SALIDA = path.join(SALIDA_DIR, 'diccionario-ia-kdp-portada.pdf');
 
-// KDP Cover dimensions for 168 pages, white paper, 6" x 9"
-const PAGES = 168;
-const SPINE_WIDTH_IN = PAGES * 0.002252; // 0.31528"
+// KDP Cover dimensions for 272 pages, white paper, 6" x 9"
+const PAGES = 272;
+const SPINE_WIDTH_IN = PAGES * 0.002252; // 0.61254"
 const BLEED = 0.125 * 72; // 9pt
 const TRIM_W = 6 * 72; // 432pt
 const TRIM_H = 9 * 72; // 648pt
@@ -57,7 +57,7 @@ doc.rect(backX, BLEED, TRIM_W, TRIM_H).fill('#1a1a2e');
 doc.fillColor('#ffffff').font('Heading-Bold').fontSize(14).text('ENTIENDE LA IA', backX + 30, BLEED + 60, { width: TRIM_W - 60 });
 doc.font('Heading-Bold').fontSize(14).fillColor('#d4af37').text('ANTES DE COMPRARLA', backX + 30, BLEED + 80, { width: TRIM_W - 60 });
 doc.font('Body').fontSize(10).fillColor('#dcd8ff').text(
-  '100 términos de inteligencia artificial explicados en español, con ejemplos reales de negocio y sin jerga innecesaria.',
+  '120 términos de inteligencia artificial explicados en español, con ejemplos reales de negocio y sin jerga innecesaria.',
   backX + 30, BLEED + 120, { width: TRIM_W - 60, lineGap: 3 },
 );
 doc.font('Body').fontSize(9).fillColor('#b9b5e8').text(
@@ -101,13 +101,13 @@ doc.font('Heading-Bold').fontSize(44).fillColor('#d4af37').text('de IA', frontX 
 doc.font('Heading').fontSize(22).fillColor('#ffffff').text('para tu negocio', frontX + 40, BLEED + 255);
 
 doc.font('Body').fontSize(12).fillColor('#e8e4ff').text(
-  '100 términos explicados en español,\ncon ejemplos reales y sin jerga innecesaria.',
+  '120 términos explicados en español,\ncon ejemplos reales y sin jerga innecesaria.',
   frontX + 40, BLEED + 310, { lineGap: 4 },
 );
 
 doc.rect(frontX + 40, BLEED + 380, 200, 1).fill('#8f8ad8');
 doc.font('Heading-Bold').fontSize(10).fillColor('#ffffff').text('EDICIÓN 2026', frontX + 40, BLEED + 395, { characterSpacing: 1.5 });
-doc.font('Heading').fontSize(10).fillColor('#b9b5e8').text('100 términos · 8 bloques · checklist final', frontX + 40, BLEED + 415);
+doc.font('Heading').fontSize(10).fillColor('#b9b5e8').text('120 términos · 8 bloques · checklist final', frontX + 40, BLEED + 415);
 
 doc.font('Body').fontSize(11).fillColor('#ffffff').text('Roberto Páramos Domínguez', frontX + 40, BLEED + TRIM_H - 80);
 
