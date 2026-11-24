@@ -16,6 +16,7 @@ export const SITE = {
   pdf: '/libro/guia-rapida-ia-20-terminos.pdf',
   pdfCompleto: '/libro/diccionario-ia.pdf',
   amazon: 'https://www.amazon.es/s?k=Diccionario+de+IA+para+tu+negocio',
+  amazonAutor: 'https://www.amazon.es/stores/Roberto-P%C3%A1ramos-Dom%C3%ADnguez/author/B095X9CPB7',
 } as const;
 
 export const NAV = [
