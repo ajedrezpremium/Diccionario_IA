@@ -83,6 +83,62 @@ for (const [a, b] of [
   doc.moveDown(0.2);
 }
 
+
+// ---------- Infografía: resumen visual al cierre de cada ficha ----------
+const recortar = (texto, max) => {
+  const limpio = String(texto || '').replace(/\s+/g, ' ').trim();
+  if (limpio.length <= max) return limpio;
+  const corte = limpio.slice(0, max);
+  return corte.slice(0, corte.lastIndexOf(' ')) + '…';
+};
+
+const dibujarIcono = (tipo, cx, cy) => {
+  doc.save().strokeColor('#ffffff').fillColor('#ffffff').lineWidth(1.1);
+  if (tipo === 'idea') {
+    doc.circle(cx, cy + 1, 4.6).stroke();
+    for (const [dx, dy] of [[-7, -6], [0, -8], [7, -6]]) {
+      doc.moveTo(cx + dx, cy + dy).lineTo(cx + dx * 0.7, cy + dy * 0.6).stroke();
+    }
+  } else if (tipo === 'uso') {
+    doc.rect(cx - 5, cy - 5, 10, 10).stroke();
+    doc.circle(cx, cy, 2).fill();
+  } else {
+    doc.moveTo(cx, cy - 6).lineTo(cx + 6, cy + 5).lineTo(cx - 6, cy + 5).closePath().stroke();
+    doc.moveTo(cx, cy - 2).lineTo(cx, cy + 1).stroke();
+    doc.circle(cx, cy + 3.2, 0.8).fill();
+  }
+  doc.restore();
+};
+
+const microInfografia = (t) => {
+  const x0 = 56;
+  const y0 = 548;
+  const alto = 146;
+  const anchoCol = (ANCHO - 2 * 12 - 28) / 3;
+  const cy = y0 + 46;
+
+  doc.roundedRect(x0, y0, ANCHO, alto, 8).fill('#f3f1fb');
+  doc.rect(x0, y0, 4, alto).fill(GOLD);
+  doc.font('Helvetica-Bold').fontSize(8).fillColor(BLUE)
+    .text('RESUMEN EN 10 SEGUNDOS', x0 + 14, y0 + 11, { characterSpacing: 1.4 });
+  doc.moveTo(x0 + 30, cy).lineTo(x0 + ANCHO - 16, cy).lineWidth(1).strokeColor('#d8d3f0').stroke();
+
+  const columnas = [
+    { tipo: 'idea', color: BLUE, titulo: 'EN UNA FRASE', texto: recortar(t.def, 92) },
+    { tipo: 'uso', color: '#5b52b5', titulo: 'PARA QUÉ SIRVE', texto: recortar(t.negocio, 92) },
+    { tipo: 'aviso', color: '#d2954a', titulo: 'OJO CON…', texto: recortar(t.errores || t.def, 92) },
+  ];
+  columnas.forEach((c, i) => {
+    const x = x0 + 14 + i * (anchoCol + 12);
+    doc.circle(x + 11, cy, 11).fill(c.color);
+    dibujarIcono(c.tipo, x + 11, cy);
+    doc.font('Helvetica-Bold').fontSize(8.5).fillColor(BLUE)
+      .text(c.titulo, x + 28, cy - 5, { width: anchoCol - 26 });
+    doc.font('Helvetica').fontSize(8.5).fillColor(TINTA)
+      .text(c.texto, x, cy + 18, { width: anchoCol + 14, lineGap: 3 });
+  });
+};
+
 // Fichas
 for (const t of terminos) {
   doc.addPage();
@@ -106,7 +162,43 @@ for (const t of terminos) {
   seccion('Una analogía', `«${t.analogia}»`);
   seccion('Ejemplo de negocio', t.ejemplo);
   seccion('Cómo aplicarlo', t.negocio);
+  microInfografia(t);
 }
+
+// ---------- Mapa visual de los 20 términos ----------
+doc.addPage();
+doc.fillColor(TINTA).font('Helvetica-Bold').fontSize(22).text('El mapa de los 20 términos');
+doc.moveDown(0.2);
+doc.font('Helvetica').fontSize(10).fillColor(GRIS).text('Cómo encaja cada pieza, de la idea al control', { lineGap: 3 });
+
+const ETAPAS = [
+  { titulo: 'BASE', cats: ['fundamentos'], color: BLUE },
+  { titulo: 'LENGUAJE', cats: ['modelos', 'prompting'], color: '#4b45a8' },
+  { titulo: 'CONOCIMIENTO', cats: ['datos-y-conocimiento'], color: '#5b52b5' },
+  { titulo: 'ACCIÓN', cats: ['agentes', 'herramientas-desarrollo'], color: '#6d4bb5' },
+  { titulo: 'CONTROL', cats: ['seguridad-y-etica'], color: '#8a4fa8' },
+];
+let my = 168;
+const mx = 56;
+const anchoCaja = ANCHO - 40;
+ETAPAS.forEach((etapa, i) => {
+  const nombres = terminos.filter((t) => etapa.cats.includes(t.cat)).map((t) => t.t);
+  const altoCaja = 74;
+  if (i < ETAPAS.length - 1) {
+    doc.moveTo(mx + 13, my + 26).lineTo(mx + 13, my + 26 + 22)
+      .lineWidth(2).strokeColor('#d8d3f0').stroke();
+  }
+  doc.roundedRect(mx, my, 26, 26, 13).fill(etapa.color);
+  doc.font('Helvetica-Bold').fontSize(11).fillColor('#ffffff')
+    .text(String(i + 1), mx + 7, my + 6, { width: 12, align: 'center' });
+  doc.font('Helvetica-Bold').fontSize(11).fillColor(etapa.color).text(etapa.titulo, mx + 38, my + 6);
+  doc.roundedRect(mx + 38, my + 26, anchoCaja - 38, altoCaja, 6).fill('#f3f1fb');
+  doc.font('Helvetica').fontSize(9.5).fillColor(TINTA)
+    .text(nombres.join('   ·   '), mx + 50, my + 40, { width: anchoCaja - 62, lineGap: 4 });
+  my += altoCaja + 40;
+});
+doc.font('Helvetica-Oblique').fontSize(9).fillColor(GRIS)
+  .text('De la base al control: así se conectan los 20 términos de esta guía.', mx, my + 4);
 
 // Cierre + checklist + CTA Amazon
 doc.addPage();
