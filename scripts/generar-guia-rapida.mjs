@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import PDFDocument from 'pdfkit';
+import sharp from 'sharp';
 
 const RAIZ = process.cwd();
 const SALIDA_DIR = path.join(RAIZ, 'public', 'libro');
@@ -17,6 +18,15 @@ for (const m of modulos) {
 }
 // 20 términos esenciales (los "destacados")
 const terminos = todos.filter((t) => t.destacado).slice(0, 20);
+
+// Infografías del autor (una por término). Se comprimen al generar el PDF.
+const INFO_DIR = path.join(RAIZ, 'public', 'libro', 'INFOGRAFÍAS');
+const archivosInfo = fs.existsSync(INFO_DIR)
+  ? fs.readdirSync(INFO_DIR)
+      .filter((f) => /^\d+\s.*\.jpe?g$/i.test(f))
+      .map((f) => ({ n: parseInt(f, 10), file: path.join(INFO_DIR, f) }))
+      .sort((a, b) => a.n - b.n)
+  : [];
 
 fs.mkdirSync(SALIDA_DIR, { recursive: true });
 
@@ -162,7 +172,21 @@ for (const t of terminos) {
   seccion('Una analogía', `«${t.analogia}»`);
   seccion('Ejemplo de negocio', t.ejemplo);
   seccion('Cómo aplicarlo', t.negocio);
-  microInfografia(t);
+  // Infografía JPG del término; si falta, se usa el resumen vectorial
+  const info = archivosInfo.find((a) => a.n === terminos.indexOf(t) + 1);
+  if (info && fs.existsSync(info.file)) {
+    try {
+      const buf = await sharp(info.file).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+      const meta = await sharp(buf).metadata();
+      doc.font('Helvetica-Bold').fontSize(8).fillColor(GOLD)
+        .text('RESUMEN VISUAL', 56, 488, { characterSpacing: 1.4 });
+      doc.image(buf, 56, 502, { width: ANCHO, height: ANCHO * (meta.height / meta.width) });
+    } catch {
+      microInfografia(t);
+    }
+  } else {
+    microInfografia(t);
+  }
 }
 
 // ---------- Mapa visual de los 20 términos ----------
